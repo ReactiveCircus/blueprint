@@ -1,0 +1,16 @@
+
+*.class
+bin/
+gen/
+out/
+
+.gradle/
+build/
+local.properties
+
+captures/
+
+*.iml
+.idea/
+.externalNativeBuild
+
