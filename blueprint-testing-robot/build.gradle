@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'com.vanniktech.maven.publish'
+}
+
+android {
+    compileSdkVersion androidBuildConfig.compileSdk
+    buildToolsVersion androidBuildConfig.buildTools
+
+    defaultConfig {
+        minSdkVersion androidBuildConfig.minSdk
+        targetSdkVersion androidBuildConfig.targetSdk
+
+        testApplicationId 'reactivecircus.blueprint.testing.testapp'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+    libraryVariants.all { variant ->
+        variant.generateBuildConfigProvider.configure { task ->
+            task.enabled = false
+        }
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+}
+
+dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+    // Material components
+    implementation "com.google.android.material:material:${versions.material}"
+
+    implementation "androidx.test:core-ktx:${versions.androidx.test.core}"
+    implementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"
+    implementation "androidx.test.espresso:espresso-contrib:${versions.androidx.espresso}"
+    implementation "androidx.test.espresso:espresso-intents:${versions.androidx.espresso}"
+
+    // Android tests
+    implementation("androidx.fragment:fragment-testing:${versions.androidx.fragment}") {
+        exclude group: 'androidx.test'
+    }
+    androidTestImplementation "androidx.test:monitor:${versions.androidx.test.monitor}"
+    androidTestImplementation "androidx.test:runner:${versions.androidx.test.runner}"
+    androidTestImplementation "androidx.test:rules:${versions.androidx.test.rules}"
+    androidTestImplementation "androidx.test.ext:junit-ktx:${versions.androidx.test.ext.junit}"
+    androidTestImplementation "org.amshove.kluent:kluent-android:${versions.kluent}"
+}
