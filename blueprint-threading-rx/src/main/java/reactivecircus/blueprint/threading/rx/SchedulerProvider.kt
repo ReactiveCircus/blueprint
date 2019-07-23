@@ -1,0 +1,15 @@
+package reactivecircus.blueprint.threading.rx
+
+import io.reactivex.Scheduler
+
+/**
+ * A wrapper class for common Rx schedulers.
+ * An instance of this can be injected to classes which are concerned about executing code
+ * on different threads, but they don't need to know the underlying implementation.
+ * A single-threaded version for example can be injected for testing.
+ */
+class SchedulerProvider(
+    val io: Scheduler,
+    val computation: Scheduler,
+    val ui: Scheduler
+)

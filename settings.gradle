@@ -1,0 +1,8 @@
+include ':blueprint-interactor-common'
+include ':blueprint-interactor-coroutines'
+include ':blueprint-interactor-rx'
+include ':blueprint-threading-coroutines'
+include ':blueprint-threading-rx'
+include ':blueprint-ui'
+include ':blueprint-testing-robot'
+// TODO include ':sample'
