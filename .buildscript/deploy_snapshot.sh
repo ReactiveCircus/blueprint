@@ -6,7 +6,6 @@
 # https://benlimmer.com/2013/12/26/automatically-publish-javadoc-to-gh-pages-with-travis-ci/
 
 SLUG="ReactiveCircus/blueprint"
-JDK="oraclejdk8"
 BRANCH="master"
 
 set -e
