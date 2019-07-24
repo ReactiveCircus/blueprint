@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'com.vanniktech.maven.publish'
+    id 'org.jetbrains.dokka-android'
 }
 
 android {
@@ -27,4 +28,12 @@ dependencies {
 
     // AndroidX
     implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
+}
+
+afterEvaluate {
+    dokka {
+        jdkVersion = 8
+        outputFormat = 'gfm'
+        outputDirectory = "$buildDir/javadoc"
+    }
 }

@@ -14,12 +14,14 @@ abstract class ObservableInteractor<P : InteractorParams, T>(
     private val ioScheduler: Scheduler,
     private val uiScheduler: Scheduler
 ) {
+
+    /**
+     * Create a [Observable] for this interactor.
+     */
     protected abstract fun createInteractor(params: P): Observable<T>
 
     /**
-     * Build a use case observable with the provided execution thread and post execution thread
-     * @param params
-     * @return
+     * Build a use case with the provided execution thread and post execution thread
      */
     fun buildObservable(params: P): Observable<T> {
         return createInteractor(params)

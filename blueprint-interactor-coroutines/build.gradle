@@ -1,6 +1,7 @@
 plugins {
     id 'kotlin'
     id 'com.vanniktech.maven.publish'
+    id 'org.jetbrains.dokka'
 }
 
 dependencies {
@@ -16,4 +17,12 @@ dependencies {
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "org.amshove.kluent:kluent:${versions.kluent}"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinx.coroutines}"
+}
+
+afterEvaluate {
+    dokka {
+        jdkVersion = 8
+        outputFormat = 'gfm'
+        outputDirectory = "$buildDir/javadoc"
+    }
 }

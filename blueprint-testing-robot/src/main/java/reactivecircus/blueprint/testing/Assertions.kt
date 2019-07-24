@@ -32,7 +32,6 @@ class RadioGroupAssertion : ViewAssertion {
 /**
  * A view assertion that checks if a [RecyclerView] has the expected number of items.
  */
-
 fun recyclerViewHasSize(expectedCount: Int): RecyclerViewItemCountAssertion {
     return RecyclerViewItemCountAssertion(expectedCount)
 }

@@ -14,12 +14,14 @@ abstract class CompletableInteractor<P : InteractorParams>(
     private val ioScheduler: Scheduler,
     private val uiScheduler: Scheduler
 ) {
+
+    /**
+     * Create a [Completable] for this interactor.
+     */
     protected abstract fun createInteractor(params: P): Completable
 
     /**
-     * Build a use case completable with the provided execution thread and post execution thread
-     * @param params
-     * @return
+     * Build a use case with the provided execution thread and post execution thread
      */
     fun buildCompletable(params: P): Completable {
         return createInteractor(params)
