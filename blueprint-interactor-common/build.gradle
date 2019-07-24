@@ -1,19 +1,10 @@
 plugins {
     id 'kotlin'
     id 'com.vanniktech.maven.publish'
-    id 'org.jetbrains.dokka'
 }
 
 dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
-}
-
-afterEvaluate {
-    dokka {
-        jdkVersion = 8
-        outputFormat = 'gfm'
-        outputDirectory = "$buildDir/javadoc"
-    }
 }
