@@ -20,6 +20,9 @@ constructor(context: Context, attrs: AttributeSet? = null) : ProgressBar(context
             1f
         ) == 0f
 
+    /**
+     * Set drawable to null if animation is off.
+     */
     override fun setIndeterminateDrawable(drawable: Drawable) {
         super.setIndeterminateDrawable(if (isAnimationOff) null else drawable)
     }

@@ -14,13 +14,16 @@ abstract class SingleInteractor<P : InteractorParams, T>(
     private val ioScheduler: Scheduler,
     private val uiScheduler: Scheduler
 ) {
+
+    /**
+     * Create a [Single] for this interactor.
+     */
     protected abstract fun createInteractor(params: P): Single<T>
 
     /**
-     * Build a use case single with the provided execution thread and post execution thread
-     * @param params
-     * @param blocking - when set to true the single will be subscribed and observed on the current thread.
-     * @return
+     * Build a use case with the provided execution thread and post execution thread
+     * @param params - parameters required for this interactor
+     * @param blocking - when set to true the single will be subscribed and observed on the current thread
      */
     fun buildSingle(params: P, blocking: Boolean = false): Single<T> {
         return if (blocking) {
