@@ -1,11 +1,10 @@
 plugins {
     id 'kotlin'
     id 'com.vanniktech.maven.publish'
-    id 'org.jetbrains.dokka'
 }
 
 dependencies {
-    api project(path: ':blueprint-interactor-common')
+    api project(':blueprint-interactor-common')
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
@@ -17,12 +16,4 @@ dependencies {
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "org.amshove.kluent:kluent:${versions.kluent}"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinx.coroutines}"
-}
-
-afterEvaluate {
-    dokka {
-        jdkVersion = 8
-        outputFormat = 'gfm'
-        outputDirectory = "$buildDir/javadoc"
-    }
 }
