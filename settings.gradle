@@ -5,4 +5,5 @@ include ':blueprint-threading-coroutines'
 include ':blueprint-threading-rx'
 include ':blueprint-ui'
 include ':blueprint-testing-robot'
-// TODO include ':sample'
+include ':demo-coroutines'
+project(':demo-coroutines').projectDir = new File(rootDir, 'samples/demo-coroutines')
