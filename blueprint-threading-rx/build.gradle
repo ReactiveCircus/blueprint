@@ -7,8 +7,8 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 
-    // rx3
-    implementation "io.reactivex.rxjava3:rxjava:${versions.rxJava}"
+    // rx - we are binary compatible with both RxJava 2 and RxJava 3
+    compileOnly "io.reactivex.rxjava3:rxjava:${versions.rxJava3}"
 
     // Unit tests
     testImplementation "junit:junit:${versions.junit}"
