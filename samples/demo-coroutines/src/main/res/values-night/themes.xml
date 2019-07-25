@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Top level DayNight theme to be used in AndroidManifest.xml-->
+    <style name="Theme.Blueprint.DayNight" parent="Base.Theme.Blueprint">
+
+        <!--System UI styles-->
+        <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:navigationBarColor">?colorPrimaryVariant</item>
+    </style>
+</resources>

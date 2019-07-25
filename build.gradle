@@ -42,8 +42,8 @@ buildscript {
             material           : '1.1.0-alpha08',
             rxJava2            : '2.2.10',
             rxJava3            : '3.0.0-RC1',
+            rxAndroid          : '2.1.1',
             timber             : '4.7.1',
-            leakCanary         : '2.0-alpha-3',
             junit              : '4.12',
             mockk              : '1.9.3',
             kluent             : '1.53'
