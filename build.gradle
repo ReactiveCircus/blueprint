@@ -40,7 +40,8 @@ buildscript {
                     espresso         : '3.3.0-alpha02'
             ],
             material           : '1.1.0-alpha08',
-            rxJava             : '3.0.0-RC1',
+            rxJava2            : '2.2.10',
+            rxJava3            : '3.0.0-RC1',
             timber             : '4.7.1',
             leakCanary         : '2.0-alpha-3',
             junit              : '4.12',
