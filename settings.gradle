@@ -12,3 +12,5 @@ include ':demo-testing-common'
 project(':demo-testing-common').projectDir = new File(rootDir, 'samples/demo-testing-common')
 include ':demo-coroutines'
 project(':demo-coroutines').projectDir = new File(rootDir, 'samples/demo-coroutines')
+include ':demo-rx'
+project(':demo-rx').projectDir = new File(rootDir, 'samples/demo-rx')

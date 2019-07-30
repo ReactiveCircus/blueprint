@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion androidBuildConfig.compileSdk
+    buildToolsVersion androidBuildConfig.buildTools
+
+    defaultConfig {
+        minSdkVersion androidBuildConfig.minSdk
+        targetSdkVersion androidBuildConfig.targetSdk
+        applicationId 'reactivecircus.blueprint.demo.rx'
+        versionCode 1
+        versionName "1.0"
+        testApplicationId 'reactivecircus.blueprint.demo.rx.test'
+        testInstrumentationRunner "reactivecircus.blueprint.demo.RxScreenTestRunner"
+        resConfigs "en"
+    }
+
+    dexOptions {
+        preDexLibraries !isCiBuild
+    }
+
+    packagingOptions {
+        exclude 'kotlin/**'
+        exclude '**/*.kotlin_metadata'
+        exclude 'META-INF/*.kotlin_module'
+        exclude 'META-INF/*.version'
+    }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles('shrinker-rules.pro')
+        }
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+}
+
+dependencies {
+    implementation project(':blueprint-interactor-rx')
+    implementation project(':blueprint-threading-rx')
+    implementation project(':blueprint-ui')
+    implementation project(':demo-common')
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+    // AndroidX
+    implementation "androidx.annotation:annotation:${versions.androidx.annotation}"
+    implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:${versions.androidx.coordinatorLayout}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.androidx.constraintLayout}"
+    implementation "androidx.activity:activity-ktx:${versions.androidx.activity}"
+    implementation "androidx.fragment:fragment-ktx:${versions.androidx.fragment}"
+    implementation "androidx.recyclerview:recyclerview:${versions.androidx.recyclerView}"
+    implementation "androidx.core:core-ktx:${versions.androidx.core}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${versions.androidx.lifecycle}"
+    implementation "androidx.arch.core:core-runtime:${versions.androidx.arch}"
+
+    // Material Components
+    implementation "com.google.android.material:material:${versions.material}"
+
+    // timber
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava2}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+
+    // Unit tests
+    testImplementation "junit:junit:${versions.junit}"
+    testImplementation "io.mockk:mockk:${versions.mockk}"
+    testImplementation "org.amshove.kluent:kluent-android:${versions.kluent}"
+    testImplementation "androidx.arch.core:core-testing:${versions.androidx.arch}"
+
+    // Android tests
+    androidTestImplementation project(':blueprint-testing-robot')
+    androidTestImplementation project(':demo-testing-common')
+    debugImplementation("androidx.fragment:fragment-testing:${versions.androidx.fragment}") {
+        exclude group: 'androidx.test'
+    }
+    androidTestImplementation "androidx.test:core-ktx:${versions.androidx.test.core}"
+    androidTestImplementation "androidx.test:monitor:${versions.androidx.test.monitor}"
+    androidTestImplementation "androidx.test:runner:${versions.androidx.test.runner}"
+    androidTestImplementation "androidx.test:rules:${versions.androidx.test.rules}"
+    androidTestImplementation "androidx.test.ext:junit-ktx:${versions.androidx.test.ext.junit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:${versions.androidx.espresso}"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:${versions.androidx.espresso}"
+}

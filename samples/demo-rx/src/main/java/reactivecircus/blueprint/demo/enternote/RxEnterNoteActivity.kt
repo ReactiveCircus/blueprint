@@ -6,17 +6,13 @@ import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import reactivecircus.blueprint.common.R
-import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
+import reactivecircus.blueprint.demo.BlueprintRxDemoApp
 import reactivecircus.blueprint.demo.util.viewModel
 
 const val EXTRA_ENTER_NOTE_PARAMS = "EXTRA_ENTER_NOTE_PARAMS"
 
-@FlowPreview
-@ExperimentalCoroutinesApi
-class CoroutinesEnterNoteActivity : AppCompatActivity() {
+class RxEnterNoteActivity : AppCompatActivity() {
 
     private val params: EnterNoteParams by lazy {
         intent.getParcelableExtra(EXTRA_ENTER_NOTE_PARAMS)
@@ -30,9 +26,9 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
         findViewById(R.id.edit_text_note)
     }
 
-    private val viewModel: CoroutinesEnterNoteViewModel by viewModel {
+    private val viewModel: RxEnterNoteViewModel by viewModel {
         val noteUuid = (params as? EnterNoteParams.Update)?.uuid
-        (application as BlueprintCoroutinesDemoApp).injector.provideEnterNoteViewModel(noteUuid)
+        (application as BlueprintRxDemoApp).injector.provideEnterNoteViewModel(noteUuid)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
