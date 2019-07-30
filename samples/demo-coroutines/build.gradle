@@ -1,12 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
-}
-
-androidExtensions {
-    experimental = true
-    features = ['parcelize']
 }
 
 android {
@@ -20,7 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testApplicationId 'reactivecircus.blueprint.demo.coroutines.test'
-        testInstrumentationRunner "reactivecircus.blueprint.demo.ScreenTestRunner"
+        testInstrumentationRunner "reactivecircus.blueprint.demo.CoroutinesScreenTestRunner"
         resConfigs "en"
     }
 
@@ -56,6 +50,7 @@ dependencies {
     implementation project(':blueprint-interactor-coroutines')
     implementation project(':blueprint-threading-coroutines')
     implementation project(':blueprint-ui')
+    implementation project(':demo-common')
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
@@ -93,6 +88,7 @@ dependencies {
 
     // Android tests
     androidTestImplementation project(':blueprint-testing-robot')
+    androidTestImplementation project(':demo-testing-common')
     debugImplementation("androidx.fragment:fragment-testing:${versions.androidx.fragment}") {
         exclude group: 'androidx.test'
     }

@@ -1,16 +1,3 @@
 <resources>
     <string name="app_name">Blueprint Coroutines Demo</string>
-
-    <string name="no_notes">No notes.</string>
-
-    <string name="add_note">Add Note</string>
-
-    <string name="title_create_note">Create Note</string>
-
-    <string name="title_update_note">Update Note</string>
-
-    <string name="hint_enter_note">Enter note</string>
-
-    <string name="menu_description_save">Save</string>
-
 </resources>

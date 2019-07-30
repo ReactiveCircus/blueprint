@@ -5,5 +5,10 @@ include ':blueprint-threading-coroutines'
 include ':blueprint-threading-rx'
 include ':blueprint-ui'
 include ':blueprint-testing-robot'
+
+include ':demo-common'
+project(':demo-common').projectDir = new File(rootDir, 'samples/demo-common')
+include ':demo-testing-common'
+project(':demo-testing-common').projectDir = new File(rootDir, 'samples/demo-testing-common')
 include ':demo-coroutines'
 project(':demo-coroutines').projectDir = new File(rootDir, 'samples/demo-coroutines')

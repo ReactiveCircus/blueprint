@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Rule
 import org.junit.Test
-import reactivecircus.blueprint.demo.domain.interactor.StreamAllNotes
+import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
@@ -41,7 +41,7 @@ class NotesViewModelTest {
         )
     )
 
-    private val streamAllNotes = mockk<StreamAllNotes>()
+    private val streamAllNotes = mockk<CoroutinesStreamAllNotes>()
 
     private val stateObserver = mockk<Observer<State>>(relaxed = true)
 

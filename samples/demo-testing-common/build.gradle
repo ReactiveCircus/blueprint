@@ -1,0 +1,27 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion androidBuildConfig.compileSdk
+    buildToolsVersion androidBuildConfig.buildTools
+
+    defaultConfig {
+        minSdkVersion androidBuildConfig.minSdk
+        targetSdkVersion androidBuildConfig.targetSdk
+    }
+}
+
+dependencies {
+    implementation project(':demo-common')
+    implementation project(':blueprint-testing-robot')
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+    // Espresso
+    implementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"
+    implementation "androidx.test.espresso:espresso-contrib:${versions.androidx.espresso}"
+    implementation "androidx.test.espresso:espresso-intents:${versions.androidx.espresso}"
+}
