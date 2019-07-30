@@ -11,7 +11,7 @@ import org.junit.runners.model.Statement
 class RepeatRule(private val iterations: Int) : TestRule {
 
     init {
-        require(iterations < 1) { "iterations < 1: $iterations" }
+        require(iterations > 0) { "iterations < 1: $iterations" }
     }
 
     override fun apply(base: Statement, description: Description): Statement {

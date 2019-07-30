@@ -49,7 +49,7 @@ class CoroutineDispatcherProviderTest {
     fun `should not execute and return immediately with coroutine dispatchers backed by multiple threads`() =
         testDispatcher.runBlockingTest {
             val coroutineDispatcherProvider = CoroutineDispatcherProvider(
-                io = Dispatchers.IO,
+                io = Dispatchers.Default,
                 computation = Dispatchers.Default,
                 ui = Dispatchers.Default
             )
