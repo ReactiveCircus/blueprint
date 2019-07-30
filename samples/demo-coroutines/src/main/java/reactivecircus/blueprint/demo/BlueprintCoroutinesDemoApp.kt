@@ -14,5 +14,5 @@ open class BlueprintCoroutinesDemoApp : Application() {
 
     @FlowPreview
     @ExperimentalCoroutinesApi
-    open val injector: Injector = Injector()
+    open val injector: CoroutinesAppInjector = CoroutinesAppInjector()
 }

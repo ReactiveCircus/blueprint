@@ -12,9 +12,9 @@ import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.shouldEqual
 import org.junit.Rule
 import org.junit.Test
-import reactivecircus.blueprint.demo.domain.interactor.CreateNote
-import reactivecircus.blueprint.demo.domain.interactor.GetNoteByUuid
-import reactivecircus.blueprint.demo.domain.interactor.UpdateNote
+import reactivecircus.blueprint.demo.domain.interactor.CoroutinesCreateNote
+import reactivecircus.blueprint.demo.domain.interactor.CoroutinesGetNoteByUuid
+import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
@@ -36,15 +36,15 @@ class EnterNoteViewModelTest {
         timeLastUpdated = System.currentTimeMillis()
     )
 
-    private val getNoteByUuid = mockk<GetNoteByUuid> {
+    private val getNoteByUuid = mockk<CoroutinesGetNoteByUuid> {
         coEvery { execute(any()) } returns dummyNote
     }
 
-    private val createNote = mockk<CreateNote> {
+    private val createNote = mockk<CoroutinesCreateNote> {
         coEvery { execute(any()) } returns Unit
     }
 
-    private val updateNote = mockk<UpdateNote> {
+    private val updateNote = mockk<CoroutinesUpdateNote> {
         coEvery { execute(any()) } returns Unit
     }
 
@@ -104,7 +104,7 @@ class EnterNoteViewModelTest {
 
         viewModelCreateMode.createNote(dummyNote.content)
 
-        val slot = slot<CreateNote.Params>()
+        val slot = slot<CoroutinesCreateNote.Params>()
 
         coVerify(exactly = 1) {
             createNote.execute(param = capture(slot))
@@ -120,7 +120,7 @@ class EnterNoteViewModelTest {
         val updatedNote = dummyNote.copy(content = "updated note")
         viewModelUpdateMode.updateNote(updatedNote)
 
-        val slot = slot<UpdateNote.Params>()
+        val slot = slot<CoroutinesUpdateNote.Params>()
 
         coVerify(exactly = 1) {
             updateNote.execute(param = capture(slot))
