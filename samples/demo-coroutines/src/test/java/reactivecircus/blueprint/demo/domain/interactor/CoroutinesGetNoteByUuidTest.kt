@@ -13,20 +13,20 @@ import org.amshove.kluent.shouldThrow
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatchers
+import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
 
 @ExperimentalCoroutinesApi
 class CoroutinesGetNoteByUuidTest {
 
     private val noteRepository = mockk<CoroutinesNoteRepository>()
 
-    private val coroutineDispatchers = mockk<CoroutineDispatchers> {
+    private val coroutineDispatcherProvider = mockk<CoroutineDispatcherProvider> {
         every { io } returns TestCoroutineDispatcher()
     }
 
     private val getNoteByUuid = CoroutinesGetNoteByUuid(
         noteRepository = noteRepository,
-        coroutineDispatchers = coroutineDispatchers
+        coroutineDispatcherProvider = coroutineDispatcherProvider
     )
 
     @Test
