@@ -18,7 +18,10 @@ android {
         targetSdkVersion androidBuildConfig.targetSdk
     }
 
-
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
 }
 
 dependencies {
