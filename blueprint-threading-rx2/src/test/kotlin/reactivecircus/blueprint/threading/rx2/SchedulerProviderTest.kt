@@ -7,7 +7,7 @@ import org.junit.Test
 class SchedulerProviderTest {
 
     @Test
-    fun `should emit and complete immediately with single-threaded scheduler provider`() {
+    fun `should emit and complete immediately with blocking scheduler provider`() {
         val schedulerProvider = SchedulerProvider(
             io = Schedulers.trampoline(),
             computation = Schedulers.trampoline(),
@@ -29,11 +29,11 @@ class SchedulerProviderTest {
     }
 
     @Test
-    fun `should not emit or terminate immediately with non-single-threaded scheduler provider`() {
+    fun `should not emit or terminate immediately with non-blocking scheduler provider`() {
         val schedulerProvider = SchedulerProvider(
-            io = Schedulers.io(),
-            computation = Schedulers.computation(),
-            ui = Schedulers.newThread()
+            io = Schedulers.single(),
+            computation = Schedulers.single(),
+            ui = Schedulers.single()
         )
 
         val testObserver = Single.fromCallable { 3 }
