@@ -1,0 +1,15 @@
+plugins {
+    id 'kotlin'
+    id 'com.vanniktech.maven.publish'
+}
+
+dependencies {
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+
+    // rx
+    implementation "io.reactivex.rxjava3:rxjava:${versions.rxJava3}"
+
+    // Unit tests
+    testImplementation "junit:junit:${versions.junit}"
+}

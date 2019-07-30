@@ -4,8 +4,8 @@ import io.reactivex.Observable
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
 import reactivecircus.blueprint.interactor.InteractorParams
-import reactivecircus.blueprint.interactor.rx.ObservableInteractor
-import reactivecircus.blueprint.threading.rx.SchedulerProvider
+import reactivecircus.blueprint.interactor.rx2.ObservableInteractor
+import reactivecircus.blueprint.threading.rx2.SchedulerProvider
 
 class RxStreamAllNotes(
     private val noteRepository: RxNoteRepository,

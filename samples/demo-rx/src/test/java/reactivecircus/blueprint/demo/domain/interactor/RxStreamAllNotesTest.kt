@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
-import reactivecircus.blueprint.threading.rx.SchedulerProvider
+import reactivecircus.blueprint.threading.rx2.SchedulerProvider
 
 class RxStreamAllNotesTest {
 

@@ -3,7 +3,7 @@ package reactivecircus.blueprint.demo
 import android.os.AsyncTask
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import reactivecircus.blueprint.threading.rx.SchedulerProvider
+import reactivecircus.blueprint.threading.rx2.SchedulerProvider
 
 class RxScreenTestAppInjector : RxAppInjector() {
 
