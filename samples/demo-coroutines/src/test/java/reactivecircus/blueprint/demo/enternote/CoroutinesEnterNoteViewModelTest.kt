@@ -19,7 +19,7 @@ import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
 @ExperimentalCoroutinesApi
-class EnterNoteViewModelTest {
+class CoroutinesEnterNoteViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -50,8 +50,8 @@ class EnterNoteViewModelTest {
 
     private val stateObserver = mockk<Observer<State>>(relaxed = true)
 
-    private val viewModelCreateMode: EnterNoteViewModel by lazy {
-        EnterNoteViewModel(
+    private val viewModelCreateMode: CoroutinesEnterNoteViewModel by lazy {
+        CoroutinesEnterNoteViewModel(
             noteUuid = null,
             getNoteByUuid = getNoteByUuid,
             createNote = createNote,
@@ -59,8 +59,8 @@ class EnterNoteViewModelTest {
         )
     }
 
-    private val viewModelUpdateMode: EnterNoteViewModel by lazy {
-        EnterNoteViewModel(
+    private val viewModelUpdateMode: CoroutinesEnterNoteViewModel by lazy {
+        CoroutinesEnterNoteViewModel(
             noteUuid = noteUuid,
             getNoteByUuid = getNoteByUuid,
             createNote = createNote,
@@ -107,7 +107,7 @@ class EnterNoteViewModelTest {
         val slot = slot<CoroutinesCreateNote.Params>()
 
         coVerify(exactly = 1) {
-            createNote.execute(param = capture(slot))
+            createNote.execute(params = capture(slot))
         }
 
         slot.captured.note.content shouldEqual dummyNote.content
@@ -123,7 +123,7 @@ class EnterNoteViewModelTest {
         val slot = slot<CoroutinesUpdateNote.Params>()
 
         coVerify(exactly = 1) {
-            updateNote.execute(param = capture(slot))
+            updateNote.execute(params = capture(slot))
         }
 
         slot.captured.note shouldEqual updatedNote

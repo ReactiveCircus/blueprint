@@ -42,6 +42,7 @@ buildscript {
             material           : '1.1.0-alpha08',
             rxJava2            : '2.2.10',
             rxJava3            : '3.0.0-RC1',
+            rxKotlin           : '2.3.0',
             rxAndroid          : '2.1.1',
             timber             : '4.7.1',
             junit              : '4.12',

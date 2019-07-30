@@ -11,7 +11,7 @@ import reactivecircus.blueprint.demo.domain.model.Note
 
 data class State(val note: Note?)
 
-class EnterNoteViewModel(
+class CoroutinesEnterNoteViewModel(
     noteUuid: String?,
     getNoteByUuid: CoroutinesGetNoteByUuid,
     private val createNote: CoroutinesCreateNote,

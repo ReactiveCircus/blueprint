@@ -25,7 +25,7 @@ abstract class SuspendingInteractor<in P : InteractorParams, out R> {
     /**
      * Execute the the interactor.
      */
-    suspend fun execute(param: P): R = withContext(context = dispatcher) {
-        doWork(param)
+    suspend fun execute(params: P): R = withContext(context = dispatcher) {
+        doWork(params)
     }
 }

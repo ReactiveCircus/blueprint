@@ -9,20 +9,16 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import reactivecircus.blueprint.common.R
-import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
+import reactivecircus.blueprint.demo.BlueprintRxDemoApp
 import reactivecircus.blueprint.demo.domain.model.Note
-import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteActivity
 import reactivecircus.blueprint.demo.enternote.EXTRA_ENTER_NOTE_PARAMS
 import reactivecircus.blueprint.demo.enternote.EnterNoteParams
+import reactivecircus.blueprint.demo.enternote.RxEnterNoteActivity
 import reactivecircus.blueprint.demo.util.viewModel
 import reactivecircus.blueprint.ui.extension.launchActivity
 
-@FlowPreview
-@ExperimentalCoroutinesApi
-class CoroutinesNotesActivity : AppCompatActivity() {
+class RxNotesActivity : AppCompatActivity() {
 
     private val toolbar: Toolbar by lazy {
         findViewById(R.id.toolbar)
@@ -46,8 +42,8 @@ class CoroutinesNotesActivity : AppCompatActivity() {
 
     private lateinit var notesListAdapter: NotesListAdapter
 
-    private val viewModel: CoroutinesNotesViewModel by viewModel {
-        (application as BlueprintCoroutinesDemoApp).injector.provideNotesViewModel()
+    private val viewModel: RxNotesViewModel by viewModel {
+        (application as BlueprintRxDemoApp).injector.provideNotesViewModel()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,12 +56,12 @@ class CoroutinesNotesActivity : AppCompatActivity() {
         notesListAdapter = NotesListAdapter(itemClickedCallback)
 
         notesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@CoroutinesNotesActivity)
+            layoutManager = LinearLayoutManager(this@RxNotesActivity)
             adapter = notesListAdapter
         }
 
         createNoteButton.setOnClickListener {
-            launchActivity<CoroutinesEnterNoteActivity> {
+            launchActivity<RxEnterNoteActivity> {
                 putExtra(EXTRA_ENTER_NOTE_PARAMS, EnterNoteParams.CreateNew)
             }
         }
@@ -95,7 +91,7 @@ class CoroutinesNotesActivity : AppCompatActivity() {
     }
 
     private val itemClickedCallback: (note: Note) -> Unit = { note ->
-        launchActivity<CoroutinesEnterNoteActivity> {
+        launchActivity<RxEnterNoteActivity> {
             putExtra(EXTRA_ENTER_NOTE_PARAMS, EnterNoteParams.Update(note.uuid))
         }
     }

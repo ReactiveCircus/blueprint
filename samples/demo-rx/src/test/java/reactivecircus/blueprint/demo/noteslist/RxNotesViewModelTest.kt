@@ -5,28 +5,17 @@ import androidx.lifecycle.Observer
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.channels.Channel.Factory.CONFLATED
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.test.runBlockingTest
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 import org.junit.Rule
 import org.junit.Test
-import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
+import reactivecircus.blueprint.demo.domain.interactor.RxStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
-import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
-@FlowPreview
-@ExperimentalCoroutinesApi
-class NotesViewModelTest {
+class RxNotesViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    @get:Rule
-    val coroutinesTestRule = CoroutinesTestRule()
 
     private val dummyNotes = listOf(
         Note(
@@ -41,17 +30,17 @@ class NotesViewModelTest {
         )
     )
 
-    private val streamAllNotes = mockk<CoroutinesStreamAllNotes>()
+    private val streamAllNotes = mockk<RxStreamAllNotes>()
 
     private val stateObserver = mockk<Observer<State>>(relaxed = true)
 
-    private val viewModel: CoroutinesNotesViewModel by lazy {
-        CoroutinesNotesViewModel(streamAllNotes)
+    private val viewModel: RxNotesViewModel by lazy {
+        RxNotesViewModel(streamAllNotes)
     }
 
     @Test
-    fun `should emit State#LoadingNotes when initialized`() = runBlockingTest {
-        every { streamAllNotes.buildFlow(any()) } returns emptyFlow()
+    fun `should emit State#LoadingNotes when initialized`() {
+        every { streamAllNotes.buildObservable(any()) } returns Observable.empty()
 
         viewModel.notesLiveData.observeForever(stateObserver)
 
@@ -63,14 +52,14 @@ class NotesViewModelTest {
     }
 
     @Test
-    fun `should emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
-        val emitter = BroadcastChannel<List<Note>>(CONFLATED)
-        every { streamAllNotes.buildFlow(any()) } returns emitter.asFlow()
+    fun `should emit State#Idle with notes when streamAllNotes emits`() {
+        val emitter = PublishSubject.create<List<Note>>().toSerialized()
+        every { streamAllNotes.buildObservable(any()) } returns emitter
 
         viewModel.notesLiveData.observeForever(stateObserver)
 
         verify(exactly = 1) {
-            streamAllNotes.buildFlow(any())
+            streamAllNotes.buildObservable(any())
         }
 
         verify(exactly = 1) {
@@ -79,7 +68,7 @@ class NotesViewModelTest {
             )
         }
 
-        emitter.offer(dummyNotes)
+        emitter.onNext(dummyNotes)
 
         verify(exactly = 1) {
             stateObserver.onChanged(
@@ -95,7 +84,7 @@ class NotesViewModelTest {
             )
         )
 
-        emitter.offer(updatedDummyNotes)
+        emitter.onNext(updatedDummyNotes)
 
         verify(exactly = 1) {
             stateObserver.onChanged(

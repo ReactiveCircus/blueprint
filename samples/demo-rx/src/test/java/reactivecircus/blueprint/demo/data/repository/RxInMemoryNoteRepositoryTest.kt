@@ -4,19 +4,11 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import io.mockk.verifyAll
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.single
-import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.demo.data.cache.NoteCache
 import reactivecircus.blueprint.demo.domain.model.Note
 
-@FlowPreview
-@ExperimentalCoroutinesApi
-class CoroutinesInMemoryNoteRepositoryTest {
+class RxInMemoryNoteRepositoryTest {
 
     private val dummyNotes = listOf(
         Note(
@@ -35,59 +27,63 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
     private val noteCache = mockk<NoteCache>()
 
-    private val inMemoryRepository = CoroutinesInMemoryNoteRepository(noteCache)
+    private val inMemoryRepository = RxInMemoryNoteRepository(noteCache)
 
     @Test
-    fun `should start streaming all notes from cache when collected`() = runBlockingTest {
+    fun `should start streaming all notes from cache when subscribed`() {
         every { noteCache.allNotes() } returns dummyNotes
 
-        val result = inMemoryRepository.streamAllNotes().take(1).single()
+        val testObserver = inMemoryRepository.streamAllNotes().test()
 
         verifyAll { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        testObserver.assertValue(dummyNotes)
+            .assertNotTerminated()
     }
 
     @Test
-    fun `should return existing note from cache when note with matching uuid exists`() =
-        runBlockingTest {
-            every { noteCache.findNote(any()) } returns dummyNotes[0]
+    fun `should emit existing note from cache when note with matching uuid exists`() {
+        every { noteCache.findNote(any()) } returns dummyNotes[0]
 
-            val result = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid)
-
-            verifyAll { noteCache.findNote(any()) }
-
-            result shouldEqual dummyNotes[0]
-        }
-
-    @Test
-    fun `should return null when no note with matching uuid exists`() = runBlockingTest {
-        every { noteCache.findNote(any()) } returns null
-
-        val result = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid)
+        val testObserver = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid).test()
 
         verifyAll { noteCache.findNote(any()) }
 
-        result shouldEqual null
+        testObserver.assertValue(dummyNotes[0])
+            .assertTerminated()
     }
 
     @Test
-    fun `should add note to cache`() = runBlockingTest {
+    fun `should complete without emitting value when no note with matching uuid exists`() {
+        every { noteCache.findNote(any()) } returns null
+
+        val testObserver = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid).test()
+
+        verifyAll { noteCache.findNote(any()) }
+
+        testObserver.assertNoValues()
+            .assertTerminated()
+    }
+
+    @Test
+    fun `should add note to cache`() {
         every { noteCache.addNotes(any()) } returns Unit
 
-        inMemoryRepository.addNote(
+        val testObserver = inMemoryRepository.addNote(
             Note(
                 content = "Note",
                 timeCreated = System.currentTimeMillis(),
                 timeLastUpdated = System.currentTimeMillis()
             )
-        )
+        ).test()
 
         verifyAll { noteCache.addNotes(any()) }
+
+        testObserver.assertComplete()
     }
 
     @Test
-    fun `should trigger new emission of all notes when added new note`() = runBlockingTest {
+    fun `should trigger new emission of all notes when added new note`() {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.addNotes(any()) } returns Unit
 
@@ -97,39 +93,43 @@ class CoroutinesInMemoryNoteRepositoryTest {
                 timeCreated = System.currentTimeMillis(),
                 timeLastUpdated = System.currentTimeMillis()
             )
-        )
+        ).subscribe()
 
-        val result = inMemoryRepository.streamAllNotes().take(1).single()
+        val testObserver = inMemoryRepository.streamAllNotes().test()
 
         verify(exactly = 1) { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        testObserver.assertValue(dummyNotes)
+            .assertNotTerminated()
     }
 
     @Test
-    fun `should update note in cache`() = runBlockingTest {
+    fun `should update note in cache`() {
         every { noteCache.updateNote(any()) } returns Unit
 
-        inMemoryRepository.updateNote(
+        val testObserver = inMemoryRepository.updateNote(
             dummyNotes[0].copy(content = "New note")
-        )
+        ).test()
 
         verifyAll { noteCache.updateNote(any()) }
+
+        testObserver.assertComplete()
     }
 
     @Test
-    fun `should trigger new emission of all notes when updated existing note`() = runBlockingTest {
+    fun `should trigger new emission of all notes when updated existing note`() {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.updateNote(any()) } returns Unit
 
         inMemoryRepository.updateNote(
             dummyNotes[0].copy(content = "New note")
-        )
+        ).subscribe()
 
-        val result = inMemoryRepository.streamAllNotes().take(1).single()
+        val testObserver = inMemoryRepository.streamAllNotes().test()
 
         verify(exactly = 1) { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        testObserver.assertValue(dummyNotes)
+            .assertNotTerminated()
     }
 }
