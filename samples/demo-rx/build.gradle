@@ -47,8 +47,8 @@ android {
 }
 
 dependencies {
-    implementation project(':blueprint-interactor-rx')
-    implementation project(':blueprint-threading-rx')
+    implementation project(':blueprint-interactor-rx2')
+    implementation project(':blueprint-threading-rx2')
     implementation project(':blueprint-ui')
     implementation project(':demo-common')
 
@@ -75,7 +75,7 @@ dependencies {
     // timber
     implementation "com.jakewharton.timber:timber:${versions.timber}"
 
-    // Rx
+    // rx
     implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava2}"
     implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}"
     implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
