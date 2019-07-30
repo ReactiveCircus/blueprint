@@ -13,14 +13,14 @@ import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteViewModel
 import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesViewModel
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatchers
+import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
 
 @FlowPreview
 @ExperimentalCoroutinesApi
 open class CoroutinesAppInjector {
 
-    private val coroutineDispatchers: CoroutineDispatchers by lazy {
-        CoroutineDispatchers(
+    private val coroutineDispatcherProvider: CoroutineDispatcherProvider by lazy {
+        CoroutineDispatcherProvider(
             io = Dispatchers.IO,
             computation = Dispatchers.Default,
             ui = Dispatchers.Main
@@ -38,33 +38,33 @@ open class CoroutinesAppInjector {
     private val streamAllNotes: CoroutinesStreamAllNotes by lazy {
         CoroutinesStreamAllNotes(
             noteRepository = noteRepository,
-            coroutineDispatchers = coroutineDispatchers
+            coroutineDispatcherProvider = coroutineDispatcherProvider
         )
     }
 
     private val getNoteByUuid: CoroutinesGetNoteByUuid by lazy {
         CoroutinesGetNoteByUuid(
             noteRepository = noteRepository,
-            coroutineDispatchers = coroutineDispatchers
+            coroutineDispatcherProvider = coroutineDispatcherProvider
         )
     }
 
     private val createNote: CoroutinesCreateNote by lazy {
         CoroutinesCreateNote(
             noteRepository = noteRepository,
-            coroutineDispatchers = coroutineDispatchers
+            coroutineDispatcherProvider = coroutineDispatcherProvider
         )
     }
 
     private val updateNote: CoroutinesUpdateNote by lazy {
         CoroutinesUpdateNote(
             noteRepository = noteRepository,
-            coroutineDispatchers = coroutineDispatchers
+            coroutineDispatcherProvider = coroutineDispatcherProvider
         )
     }
 
-    open fun provideCoroutineDispatchers(): CoroutineDispatchers {
-        return coroutineDispatchers
+    open fun provideCoroutineDispatcherProvider(): CoroutineDispatcherProvider {
+        return coroutineDispatcherProvider
     }
 
     open fun provideNoteCache(): NoteCache {

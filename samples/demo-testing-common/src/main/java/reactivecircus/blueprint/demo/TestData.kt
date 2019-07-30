@@ -15,7 +15,7 @@ val testNotes: List<Note> by lazy {
             timeLastUpdated = timeUpdated
         ),
         Note(
-            content = "Wrapper API for threading with Kotlin CoroutineDispatchers",
+            content = "Wrapper API for threading with Kotlin CoroutineDispatcher",
             timeCreated = timeCreated - 10,
             timeLastUpdated = timeUpdated - 10
         ),

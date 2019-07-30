@@ -11,7 +11,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatchers
+import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
 
 @ExperimentalCoroutinesApi
 class CoroutinesUpdateNoteTest {
@@ -20,13 +20,13 @@ class CoroutinesUpdateNoteTest {
         coEvery { updateNote(any()) } returns Unit
     }
 
-    private val coroutineDispatchers = mockk<CoroutineDispatchers> {
+    private val coroutineDispatcherProvider = mockk<CoroutineDispatcherProvider> {
         every { io } returns TestCoroutineDispatcher()
     }
 
     private val updateNote = CoroutinesUpdateNote(
         noteRepository = noteRepository,
-        coroutineDispatchers = coroutineDispatchers
+        coroutineDispatcherProvider = coroutineDispatcherProvider
     )
 
     @Test

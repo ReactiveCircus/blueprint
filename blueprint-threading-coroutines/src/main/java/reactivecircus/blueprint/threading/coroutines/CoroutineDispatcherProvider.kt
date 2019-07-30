@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineDispatcher
  * on different threads, but they don't need to know the underlying implementation.
  * A single-threaded version for example can be injected for testing.
  */
-class CoroutineDispatchers(
+class CoroutineDispatcherProvider(
     /**
      * Dispatcher for IO-bound work
      */

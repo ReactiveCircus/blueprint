@@ -13,22 +13,22 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class CoroutineDispatchersTest {
+class CoroutineDispatcherProviderTest {
 
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Test
     fun `should execute and return immediately with coroutine dispatchers backed by single thread`() =
         testDispatcher.runBlockingTest {
-            val coroutineDispatchers = CoroutineDispatchers(
+            val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = testDispatcher,
                 computation = testDispatcher,
                 ui = testDispatcher
             )
 
-            val result = withContext(coroutineDispatchers.computation) {
+            val result = withContext(coroutineDispatcherProvider.computation) {
                 listOf(1, 2, 3).map {
-                    async(coroutineDispatchers.io) {
+                    async(coroutineDispatcherProvider.io) {
                         it * it
                     }
                 }.awaitAll()
@@ -36,7 +36,7 @@ class CoroutineDispatchersTest {
 
             result shouldEqual listOf(1, 4, 9)
 
-            val job = launch(coroutineDispatchers.ui) {
+            val job = launch(coroutineDispatcherProvider.ui) {
                 delay(1000L)
             }
 
@@ -48,15 +48,15 @@ class CoroutineDispatchersTest {
     @Test
     fun `should not execute and return immediately with coroutine dispatchers backed by multiple threads`() =
         testDispatcher.runBlockingTest {
-            val coroutineDispatchers = CoroutineDispatchers(
+            val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = Dispatchers.IO,
                 computation = Dispatchers.Default,
                 ui = Dispatchers.Default
             )
 
-            val deferred = async(coroutineDispatchers.computation) {
+            val deferred = async(coroutineDispatcherProvider.computation) {
                 delay(1000L)
-                withContext(coroutineDispatchers.io) {
+                withContext(coroutineDispatcherProvider.io) {
                     delay(1000L)
                     3
                 }
@@ -72,7 +72,7 @@ class CoroutineDispatchersTest {
 
             completed shouldEqual false
 
-            val job = launch(coroutineDispatchers.ui) {
+            val job = launch(coroutineDispatcherProvider.ui) {
                 delay(1000L)
             }
 
