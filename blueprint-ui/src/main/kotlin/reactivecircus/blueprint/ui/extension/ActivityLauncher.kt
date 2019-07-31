@@ -6,7 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 
 /**
- * Launches an activity via [Activity.startActivityForResult].
+ * Launches an activity from an [Activity] via [Activity.startActivityForResult].
  * @param requestCode - the requestCode to be passed into [Activity.startActivityForResult]
  * @param options - the options bundle to be  passed into [Activity.startActivityForResult]
  */
@@ -21,7 +21,7 @@ inline fun <reified T : Activity> Activity.launchActivity(
 }
 
 /**
- * Launches an activity via [Activity.startActivity].
+ * Launches an activity from a [Context] via [Activity.startActivity].
  * @param options - the options bundle to be  passed into [Activity.startActivity]
  */
 inline fun <reified T : Activity> Context.launchActivity(
