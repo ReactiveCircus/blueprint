@@ -25,13 +25,12 @@ val testNotes: List<Note> by lazy {
             timeLastUpdated = timeUpdated - 20
         ),
         Note(
-            content = "Base implementation for Interactors (usecase in Clean Architecture) " +
-                    "with Kotlin Coroutines",
+            content = "Interactors (use case in Clean Architecture) based on Kotlin Coroutines",
             timeCreated = timeCreated - 30,
             timeLastUpdated = timeUpdated - 30
         ),
         Note(
-            content = "Base implementation for Interactors (usecase in Clean Architecture) with RxJava",
+            content = "Interactors (use case in Clean Architecture) based on RxJava",
             timeCreated = timeCreated - 40,
             timeLastUpdated = timeUpdated - 40
         ),
