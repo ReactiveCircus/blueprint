@@ -157,7 +157,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[maven-central]: https://search.maven.org/
+[maven-central]: https://search.maven.org/search?q=g:io.github.reactivecircus.blueprint
 [snap]: https://oss.sonatype.org/content/repositories/snapshots/
 [samples]: samples/
 [interactor-coroutines]: blueprint-interactor-coroutines/
