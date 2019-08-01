@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.0.1
+
+_2019-08-02_
+
+Fixed a publishing issue. All artifacts should now be available on Maven Central.
+
 ## Version 1.0.0
 
 _2019-08-02_
