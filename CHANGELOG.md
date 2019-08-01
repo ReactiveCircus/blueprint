@@ -4,5 +4,5 @@
 
 _YYYY-MM-DD_
 
- * New: TODO
- * Fix: TODO
+* New: TODO
+* Fix: TODO
