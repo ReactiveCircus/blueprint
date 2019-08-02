@@ -7,6 +7,7 @@ import org.junit.Test
 import reactivecircus.blueprint.demo.CoroutinesBaseScreenTest
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteActivity
 import reactivecircus.blueprint.demo.testNotes
+import reactivecircus.blueprint.testing.assertion.activityLaunched
 
 @FlowPreview
 @ExperimentalCoroutinesApi

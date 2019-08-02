@@ -5,6 +5,7 @@ import org.junit.Test
 import reactivecircus.blueprint.demo.RxBaseScreenTest
 import reactivecircus.blueprint.demo.enternote.RxEnterNoteActivity
 import reactivecircus.blueprint.demo.testNotes
+import reactivecircus.blueprint.testing.assertion.activityLaunched
 
 @LargeTest
 class RxNotesListScreenTest : RxBaseScreenTest() {

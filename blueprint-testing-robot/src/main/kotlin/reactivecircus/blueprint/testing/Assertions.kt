@@ -13,10 +13,6 @@ import org.hamcrest.Matchers
 /**
  * A view assertion that checks if a [RadioGroup] has any selection.
  */
-fun radioGroupHasSelections(): RadioGroupAssertion {
-    return RadioGroupAssertion()
-}
-
 class RadioGroupAssertion : ViewAssertion {
 
     override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
@@ -32,10 +28,6 @@ class RadioGroupAssertion : ViewAssertion {
 /**
  * A view assertion that checks if a [RecyclerView] has the expected number of items.
  */
-fun recyclerViewHasSize(expectedCount: Int): RecyclerViewItemCountAssertion {
-    return RecyclerViewItemCountAssertion(expectedCount)
-}
-
 class RecyclerViewItemCountAssertion(private val expectedCount: Int) : ViewAssertion {
 
     override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
@@ -52,10 +44,6 @@ class RecyclerViewItemCountAssertion(private val expectedCount: Int) : ViewAsser
 /**
  * A view assertion that checks if no activity is currently displayed.
  */
-fun activityNotDisplayed(activity: Activity?): ActivityNotDisplayedAssertion {
-    return ActivityNotDisplayedAssertion(activity)
-}
-
 class ActivityNotDisplayedAssertion(private val activity: Activity?) : ViewAssertion {
 
     override fun check(view: View, noViewFoundException: NoMatchingViewException?) {

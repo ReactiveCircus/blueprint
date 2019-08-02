@@ -63,18 +63,18 @@ fun counterScreen(block: CounterRobot.() -> Unit) =
     CounterRobot().apply { block() }
 
 class CounterRobot :
-    BaseRobot<CounterRobotActions, CounterRobotAssertions>(
+    ScreenRobot<CounterRobotActions, CounterRobotAssertions>(
         CounterRobotActions(), CounterRobotAssertions()
     )
 
-class CounterRobotActions : RobotActions() {
+class CounterRobotActions : RobotActions {
 
     fun clickSaveButton() {
         clickView(R.id.button_increment)
     }
 }
 
-class CounterRobotAssertions : RobotAssertions() {
+class CounterRobotAssertions : RobotAssertions {
 
     fun counterDisplayed(expectedValue: Int) {
         viewHasText(R.id.text_view_counter, "$expectedValue")
@@ -84,9 +84,9 @@ class CounterRobotAssertions : RobotAssertions() {
 
 Please check the [sample apps][samples] for more examples of writing Robots and tests.
 
-## Building Custom RobotActions and RobotAssertions
+## Building Custom Robot Actions and Robot Assertions
 
-The built-in **RobotActions** and **RobotAssertions** are defined in `BaseRobot.kt`. But if these are not enough, you can easily roll your own by implementing Kotlin extension functions on the `RobotActions` or `RobotAssertions` classes.
+If the built-in **Robot Actions** and **Robot Assertions** are not sufficient, you can easily roll your own by implementing Kotlin extension functions on the `RobotActions` or `RobotAssertions` interface.
 
 For example to implement a **double tap** view action, define the following extension function in your `androidTest` source:
 
@@ -105,7 +105,7 @@ fun RobotActions.doubleClickView(@IdRes viewId: Int) {
 Now in your robot you'll have access to this view action:
 
 ```kotlin
-class ImageGalleryRobotActions : RobotActions() {
+class ImageGalleryRobotActions : RobotActions {
 
     fun zoomIn() {
         doubleClickView(R.id.image_view_photo)
