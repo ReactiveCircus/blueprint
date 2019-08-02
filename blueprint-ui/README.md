@@ -12,7 +12,7 @@ Note that the library uses `androidx.appcompat:appcompat` transitively.
 
 ## Extensions
 
-The `UiExtensions.kt` has a number of Kotlin extensions on `Activity` and `Context`. Some of the extensions are:
+The following Kotlin extensions on `Activity` and `Context` can be found in [UiExtensions.kt][ui-extensions]:
 
 ```Kotlin
 /**
@@ -66,7 +66,7 @@ fun Context.isAnimationOn(): Boolean
 val Activity.screenSize: DisplayMetrics
 ```
 
-The `ActivityLauncher.kt` has extensions on `Activity` and `Context` for launching new activity.  
+[ActivityLauncher.kt][activity-launcher] has extensions on `Activity` and `Context` for launching new activity.  
 
 For example to launch a new Activity from an Activity:
 
@@ -91,4 +91,7 @@ The `IndeterminateProgressBar` hides the indeterminate drawable if animation is 
 
 ```xml
 <reactivecircus.blueprint.ui.widget.IndeterminateProgressBar/>
-```  
+```
+
+[ui-extensions]: src/main/kotlin/reactivecircus/blueprint/ui/extension/UiExtensions.kt
+[activity-launcher]: src/main/kotlin/reactivecircus/blueprint/ui/extension/ActivityLauncher.kt

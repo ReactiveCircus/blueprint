@@ -13,7 +13,7 @@ Since the 2 demo apps have identical functionality, we are able to share a lot o
 
 ### demo-coroutines
 
-This [Android Application module][demo-coroutines] uses the following Blueprint libraries:
+This [app module][demo-coroutines] uses the following Blueprint libraries:
 
 * [blueprint-interactor-coroutines][interactor-coroutines]
 * [blueprint-threading-coroutines][threading-coroutines]
@@ -24,7 +24,7 @@ It also depends on the [demo-common][demo-common] and [demo-testing-common][demo
 
 ### demo-rx
 
-This [Android Application module][demo-rx] uses the following Blueprint libraries:
+This [app module][demo-rx] uses the following Blueprint libraries:
 
 * [blueprint-interactor-rx2][interactor-rx2]
 * [blueprint-threading-rx2][threading-rx2]
@@ -35,11 +35,11 @@ It also depends on the [demo-common][demo-common] and [demo-testing-common][demo
 
 ### demo-common
 
-This [Android Library module][demo-common] includes common code shared between the 2 apps such as resources, layouts, and in-memory cache.
+This [library module][demo-common] includes common code shared between the 2 apps such as resources, layouts, and in-memory cache.
 
 ### demo-testing-common
 
-This [Android Library module][demo-testing-common] includes common UI testing infra code shared between the 2 apps such as instrumentation robots and test data.
+This [library module][demo-testing-common] includes common UI testing infra code shared between the 2 apps such as instrumentation robots and test data.
 
 
 ## Comparison

@@ -201,7 +201,7 @@ fun openNotesListScreenWithExistingNotes_notesDisplayed() {
 }
 ```
 
-This DSL is powered by a custom **Screen Robot** implementation. Examples can be found in the [demo-testing-common][demo-testing-common] module. 
+This DSL is powered by a custom **Screen Robot** implementation. Examples can be found in [demo-testing-common][demo-testing-common]. 
 
 ## Building
 
