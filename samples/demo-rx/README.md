@@ -8,8 +8,8 @@ The demo app follows **[Clean Architecture][clean-architecture]**. The **Use Cas
 
 The [blueprint-interactor-rx2][interactor-rx2] artifact provides 3 base classes for building Interactors:
 
-* `SingleInteractor` for single-value responses
-* `CompletableInteractor` for fire-and-forget tasks
+* `SingleInteractor` for single-response (with result) tasks
+* `CompletableInteractor` for single-response (no result) tasks
 * `ObservableInteractor` for cold streams
 
 An example implementation of `SingleInteractor` in the app:

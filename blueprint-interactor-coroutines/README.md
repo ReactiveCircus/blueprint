@@ -14,7 +14,7 @@ implementation "io.github.reactivecircus.blueprint:blueprint-interactor-coroutin
 
 To implement an Interactor we would extend from one of the 2 classes provided:
 
-* `SuspendingInteractor` for single-value responses and fire-and-forget tasks
+* `SuspendingInteractor` for single-response tasks
 * `FlowInteractor` for cold streams
 
 Let's say we need an Interactor for fetching a list of users from API. Since there can only be 1 response (or error), our Interactor should extend from `SuspendingInteractor`:
@@ -43,7 +43,7 @@ viewModelScope.launch {
 
 Note that the `CoroutineDispatcherProvider` in the constructor of the Interactor comes from the [blueprint-threading-coroutines][threading-coroutines] artifact, which encapsulates the threading behavior with a wrapper API.
 
-Now let's implement another Interactor for updating a user profile. This is a fire-and-forget task as we don't expect any value from the response and just need to know the task has been completed successfully. So our Interactor should again extend from `SuspendingInteractor`:
+Now let's implement another Interactor for updating a user profile. This interactor expects no result and we just need to know the whether it has been completed successfully. So our Interactor should again extend from `SuspendingInteractor`:
 
 ```kotlin
 class UpdateUserProfile(

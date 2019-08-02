@@ -14,8 +14,8 @@ implementation "io.github.reactivecircus.blueprint:blueprint-interactor-rx2:${bl
 
 To implement an Interactor we would extend from one of the 3 classes provided:
 
-* `SingleInteractor` for single-value responses
-* `CompletableInteractor` for fire-and-forget tasks
+* `SingleInteractor` for single-response (with result) tasks
+* `CompletableInteractor` for single-response (no result) tasks
 * `ObservableInteractor` for cold streams
 
 Let's say we need an Interactor for fetching a list of users from API. Since there can only be 1 response (or error), our Interactor should extend from `SingleInteractor`:
@@ -50,7 +50,7 @@ disposable += fetchUsers.buildSingle(EmptyParams)
 
 Note that the `SchedulerProvider` in the constructor of the Interactor comes from the [blueprint-threading-rx2][threading-rx2] artifact, which encapsulates the threading behavior with a wrapper API.
 
-Now let's implement another Interactor for updating a user profile. This is a fire-and-forget task as we don't expect any value from the response and just need to know the task has been completed successfully. So our Interactor should extend from `CompletableInteractor`:
+Now let's implement another Interactor for updating a user profile. This interactor expects no result and we just need to know the whether it has been completed successfully. So our Interactor should extend from `CompletableInteractor`:
 
 ```kotlin
 class UpdateUserProfile(
