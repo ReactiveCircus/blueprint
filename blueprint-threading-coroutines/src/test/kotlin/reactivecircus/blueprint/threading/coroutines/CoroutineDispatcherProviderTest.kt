@@ -18,7 +18,7 @@ class CoroutineDispatcherProviderTest {
     private val testDispatcher = TestCoroutineDispatcher()
 
     @Test
-    fun `should execute and return immediately with coroutine dispatchers backed by single thread`() =
+    fun `execute and return immediately with coroutine dispatchers backed by single thread`() =
         testDispatcher.runBlockingTest {
             val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = testDispatcher,
@@ -46,7 +46,7 @@ class CoroutineDispatcherProviderTest {
         }
 
     @Test
-    fun `should not execute and return immediately with coroutine dispatchers backed by multiple threads`() =
+    fun `does not not execute and return immediately with coroutine dispatchers backed by multiple threads`() =
         testDispatcher.runBlockingTest {
             val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = Dispatchers.Default,

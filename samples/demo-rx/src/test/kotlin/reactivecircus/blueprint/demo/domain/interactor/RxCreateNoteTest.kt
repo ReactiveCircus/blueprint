@@ -30,7 +30,7 @@ class RxCreateNoteTest {
     )
 
     @Test
-    fun `should add note to repository`() {
+    fun `add note through repository`() {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),

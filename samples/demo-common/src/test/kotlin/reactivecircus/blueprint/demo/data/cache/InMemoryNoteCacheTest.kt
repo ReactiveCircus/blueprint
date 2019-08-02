@@ -11,12 +11,12 @@ class InMemoryNoteCacheTest {
     private val inMemoryNoteCache = InMemoryNoteCache()
 
     @Test
-    fun `cache should be empty initially`() {
+    fun `cache is initially empty`() {
         inMemoryNoteCache.allNotes() shouldEqual emptyList()
     }
 
     @Test
-    fun `should return all added notes`() {
+    fun `all added notes can be found from the cache`() {
         val notes = listOf(
             Note(
                 content = "Note 1",
@@ -38,7 +38,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should return existing note when it can be found from cache`() {
+    fun `can find a note if it exists in the cache`() {
         val note = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -52,7 +52,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should return null when note cannot be found from cache`() {
+    fun `return null when finding the note cannot be found in the cache`() {
         val note = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -66,7 +66,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should add new note when not already exists`() {
+    fun `new note can be added when not already exists in cache`() {
         val note1 = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -91,7 +91,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should throw exception when adding note with same uuid as an existing note`() {
+    fun `throw exception when adding note with same uuid as an existing note`() {
         val note1 = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -114,7 +114,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should update existing note`() {
+    fun `existing note can be updated`() {
         val note = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -132,7 +132,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should throw exception when updating note which does not already exist in the cache`() {
+    fun `throw exception when updating note which does not already exist in the cache`() {
         val note1 = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -155,7 +155,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `should delete all existing notes`() {
+    fun `all existing notes can be deleted`() {
         val notes = listOf(
             Note(
                 content = "Note 1",

@@ -64,7 +64,7 @@ class RxEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should emit State with null value when initialized in create mode`() {
+    fun `emit State with null value when initialized in create mode`() {
         viewModelCreateMode.noteLiveData.observeForever(stateObserver)
 
         verify(exactly = 0) {
@@ -79,7 +79,7 @@ class RxEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should emit State with loaded Note when initialized in update mode`() {
+    fun `State with loaded Note when initialized in update mode`() {
         viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
 
         coVerify(exactly = 1) {
@@ -94,7 +94,7 @@ class RxEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should execute CreateNote with note content`() {
+    fun `execute CreateNote with new note content`() {
         viewModelCreateMode.noteLiveData.observeForever(stateObserver)
 
         viewModelCreateMode.createNote(dummyNote.content)
@@ -109,7 +109,7 @@ class RxEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should execute UpdateNote with updated note`() {
+    fun `execute UpdateNote with updated note`() {
         viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
 
         val updatedNote = dummyNote.copy(content = "updated note")

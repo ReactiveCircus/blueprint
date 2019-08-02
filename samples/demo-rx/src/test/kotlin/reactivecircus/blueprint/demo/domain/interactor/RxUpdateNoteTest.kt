@@ -30,7 +30,7 @@ class RxUpdateNoteTest {
     )
 
     @Test
-    fun `should update note in repository`() {
+    fun `update note in repository`() {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),

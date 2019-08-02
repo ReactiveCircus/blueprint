@@ -27,7 +27,7 @@ class SingleInteractorTest {
     )
 
     @Test
-    fun `should emit value or error based on the underlying Single implementation`() {
+    fun `emit value or fail based on the underlying Single implementation`() {
         testObserver = interactor.buildSingle(SingleParams(shouldFail = false)).test()
 
         ioScheduler.triggerActions()
@@ -48,7 +48,7 @@ class SingleInteractorTest {
     }
 
     @Test
-    fun `should emit value asynchronously with non-blocking mode`() {
+    fun `emit value asynchronously with non-blocking mode`() {
         testObserver = emptyParamsInteractor.buildSingle(EmptyParams).test()
 
         ioScheduler.triggerActions()
@@ -60,7 +60,7 @@ class SingleInteractorTest {
     }
 
     @Test
-    fun `should emit value synchronously with blocking mode`() {
+    fun `emit value synchronously with blocking mode`() {
         testObserver = interactor.buildSingle(SingleParams(false), blocking = true).test()
 
         testObserver.await()

@@ -8,7 +8,7 @@ import java.util.TimeZone
 class DateTest {
 
     @Test
-    fun `should convert to formatted String from timestamp`() {
+    fun `timestamp can be converted to a formatted date String given a date pattern`() {
         val pattern = "EEE d MMM 'at' h:mm a"
 
         // Monday, 25 June 2018 08:30:00

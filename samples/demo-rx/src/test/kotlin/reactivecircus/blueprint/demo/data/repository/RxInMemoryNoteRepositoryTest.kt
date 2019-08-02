@@ -30,7 +30,7 @@ class RxInMemoryNoteRepositoryTest {
     private val inMemoryRepository = RxInMemoryNoteRepository(noteCache)
 
     @Test
-    fun `should start streaming all notes from cache when subscribed`() {
+    fun `start streaming all notes from cache when subscribed`() {
         every { noteCache.allNotes() } returns dummyNotes
 
         val testObserver = inMemoryRepository.streamAllNotes().test()
@@ -42,7 +42,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should emit existing note from cache when note with matching uuid exists`() {
+    fun `emit existing note from cache when note with matching uuid exists`() {
         every { noteCache.findNote(any()) } returns dummyNotes[0]
 
         val testObserver = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid).test()
@@ -54,7 +54,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should complete without emitting value when no note with matching uuid exists`() {
+    fun `complete without emitting value when no note with matching uuid exists`() {
         every { noteCache.findNote(any()) } returns null
 
         val testObserver = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid).test()
@@ -66,7 +66,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should add note to cache`() {
+    fun `a note can be added to cache`() {
         every { noteCache.addNotes(any()) } returns Unit
 
         val testObserver = inMemoryRepository.addNote(
@@ -83,7 +83,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should trigger new emission of all notes when added new note`() {
+    fun `trigger new emission of all notes when added new note`() {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.addNotes(any()) } returns Unit
 
@@ -104,7 +104,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should update note in cache`() {
+    fun `a note in cache can be updated`() {
         every { noteCache.updateNote(any()) } returns Unit
 
         val testObserver = inMemoryRepository.updateNote(
@@ -117,7 +117,7 @@ class RxInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should trigger new emission of all notes when updated existing note`() {
+    fun `trigger new emission of all notes when updated existing note`() {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.updateNote(any()) } returns Unit
 

@@ -29,7 +29,7 @@ class CoroutinesStreamAllNotesTest {
     )
 
     @Test
-    fun `should stream notes from repository`() = runBlockingTest {
+    fun `stream notes from repository`() = runBlockingTest {
         every { noteRepository.streamAllNotes() } returns flowOf(emptyList())
 
         val result = streamAllNotes.buildFlow(
@@ -44,7 +44,7 @@ class CoroutinesStreamAllNotesTest {
     }
 
     @Test
-    fun `should sort by TIME_CREATED descending`() = runBlockingTest {
+    fun `sort notes by TIME_CREATED descending`() = runBlockingTest {
         val note1 = Note(
             content = "note 1",
             timeCreated = 1000L,
@@ -73,7 +73,7 @@ class CoroutinesStreamAllNotesTest {
     }
 
     @Test
-    fun `should sort by TIME_LAST_UPDATED descending`() = runBlockingTest {
+    fun `sort notes by TIME_LAST_UPDATED descending`() = runBlockingTest {
         val note1 = Note(
             content = "note 1",
             timeCreated = 2000L,

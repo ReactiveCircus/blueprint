@@ -26,7 +26,7 @@ class RxGetNoteByUuidTest {
     )
 
     @Test
-    fun `should get note by uuid from repository`() {
+    fun `get note by uuid from repository`() {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),
@@ -43,7 +43,7 @@ class RxGetNoteByUuidTest {
     }
 
     @Test
-    fun `should throw exception when note cannot be found from repository`() {
+    fun `throw exception when note cannot be found from repository`() {
         every { noteRepository.getNoteByUuid(any()) } returns Maybe.empty()
 
         val testObserver = getNoteByUuid.buildSingle(RxGetNoteByUuid.Params("uuid")).test()

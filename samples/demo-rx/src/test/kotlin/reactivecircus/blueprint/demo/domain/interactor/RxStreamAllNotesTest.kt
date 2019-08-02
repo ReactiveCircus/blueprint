@@ -26,7 +26,7 @@ class RxStreamAllNotesTest {
     )
 
     @Test
-    fun `should stream notes from repository`() {
+    fun `stream notes from repository`() {
         every { noteRepository.streamAllNotes() } returns Observable.just(emptyList())
 
         val testObserver = streamAllNotes.buildObservable(
@@ -41,7 +41,7 @@ class RxStreamAllNotesTest {
     }
 
     @Test
-    fun `should sort by TIME_CREATED descending`() {
+    fun `sort notes by TIME_CREATED descending`() {
         val note1 = Note(
             content = "note 1",
             timeCreated = 1000L,
@@ -70,7 +70,7 @@ class RxStreamAllNotesTest {
     }
 
     @Test
-    fun `should sort by TIME_LAST_UPDATED descending`() {
+    fun `sort notes by TIME_LAST_UPDATED descending`() {
         val note1 = Note(
             content = "note 1",
             timeCreated = 2000L,
