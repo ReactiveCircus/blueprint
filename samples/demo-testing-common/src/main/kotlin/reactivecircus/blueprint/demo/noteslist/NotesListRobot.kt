@@ -6,9 +6,15 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.util.toFormattedDateString
-import reactivecircus.blueprint.testing.BaseRobot
 import reactivecircus.blueprint.testing.RobotActions
 import reactivecircus.blueprint.testing.RobotAssertions
+import reactivecircus.blueprint.testing.ScreenRobot
+import reactivecircus.blueprint.testing.action.clickRecyclerViewItem
+import reactivecircus.blueprint.testing.action.clickView
+import reactivecircus.blueprint.testing.assertion.recyclerViewHasSize
+import reactivecircus.blueprint.testing.assertion.textDisplayed
+import reactivecircus.blueprint.testing.assertion.viewDisplayed
+import reactivecircus.blueprint.testing.assertion.viewNotDisplayed
 import reactivecircus.blueprint.testing.scrollToItemInRecyclerView
 import reactivecircus.blueprint.testing.withRecyclerView
 
@@ -16,11 +22,11 @@ fun notesListScreen(block: NotesListRobot.() -> Unit) =
     NotesListRobot().apply { block() }
 
 class NotesListRobot :
-    BaseRobot<NotesListRobotActions, NotesListRobotAssertions>(
+    ScreenRobot<NotesListRobotActions, NotesListRobotAssertions>(
         NotesListRobotActions(), NotesListRobotAssertions()
     )
 
-class NotesListRobotActions : RobotActions() {
+class NotesListRobotActions : RobotActions {
 
     fun clickNoteAt(position: Int) {
         clickRecyclerViewItem(R.id.recycler_view_notes, position)
@@ -31,7 +37,7 @@ class NotesListRobotActions : RobotActions() {
     }
 }
 
-class NotesListRobotAssertions : RobotAssertions() {
+class NotesListRobotAssertions : RobotAssertions {
 
     fun emptyStateDisplayed() {
         viewDisplayed(R.id.text_view_no_notes)

@@ -8,6 +8,7 @@ import reactivecircus.blueprint.demo.RxBaseScreenTest
 import reactivecircus.blueprint.demo.noteslist.RxNotesActivity
 import reactivecircus.blueprint.demo.noteslist.notesListScreen
 import reactivecircus.blueprint.demo.testNotes
+import reactivecircus.blueprint.testing.action.clickNavigateUpButton
 import reactivecircus.blueprint.ui.extension.newIntent
 
 @LargeTest

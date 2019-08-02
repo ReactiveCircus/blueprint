@@ -11,11 +11,11 @@ fun enterNoteScreen(block: EnterNoteRobot.() -> Unit) =
     EnterNoteRobot().apply { block() }
 
 class EnterNoteRobot :
-    BaseRobot<EnterNoteRobotActions, EnterNoteRobotAssertions>(
+    ScreenRobot<EnterNoteRobotActions, EnterNoteRobotAssertions>(
         EnterNoteRobotActions(), EnterNoteRobotAssertions()
     )
 
-class EnterNoteRobotActions : RobotActions() {
+class EnterNoteRobotActions : RobotActions {
 
     fun enterNote(note: String) {
         replaceTextInView(R.id.edit_text_note, note)
@@ -26,7 +26,7 @@ class EnterNoteRobotActions : RobotActions() {
     }
 }
 
-class EnterNoteRobotAssertions : RobotAssertions() {
+class EnterNoteRobotAssertions : RobotAssertions {
 
     fun createNoteScreenTitleDisplayed() {
         toolbarHasTitle(R.string.title_create_note)
@@ -44,7 +44,7 @@ class EnterNoteRobotAssertions : RobotAssertions() {
 
 If the built-in robot actions and robot assertions are not sufficient, you can roll your custom actions or assertions directly using [Espresso][espresso]. But since this implementation details are still encapsulated inside the Robot, consumers of the Robot won't be aware of any of this.
 
-Have a look at the custom **RobotAction** example in [blueprint-testing-robot][testing-robot].
+Have a look at the custom **Robot Action** example in [blueprint-testing-robot][testing-robot].
 
 [testing-robot]: /blueprint-testing-robot/
 [espresso]: https://developer.android.com/training/testing/espresso

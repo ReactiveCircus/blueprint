@@ -10,6 +10,7 @@ import reactivecircus.blueprint.demo.CoroutinesBaseScreenTest
 import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesActivity
 import reactivecircus.blueprint.demo.noteslist.notesListScreen
 import reactivecircus.blueprint.demo.testNotes
+import reactivecircus.blueprint.testing.action.clickNavigateUpButton
 import reactivecircus.blueprint.ui.extension.newIntent
 
 @FlowPreview
