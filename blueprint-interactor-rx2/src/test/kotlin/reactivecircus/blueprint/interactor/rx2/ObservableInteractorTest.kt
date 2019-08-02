@@ -27,7 +27,7 @@ class ObservableInteractorTest {
     )
 
     @Test
-    fun `should emit value or error based on the underlying Observable implementation`() {
+    fun `emit value or fail based on the underlying Observable implementation`() {
         testObserver = interactor.buildObservable(ObservableParams(shouldFail = false)).test()
 
         ioScheduler.triggerActions()
@@ -48,7 +48,7 @@ class ObservableInteractorTest {
     }
 
     @Test
-    fun `should emit value asynchronously`() {
+    fun `emit value asynchronously`() {
         testObserver = emptyParamsInteractor.buildObservable(EmptyParams).test()
 
         ioScheduler.triggerActions()

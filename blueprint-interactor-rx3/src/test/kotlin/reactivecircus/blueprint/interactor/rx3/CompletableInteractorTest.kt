@@ -26,7 +26,7 @@ class CompletableInteractorTest {
     )
 
     @Test
-    fun `should complete or error based on the underlying Completable implementation`() {
+    fun `complete or fail based on the underlying Completable implementation`() {
         testObserver = interactor.buildCompletable(CompletableParams(shouldFail = false)).test()
 
         ioScheduler.triggerActions()
@@ -46,7 +46,7 @@ class CompletableInteractorTest {
     }
 
     @Test
-    fun `should complete asynchronously`() {
+    fun `complete asynchronously`() {
         testObserver = emptyParamsInteractor.buildCompletable(EmptyParams).test()
 
         ioScheduler.triggerActions()

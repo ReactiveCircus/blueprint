@@ -38,7 +38,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     private val inMemoryRepository = CoroutinesInMemoryNoteRepository(noteCache)
 
     @Test
-    fun `should start streaming all notes from cache when collected`() = runBlockingTest {
+    fun `start streaming all notes from cache when collected`() = runBlockingTest {
         every { noteCache.allNotes() } returns dummyNotes
 
         val result = inMemoryRepository.streamAllNotes().take(1).single()
@@ -49,7 +49,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should return existing note from cache when note with matching uuid exists`() =
+    fun `return existing note from cache when note with matching uuid exists`() =
         runBlockingTest {
             every { noteCache.findNote(any()) } returns dummyNotes[0]
 
@@ -61,7 +61,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
         }
 
     @Test
-    fun `should return null when no note with matching uuid exists`() = runBlockingTest {
+    fun `return null when no note with matching uuid exists`() = runBlockingTest {
         every { noteCache.findNote(any()) } returns null
 
         val result = inMemoryRepository.getNoteByUuid(dummyNotes[0].uuid)
@@ -72,7 +72,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should add note to cache`() = runBlockingTest {
+    fun `a note can be added to cache`() = runBlockingTest {
         every { noteCache.addNotes(any()) } returns Unit
 
         inMemoryRepository.addNote(
@@ -87,7 +87,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should trigger new emission of all notes when added new note`() = runBlockingTest {
+    fun `trigger new emission of all notes when added new note`() = runBlockingTest {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.addNotes(any()) } returns Unit
 
@@ -107,7 +107,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should update note in cache`() = runBlockingTest {
+    fun `a note in cache can be updated`() = runBlockingTest {
         every { noteCache.updateNote(any()) } returns Unit
 
         inMemoryRepository.updateNote(
@@ -118,7 +118,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
     }
 
     @Test
-    fun `should trigger new emission of all notes when updated existing note`() = runBlockingTest {
+    fun `trigger new emission of all notes when updated existing note`() = runBlockingTest {
         every { noteCache.allNotes() } returns dummyNotes
         every { noteCache.updateNote(any()) } returns Unit
 

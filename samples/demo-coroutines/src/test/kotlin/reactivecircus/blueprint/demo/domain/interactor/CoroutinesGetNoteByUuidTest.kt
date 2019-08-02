@@ -30,7 +30,7 @@ class CoroutinesGetNoteByUuidTest {
     )
 
     @Test
-    fun `should get note by uuid from repository`() = runBlockingTest {
+    fun `get note by uuid from repository`() = runBlockingTest {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),
@@ -45,7 +45,7 @@ class CoroutinesGetNoteByUuidTest {
     }
 
     @Test
-    fun `should throw exception when note cannot be found from repository`() = runBlockingTest {
+    fun `throw exception when note cannot be found from repository`() = runBlockingTest {
         coEvery { noteRepository.getNoteByUuid(any()) } returns null
 
         invoking {

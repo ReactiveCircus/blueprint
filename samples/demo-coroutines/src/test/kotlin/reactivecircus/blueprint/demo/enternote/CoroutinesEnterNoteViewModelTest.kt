@@ -69,7 +69,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should emit State with null value when initialized in create mode`() = runBlockingTest {
+    fun `emit State with null value when initialized in create mode`() = runBlockingTest {
         viewModelCreateMode.noteLiveData.observeForever(stateObserver)
 
         coVerify(exactly = 0) {
@@ -84,7 +84,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should emit State with loaded Note when initialized in update mode`() = runBlockingTest {
+    fun `emit State with loaded Note when initialized in update mode`() = runBlockingTest {
         viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
 
         coVerify(exactly = 1) {
@@ -99,7 +99,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should execute CreateNote with note content`() = runBlockingTest {
+    fun `execute CreateNote with new note content`() = runBlockingTest {
         viewModelCreateMode.noteLiveData.observeForever(stateObserver)
 
         viewModelCreateMode.createNote(dummyNote.content)
@@ -114,7 +114,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `should execute UpdateNote with updated note`() = runBlockingTest {
+    fun `execute UpdateNote with updated note`() = runBlockingTest {
         viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
 
         val updatedNote = dummyNote.copy(content = "updated note")

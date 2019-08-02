@@ -39,7 +39,7 @@ class RxNotesViewModelTest {
     }
 
     @Test
-    fun `should emit State#LoadingNotes when initialized`() {
+    fun `emit State#LoadingNotes when initialized`() {
         every { streamAllNotes.buildObservable(any()) } returns Observable.empty()
 
         viewModel.notesLiveData.observeForever(stateObserver)
@@ -52,7 +52,7 @@ class RxNotesViewModelTest {
     }
 
     @Test
-    fun `should emit State#Idle with notes when streamAllNotes emits`() {
+    fun `emit State#Idle with notes when streamAllNotes emits`() {
         val emitter = PublishSubject.create<List<Note>>().toSerialized()
         every { streamAllNotes.buildObservable(any()) } returns emitter
 

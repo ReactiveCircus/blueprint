@@ -30,7 +30,7 @@ class CoroutinesCreateNoteTest {
     )
 
     @Test
-    fun `should add note to repository`() = runBlockingTest {
+    fun `add note through repository`() = runBlockingTest {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),

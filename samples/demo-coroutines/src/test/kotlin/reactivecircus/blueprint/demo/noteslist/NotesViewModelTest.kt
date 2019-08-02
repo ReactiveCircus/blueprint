@@ -50,7 +50,7 @@ class NotesViewModelTest {
     }
 
     @Test
-    fun `should emit State#LoadingNotes when initialized`() = runBlockingTest {
+    fun `emit State#LoadingNotes when initialized`() = runBlockingTest {
         every { streamAllNotes.buildFlow(any()) } returns emptyFlow()
 
         viewModel.notesLiveData.observeForever(stateObserver)
@@ -63,7 +63,7 @@ class NotesViewModelTest {
     }
 
     @Test
-    fun `should emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
+    fun `emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
         val emitter = BroadcastChannel<List<Note>>(CONFLATED)
         every { streamAllNotes.buildFlow(any()) } returns emitter.asFlow()
 
