@@ -38,4 +38,8 @@ class RxNotesViewModel(
                 }
             )
     }
+
+    override fun onCleared() {
+        disposable.clear()
+    }
 }
