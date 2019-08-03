@@ -14,7 +14,7 @@ sealed class State {
     data class Idle(val notes: List<Note>) : State()
 }
 
-class RxNotesViewModel(
+class RxNotesListViewModel(
     streamAllNotes: RxStreamAllNotes
 ) : ViewModel() {
 

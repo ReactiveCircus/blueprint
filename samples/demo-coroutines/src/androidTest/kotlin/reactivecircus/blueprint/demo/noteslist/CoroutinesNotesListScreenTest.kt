@@ -26,7 +26,7 @@ class CoroutinesNotesListScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
             }
             check {
                 createNoteButtonDisplayed()
@@ -42,7 +42,7 @@ class CoroutinesNotesListScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
             }
             check {
                 createNoteButtonDisplayed()
@@ -58,7 +58,7 @@ class CoroutinesNotesListScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 // select the first note
                 clickNoteAt(0)
             }
@@ -72,7 +72,7 @@ class CoroutinesNotesListScreenTest : CoroutinesBaseScreenTest() {
     fun clickCreateNoteButton_enterNoteScreenLaunched() {
         notesListScreen {
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 clickCreateNoteButton()
             }
             check {

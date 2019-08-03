@@ -5,7 +5,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.LargeTest
 import org.junit.Test
 import reactivecircus.blueprint.demo.RxBaseScreenTest
-import reactivecircus.blueprint.demo.noteslist.RxNotesActivity
+import reactivecircus.blueprint.demo.noteslist.RxNotesListActivity
 import reactivecircus.blueprint.demo.noteslist.notesListScreen
 import reactivecircus.blueprint.demo.testNotes
 import reactivecircus.blueprint.testing.action.clickNavigateUpButton
@@ -59,7 +59,7 @@ class RxEnterNoteScreenTest : RxBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 clickCreateNoteButton()
             }
         }
@@ -85,7 +85,7 @@ class RxEnterNoteScreenTest : RxBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 clickCreateNoteButton()
             }
         }
@@ -111,7 +111,7 @@ class RxEnterNoteScreenTest : RxBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 clickNoteAt(0)
             }
         }
@@ -137,7 +137,7 @@ class RxEnterNoteScreenTest : RxBaseScreenTest() {
                 noteCache.addNotes(listOf(testNotes[0]))
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 clickNoteAt(0)
             }
         }

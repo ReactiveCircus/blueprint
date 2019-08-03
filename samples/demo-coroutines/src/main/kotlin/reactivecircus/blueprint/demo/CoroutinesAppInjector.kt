@@ -12,7 +12,7 @@ import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteViewModel
-import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesViewModel
+import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesListViewModel
 import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
 
 @FlowPreview
@@ -71,8 +71,8 @@ open class CoroutinesAppInjector {
         return noteCache
     }
 
-    fun provideNotesViewModel(): CoroutinesNotesViewModel {
-        return CoroutinesNotesViewModel(streamAllNotes)
+    fun provideNotesListViewModel(): CoroutinesNotesListViewModel {
+        return CoroutinesNotesListViewModel(streamAllNotes)
     }
 
     fun provideEnterNoteViewModel(noteUuid: String?): CoroutinesEnterNoteViewModel {

@@ -20,7 +20,7 @@ import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class NotesViewModelTest {
+class CoroutinesNotesListViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -45,8 +45,8 @@ class NotesViewModelTest {
 
     private val stateObserver = mockk<Observer<State>>(relaxed = true)
 
-    private val viewModel: CoroutinesNotesViewModel by lazy {
-        CoroutinesNotesViewModel(streamAllNotes)
+    private val viewModel: CoroutinesNotesListViewModel by lazy {
+        CoroutinesNotesListViewModel(streamAllNotes)
     }
 
     @Test

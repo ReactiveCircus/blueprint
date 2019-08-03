@@ -22,7 +22,7 @@ class RxNotesListScreenTest : RxBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
             }
             check {
                 createNoteButtonDisplayed()
@@ -38,7 +38,7 @@ class RxNotesListScreenTest : RxBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
             }
             check {
                 createNoteButtonDisplayed()
@@ -54,7 +54,7 @@ class RxNotesListScreenTest : RxBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 // select the first note
                 clickNoteAt(0)
             }
@@ -68,7 +68,7 @@ class RxNotesListScreenTest : RxBaseScreenTest() {
     fun clickCreateNoteButton_enterNoteScreenLaunched() {
         notesListScreen {
             perform {
-                launchActivityScenario<RxNotesActivity>()
+                launchActivityScenario<RxNotesListActivity>()
                 clickCreateNoteButton()
             }
             check {

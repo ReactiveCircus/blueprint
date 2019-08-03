@@ -18,7 +18,7 @@ import reactivecircus.blueprint.demo.enternote.RxEnterNoteActivity
 import reactivecircus.blueprint.demo.util.viewModel
 import reactivecircus.blueprint.ui.extension.launchActivity
 
-class RxNotesActivity : AppCompatActivity() {
+class RxNotesListActivity : AppCompatActivity() {
 
     private val toolbar: Toolbar by lazy {
         findViewById(R.id.toolbar)
@@ -42,8 +42,8 @@ class RxNotesActivity : AppCompatActivity() {
 
     private lateinit var notesListAdapter: NotesListAdapter
 
-    private val viewModel: RxNotesViewModel by viewModel {
-        (application as BlueprintRxDemoApp).injector.provideNotesViewModel()
+    private val viewModel: RxNotesListViewModel by viewModel {
+        (application as BlueprintRxDemoApp).injector.provideNotesListViewModel()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +56,7 @@ class RxNotesActivity : AppCompatActivity() {
         notesListAdapter = NotesListAdapter(itemClickedCallback)
 
         notesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@RxNotesActivity)
+            layoutManager = LinearLayoutManager(this@RxNotesListActivity)
             adapter = notesListAdapter
         }
 

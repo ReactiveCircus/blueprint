@@ -12,7 +12,7 @@ import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.RxStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
 
-class RxNotesViewModelTest {
+class RxNotesListViewModelTest {
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -34,8 +34,8 @@ class RxNotesViewModelTest {
 
     private val stateObserver = mockk<Observer<State>>(relaxed = true)
 
-    private val viewModel: RxNotesViewModel by lazy {
-        RxNotesViewModel(streamAllNotes)
+    private val viewModel: RxNotesListViewModel by lazy {
+        RxNotesListViewModel(streamAllNotes)
     }
 
     @Test
