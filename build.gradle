@@ -41,7 +41,7 @@ buildscript {
                     espresso         : '3.3.0-alpha02'
             ],
             material           : '1.1.0-alpha09',
-            rxJava2            : '2.2.10',
+            rxJava2            : '2.2.11',
             rxJava3            : '3.0.0-RC1',
             rxKotlin           : '2.3.0',
             rxAndroid          : '2.1.1',
