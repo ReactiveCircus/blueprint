@@ -37,16 +37,11 @@ jobs:
       - *restore_gradle_cache
       - run:
           name: Assemble
-          command: |
-            ./gradlew assemble
+          command: ./gradlew assemble
       - run:
           name: Run Checks (test, detekt and lint)
           command: |
             ./gradlew check
-            mkdir -p ~/junit/
-            find . -type f -regex ".*/build/test-results/.*xml" -exec cp --parents {} ~/junit/ \;
-      - store_test_results:
-          path: ~/junit
       - *save_gradle_cache
 
   publish_artifacts:
