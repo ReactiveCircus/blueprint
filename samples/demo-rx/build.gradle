@@ -40,6 +40,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            resValue 'string', 'leak_canary_display_activity_label', "Blueprint RxJava Demo Leaks"
+        }
         release {
             minifyEnabled true
             shrinkResources true
@@ -85,6 +88,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava2}"
     implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}"
     implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+
+    // Enable LeakCanary for debug builds
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
 
     // Unit tests
     testImplementation "junit:junit:${versions.junit}"
