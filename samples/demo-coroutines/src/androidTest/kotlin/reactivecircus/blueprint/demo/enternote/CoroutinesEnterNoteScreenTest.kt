@@ -7,7 +7,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.junit.Test
 import reactivecircus.blueprint.demo.CoroutinesBaseScreenTest
-import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesActivity
+import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesListActivity
 import reactivecircus.blueprint.demo.noteslist.notesListScreen
 import reactivecircus.blueprint.demo.testNotes
 import reactivecircus.blueprint.testing.action.clickNavigateUpButton
@@ -63,7 +63,7 @@ class CoroutinesEnterNoteScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 clickCreateNoteButton()
             }
         }
@@ -89,7 +89,7 @@ class CoroutinesEnterNoteScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.deleteAllNotes()
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 clickCreateNoteButton()
             }
         }
@@ -115,7 +115,7 @@ class CoroutinesEnterNoteScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.addNotes(testNotes)
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 clickNoteAt(0)
             }
         }
@@ -141,7 +141,7 @@ class CoroutinesEnterNoteScreenTest : CoroutinesBaseScreenTest() {
                 noteCache.addNotes(listOf(testNotes[0]))
             }
             perform {
-                launchActivityScenario<CoroutinesNotesActivity>()
+                launchActivityScenario<CoroutinesNotesListActivity>()
                 clickNoteAt(0)
             }
         }

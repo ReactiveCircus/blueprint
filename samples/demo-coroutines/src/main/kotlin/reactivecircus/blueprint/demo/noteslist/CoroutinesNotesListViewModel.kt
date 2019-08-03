@@ -19,7 +19,7 @@ sealed class State {
 }
 
 @ExperimentalCoroutinesApi
-class CoroutinesNotesViewModel(
+class CoroutinesNotesListViewModel(
     streamAllNotes: CoroutinesStreamAllNotes
 ) : ViewModel() {
 

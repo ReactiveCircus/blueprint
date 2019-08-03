@@ -22,7 +22,7 @@ import reactivecircus.blueprint.ui.extension.launchActivity
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class CoroutinesNotesActivity : AppCompatActivity() {
+class CoroutinesNotesListActivity : AppCompatActivity() {
 
     private val toolbar: Toolbar by lazy {
         findViewById(R.id.toolbar)
@@ -46,8 +46,8 @@ class CoroutinesNotesActivity : AppCompatActivity() {
 
     private lateinit var notesListAdapter: NotesListAdapter
 
-    private val viewModel: CoroutinesNotesViewModel by viewModel {
-        (application as BlueprintCoroutinesDemoApp).injector.provideNotesViewModel()
+    private val viewModel: CoroutinesNotesListViewModel by viewModel {
+        (application as BlueprintCoroutinesDemoApp).injector.provideNotesListViewModel()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +60,7 @@ class CoroutinesNotesActivity : AppCompatActivity() {
         notesListAdapter = NotesListAdapter(itemClickedCallback)
 
         notesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(this@CoroutinesNotesActivity)
+            layoutManager = LinearLayoutManager(this@CoroutinesNotesListActivity)
             adapter = notesListAdapter
         }
 

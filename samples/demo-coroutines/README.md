@@ -158,7 +158,7 @@ fun openNotesListScreenWithExistingNotes_notesDisplayed() {
             noteCache.addNotes(testNotes)
         }
         perform {
-            launchActivityScenario<CoroutinesNotesActivity>()
+            launchActivityScenario<CoroutinesNotesListActivity>()
         }
         check {
             createNoteButtonDisplayed()

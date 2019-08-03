@@ -191,7 +191,7 @@ fun openNotesListScreenWithExistingNotes_notesDisplayed() {
             noteCache.addNotes(testNotes)
         }
         perform {
-            launchActivityScenario<RxNotesActivity>()
+            launchActivityScenario<RxNotesListActivity>()
         }
         check {
             createNoteButtonDisplayed()
