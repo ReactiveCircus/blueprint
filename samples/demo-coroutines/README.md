@@ -8,7 +8,7 @@ The demo app follows **[Clean Architecture][clean-architecture]**. The **Use Cas
 
 The [blueprint-interactor-coroutines][interactor-coroutines] artifact provides 2 base classes for building Interactors:
 
-* `SuspendingInteractor` for single-response tasks
+* `SuspendingInteractor` for single-shot tasks
 * `FlowInteractor` for cold streams
 
 An example implementation of `SuspendingInteractor` in the app:

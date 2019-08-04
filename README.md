@@ -84,7 +84,7 @@ The following is a high-level overview of what each **Blueprint** artifact does.
 
 This artifact provides 2 base classes for building Interactors (use case in Clean Architecture):
 
-* `SuspendingInteractor` for single-response tasks
+* `SuspendingInteractor` for single-shot tasks
 * `FlowInteractor` for cold streams 
 
 Please check [blueprint-interactor-coroutines][interactor-coroutines] for details.
@@ -99,8 +99,8 @@ Please check [blueprint-threading-coroutines][threading-coroutines] for details.
 
 This artifact provides 3 base classes for building Interactors (use case in Clean Architecture):
 
-* `SingleInteractor` for single-response (with result) tasks
-* `CompletableInteractor` for single-response (no result) tasks
+* `SingleInteractor` for single-shot (with result) tasks
+* `CompletableInteractor` for single-shot (no result) tasks
 * `ObservableInteractor` for cold streams
 
 Please check [blueprint-interactor-rx2][interactor-rx2] for details.
@@ -115,8 +115,8 @@ Please check [blueprint-threading-rx2][threading-rx2] for details.
 
 This artifact provides 3 base classes for building Interactors (use case in Clean Architecture):
 
-* `SingleInteractor` for single-response (with result) tasks
-* `CompletableInteractor` for single-response (no result) tasks
+* `SingleInteractor` for single-shot (with result) tasks
+* `CompletableInteractor` for single-shot (no result) tasks
 * `ObservableInteractor` for cold streams
 
 Please check [blueprint-interactor-rx3][interactor-rx3] for details.

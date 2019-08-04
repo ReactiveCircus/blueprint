@@ -14,8 +14,8 @@ implementation "io.github.reactivecircus.blueprint:blueprint-interactor-rx2:${bl
 
 To implement an Interactor we would extend from one of the 3 classes provided:
 
-* `SingleInteractor` for single-response (with result) tasks
-* `CompletableInteractor` for single-response (no result) tasks
+* `SingleInteractor` for single-shot (with result) tasks
+* `CompletableInteractor` for single-shot (no result) tasks
 * `ObservableInteractor` for cold streams
 
 Let's say we need an Interactor for fetching a list of users from API. Since there can only be 1 response (or error), our Interactor should extend from `SingleInteractor`:

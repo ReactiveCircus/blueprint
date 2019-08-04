@@ -48,10 +48,10 @@ The demo apps follow **[Clean Architecture][clean-architecture]**, but the only 
 
 One of the key differences between the **Coroutines-based** and **RxJava-based** implementations is how **Interactors** are implemented:
 
-* The **Coroutines-based** implementation uses `SuspendingInteractor` for single-response tasks and `FlowInteractor` for cold streams.
-* The **RxJava-based** implementation uses `SingleInteractor` and `CompletableInteractor` for single-response tasks and `ObservableInteractor` for cold streams.
+* The **Coroutines-based** implementation uses `SuspendingInteractor` for single-shot tasks and `FlowInteractor` for cold streams.
+* The **RxJava-based** implementation uses `SingleInteractor` and `CompletableInteractor` for single-shot tasks and `ObservableInteractor` for cold streams.
 
-|                                     | Single-response Task                        | Cold Stream            |
+|                                     | Single-shot Task                            | Cold Stream            |
 |-------------------------------------|---------------------------------------------|------------------------|
 | **blueprint-interactor-coroutines** | `SuspendingInteractor`                      | `FlowInteractor`       |
 | **blueprint-interactor-rx2**        | `SingleInteractor`, `CompletableInteractor` | `ObservableInteractor` |
