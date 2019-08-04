@@ -14,7 +14,7 @@ implementation "io.github.reactivecircus.blueprint:blueprint-interactor-coroutin
 
 To implement an Interactor we would extend from one of the 2 classes provided:
 
-* `SuspendingInteractor` for single-response tasks
+* `SuspendingInteractor` for single-shot tasks
 * `FlowInteractor` for cold streams
 
 Let's say we need an Interactor for fetching a list of users from API. Since there can only be 1 response (or error), our Interactor should extend from `SuspendingInteractor`:

@@ -8,8 +8,8 @@ The demo app follows **[Clean Architecture][clean-architecture]**. The **Use Cas
 
 The [blueprint-interactor-rx2][interactor-rx2] artifact provides 3 base classes for building Interactors:
 
-* `SingleInteractor` for single-response (with result) tasks
-* `CompletableInteractor` for single-response (no result) tasks
+* `SingleInteractor` for single-shot (with result) tasks
+* `CompletableInteractor` for single-shot (no result) tasks
 * `ObservableInteractor` for cold streams
 
 An example implementation of `SingleInteractor` in the app:
@@ -70,6 +70,9 @@ Call-side:
 
 ```kotlin
 disposable += updateNote.buildCompletable(RxUpdateNote.Params(updatedNote)).subscribeBy(
+        onComplete = {
+            Timber.d("Note updated.")
+        },
         onError = {
             Timber.e(it)
         }
