@@ -160,7 +160,7 @@ SchedulerProvider(
 )
 ```
 
-For a full example please look at the unit tests for Interactors e.g. `RxStreamAllNotesTest.kt`. 
+For a full example please look at the unit tests for Interactors e.g. [RxStreamAllNotesTest.kt][sample-interactor-test]. 
 
 ## UI Widget and Extensions
 
@@ -224,6 +224,7 @@ To run UI (on-device) tests:
 [demo-testing-common]: /samples/demo-testing-common/
 [interactor-rx2]: /blueprint-interactor-rx2/
 [threading-rx2]: /blueprint-threading-rx2/
+[sample-interactor-test]: src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/RxStreamAllNotesTest.kt
 [ui]: /blueprint-ui/
 [testing-robot]: /blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html

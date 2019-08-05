@@ -124,7 +124,7 @@ CoroutineDispatcherProvider(
 
 where `testCoroutineDispatcher` is an instance of `TestCoroutineDispatcher` from the `org.jetbrains.kotlinx:kotlinx-coroutines-test` library.
 
-For a full example please look at the unit tests for Interactors e.g. `CoroutinesStreamAllNotesTest.kt`. 
+For a full example please look at the unit tests for Interactors e.g. [CoroutinesStreamAllNotesTest.kt][sample-interactor-test]. 
 
 ## UI Widget and Extensions
 
@@ -187,6 +187,7 @@ To run UI (on-device) tests:
 [demo-testing-common]: /samples/demo-testing-common/
 [interactor-coroutines]: /blueprint-interactor-coroutines/
 [threading-coroutines]: /blueprint-threading-coroutines/
+[sample-interactor-test]: src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/CoroutinesStreamAllNotesTest.kt
 [ui]: /blueprint-ui/
 [testing-robot]: /blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
