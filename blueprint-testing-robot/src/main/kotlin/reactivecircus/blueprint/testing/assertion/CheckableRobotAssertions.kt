@@ -1,12 +1,17 @@
 package reactivecircus.blueprint.testing.assertion
 
+import android.view.View
+import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
+import org.hamcrest.Matchers
 import org.hamcrest.core.AllOf
-import reactivecircus.blueprint.testing.RadioGroupAssertion
 import reactivecircus.blueprint.testing.RobotAssertions
 import reactivecircus.blueprint.testing.scrollTo
 
@@ -74,4 +79,19 @@ fun RobotAssertions.viewChecked(@IdRes viewId: Int) {
 fun RobotAssertions.viewNotChecked(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.isNotChecked()))
+}
+
+/**
+ * A view assertion that checks if a [RadioGroup] has any selection.
+ */
+private class RadioGroupAssertion : ViewAssertion {
+
+    override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
+        if (noViewFoundException != null) {
+            throw noViewFoundException
+        }
+
+        val radioGroup = view as RadioGroup
+        MatcherAssert.assertThat(radioGroup.checkedRadioButtonId, Matchers.greaterThanOrEqualTo(0))
+    }
 }
