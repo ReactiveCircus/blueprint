@@ -2,7 +2,11 @@ package reactivecircus.blueprint.testing.action
 
 import android.app.Activity
 import android.app.Instrumentation
+import android.view.View
+import android.widget.ImageButton
 import androidx.annotation.IdRes
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.Toolbar
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.intent.Intents
@@ -10,8 +14,8 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import com.google.android.material.R
 import org.hamcrest.CoreMatchers
+import org.hamcrest.Matcher
 import reactivecircus.blueprint.testing.RobotActions
-import reactivecircus.blueprint.testing.withToolbarNavigationButton
 
 /**
  * Select the bottom navigation item with [navItemTitle]
@@ -54,4 +58,19 @@ fun RobotActions.clickNavigateUpButton() {
 fun RobotActions.interceptIntents() {
     Intents.intending(CoreMatchers.not(IntentMatchers.isInternal()))
         .respondWith(Instrumentation.ActivityResult(Activity.RESULT_OK, null))
+}
+
+/**
+ * Returns a matcher that matches the navigation button in [Toolbar].
+ */
+private fun withToolbarNavigationButton(): Matcher<View> {
+    return CoreMatchers.allOf(
+        ViewMatchers.withParent(ViewMatchers.withClassName(CoreMatchers.`is`(Toolbar::class.java.name))),
+        ViewMatchers.withClassName(
+            CoreMatchers.anyOf(
+                CoreMatchers.`is`(ImageButton::class.java.name),
+                CoreMatchers.`is`(AppCompatImageButton::class.java.name)
+            )
+        )
+    )
 }

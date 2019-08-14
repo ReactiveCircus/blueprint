@@ -16,7 +16,7 @@ import reactivecircus.blueprint.testing.assertion.textDisplayed
 import reactivecircus.blueprint.testing.assertion.viewDisplayed
 import reactivecircus.blueprint.testing.assertion.viewNotDisplayed
 import reactivecircus.blueprint.testing.scrollToItemInRecyclerView
-import reactivecircus.blueprint.testing.withRecyclerView
+import reactivecircus.blueprint.testing.matcher.withRecyclerView
 
 fun notesListScreen(block: NotesListRobot.() -> Unit) =
     NotesListRobot().apply { block() }

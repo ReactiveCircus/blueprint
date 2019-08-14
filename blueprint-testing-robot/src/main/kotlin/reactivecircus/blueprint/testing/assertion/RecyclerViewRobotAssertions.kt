@@ -5,15 +5,18 @@ import androidx.annotation.IdRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
+import org.hamcrest.CoreMatchers
+import org.hamcrest.MatcherAssert
 import org.hamcrest.core.AllOf
 import org.junit.Assert
-import reactivecircus.blueprint.testing.RecyclerViewItemCountAssertion
 import reactivecircus.blueprint.testing.RobotAssertions
 import reactivecircus.blueprint.testing.currentActivity
-import reactivecircus.blueprint.testing.withRecyclerView
+import reactivecircus.blueprint.testing.matcher.withRecyclerView
 
 /**
  * Check if the recycler view associated with [recyclerViewId] has the size of [size].
@@ -56,5 +59,21 @@ fun RobotAssertions.viewDisplayedInRecyclerView(@IdRes recyclerViewId: Int, @IdR
             )
                 .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         }
+    }
+}
+
+/**
+ * A view assertion that checks if a [RecyclerView] has the expected number of items.
+ */
+private class RecyclerViewItemCountAssertion(private val expectedCount: Int) : ViewAssertion {
+
+    override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
+        if (noViewFoundException != null) {
+            throw noViewFoundException
+        }
+
+        val recyclerView = view as RecyclerView
+        val adapter = recyclerView.adapter
+        MatcherAssert.assertThat(adapter?.itemCount, CoreMatchers.equalTo(expectedCount))
     }
 }

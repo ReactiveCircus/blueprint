@@ -6,11 +6,12 @@ import androidx.appcompat.widget.Toolbar
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
+import org.hamcrest.Description
+import org.hamcrest.Matcher
 import org.hamcrest.core.Is
 import reactivecircus.blueprint.testing.RobotAssertions
-import reactivecircus.blueprint.testing.withToolbarSubtitle
-import reactivecircus.blueprint.testing.withToolbarTitle
 
 /**
  * Check if the current [Toolbar] has a title of [title].
@@ -29,7 +30,9 @@ fun RobotAssertions.toolbarHasTitle(@StringRes titleTextResId: Int) {
             ViewAssertions.matches(
                 withToolbarTitle(
                     Is.`is`(
-                        ApplicationProvider.getApplicationContext<Context>().getString(titleTextResId)
+                        ApplicationProvider.getApplicationContext<Context>().getString(
+                            titleTextResId
+                        )
                     )
                 )
             )
@@ -54,9 +57,43 @@ fun RobotAssertions.toolbarHasSubtitle(@StringRes subtitleTextResId: Int) {
             ViewAssertions.matches(
                 withToolbarSubtitle(
                     Is.`is`(
-                        ApplicationProvider.getApplicationContext<Context>().getString(subtitleTextResId)
+                        ApplicationProvider.getApplicationContext<Context>().getString(
+                            subtitleTextResId
+                        )
                     )
                 )
             )
         )
+}
+
+/**
+ * Returns a matcher that matches the title in [Toolbar].
+ */
+private fun withToolbarTitle(textMatcher: Matcher<String>): Matcher<Any> {
+    return object : BoundedMatcher<Any, Toolbar>(Toolbar::class.java) {
+        public override fun matchesSafely(toolbar: Toolbar): Boolean {
+            return textMatcher.matches(toolbar.title.toString())
+        }
+
+        override fun describeTo(description: Description) {
+            description.appendText("with toolbar title: ")
+            textMatcher.describeTo(description)
+        }
+    }
+}
+
+/**
+ * Returns a matcher that matches the subtitle in [Toolbar].
+ */
+private fun withToolbarSubtitle(textMatcher: Matcher<CharSequence>): Matcher<Any> {
+    return object : BoundedMatcher<Any, Toolbar>(Toolbar::class.java) {
+        public override fun matchesSafely(toolbar: Toolbar): Boolean {
+            return textMatcher.matches(toolbar.subtitle.toString())
+        }
+
+        override fun describeTo(description: Description) {
+            description.appendText("with toolbar subtitle: ")
+            textMatcher.describeTo(description)
+        }
+    }
 }
