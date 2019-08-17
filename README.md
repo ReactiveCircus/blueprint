@@ -1,6 +1,6 @@
 # Blueprint
 
-[![CircleCI](https://circleci.com/gh/ReactiveCircus/blueprint.svg?style=svg)](https://circleci.com/gh/ReactiveCircus/blueprint) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ba39a75cb95348908f7c27c81a98a419)](https://www.codacy.com/app/ReactiveCircus/blueprint?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ReactiveCircus/blueprint&amp;utm_campaign=Badge_Grade) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![CircleCI](https://circleci.com/gh/ReactiveCircus/blueprint.svg?style=svg)](https://circleci.com/gh/ReactiveCircus/blueprint) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ba39a75cb95348908f7c27c81a98a419)](https://www.codacy.com/app/ReactiveCircus/blueprint?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ReactiveCircus/blueprint&amp;utm_campaign=Badge_Grade) [![Android API](https://img.shields.io/badge/API-21%2B-blue.svg?label=API&maxAge=300)](https://www.android.com/history/) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Architectural frameworks and toolkits for bootstrapping modern Android codebases, written in **Kotlin**.
 
