@@ -184,10 +184,10 @@ To run UI (on-device) tests:
 
 `./gradlew demo-coroutines:connectedCheck`
 
-[demo-testing-common]: /samples/demo-testing-common/
-[interactor-coroutines]: /blueprint-interactor-coroutines/
-[threading-coroutines]: /blueprint-threading-coroutines/
+[demo-testing-common]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-testing-common/
+[interactor-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-interactor-coroutines/
+[threading-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-coroutines/
 [sample-interactor-test]: src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/CoroutinesStreamAllNotesTest.kt
-[ui]: /blueprint-ui/
-[testing-robot]: /blueprint-testing-robot/
+[ui]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/
+[testing-robot]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
