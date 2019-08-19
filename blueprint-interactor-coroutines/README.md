@@ -105,5 +105,5 @@ streamUsers.buildFlow(EmptyParams)
 Please check the [Blueprint Coroutines Demo app][demo-coroutines] for more examples of writing and testing Interactors. 
 
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-[threading-coroutines]: /blueprint-threading-coroutines/
-[demo-coroutines]: /samples/demo-coroutines/
+[threading-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-coroutines/
+[demo-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-coroutines/

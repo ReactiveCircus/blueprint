@@ -117,4 +117,4 @@ class ImageGalleryRobotActions : RobotActions {
 [espresso]: https://developer.android.com/training/testing/espresso 
 [material-components]: https://github.com/material-components/material-components-android
 [given-when-then]: https://martinfowler.com/bliki/GivenWhenThen.html
-[samples]: /samples
+[samples]: https://github.com/ReactiveCircus/blueprint/tree/master/samples
