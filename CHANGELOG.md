@@ -7,8 +7,8 @@ _2019-08-20_
 * Added a new `RobotAction` for clicking on the action button on the currently displayed snackbar.
 * Refactor / simplify `blueprint-testing-robot` internals.
 * Update RxJava 3 to RC2 - this is a breaking change as RxJava 3 base package now has `rxjava3`.
-* Update AGP, AndroidX, Coroutines, detekt,
-* Improved documentation. 
+* Update AGP, AndroidX, Coroutines, detekt.
+* Improved documentation.
 
 ## Version 1.0.1
 
