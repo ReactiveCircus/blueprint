@@ -1,7 +1,7 @@
 package reactivecircus.blueprint.interactor.rx3
 
-import io.reactivex.Completable
-import io.reactivex.Scheduler
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Scheduler
 import reactivecircus.blueprint.interactor.InteractorParams
 
 /**

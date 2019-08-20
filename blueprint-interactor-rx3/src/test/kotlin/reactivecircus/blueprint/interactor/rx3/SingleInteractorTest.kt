@@ -1,9 +1,9 @@
 package reactivecircus.blueprint.interactor.rx3
 
-import io.reactivex.Scheduler
-import io.reactivex.Single
-import io.reactivex.observers.TestObserver
-import io.reactivex.schedulers.TestScheduler
+import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.observers.TestObserver
+import io.reactivex.rxjava3.schedulers.TestScheduler
 import org.junit.Test
 import reactivecircus.blueprint.interactor.EmptyParams
 import reactivecircus.blueprint.interactor.InteractorParams
