@@ -42,7 +42,7 @@ buildscript {
             ],
             material           : '1.1.0-alpha09',
             rxJava2            : '2.2.11',
-            rxJava3            : '3.0.0-RC1',
+            rxJava3            : '3.0.0-RC2',
             rxKotlin           : '2.3.0',
             rxAndroid          : '2.1.1',
             timber             : '4.7.1',

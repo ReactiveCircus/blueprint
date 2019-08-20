@@ -1,6 +1,6 @@
 package reactivecircus.blueprint.threading.rx3
 
-import io.reactivex.Scheduler
+import io.reactivex.rxjava3.core.Scheduler
 
 /**
  * A wrapper class for common Rx schedulers.

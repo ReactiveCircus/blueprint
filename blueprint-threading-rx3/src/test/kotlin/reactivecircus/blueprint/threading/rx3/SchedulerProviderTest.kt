@@ -1,7 +1,7 @@
 package reactivecircus.blueprint.threading.rx3
 
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Single
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.junit.Test
 
 class SchedulerProviderTest {
