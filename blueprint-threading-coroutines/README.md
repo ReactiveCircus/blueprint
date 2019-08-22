@@ -23,7 +23,7 @@ Practically you'll likely only have 1 instance of `CoroutineDispatcherProvider` 
 CoroutineDispatcherProvider(
     io = Dispatchers.IO,
     computation = Dispatchers.Default,
-    ui = Dispatchers.Main
+    ui = Dispatchers.Main.immediate
 )
 ```
 

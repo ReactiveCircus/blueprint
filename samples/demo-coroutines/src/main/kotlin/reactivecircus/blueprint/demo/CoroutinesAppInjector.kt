@@ -23,7 +23,7 @@ open class CoroutinesAppInjector {
         CoroutineDispatcherProvider(
             io = Dispatchers.IO,
             computation = Dispatchers.Default,
-            ui = Dispatchers.Main
+            ui = Dispatchers.Main.immediate
         )
     }
 
