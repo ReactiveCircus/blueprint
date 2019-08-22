@@ -15,7 +15,7 @@ class CoroutinesScreenTestAppInjector : CoroutinesAppInjector() {
         CoroutineDispatcherProvider(
             io = AsyncTask.THREAD_POOL_EXECUTOR.asCoroutineDispatcher(),
             computation = Dispatchers.Default,
-            ui = Dispatchers.Main
+            ui = Dispatchers.Main.immediate
         )
     }
 
