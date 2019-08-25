@@ -18,7 +18,7 @@ const val EXTRA_ENTER_NOTE_PARAMS = "EXTRA_ENTER_NOTE_PARAMS"
 @ExperimentalCoroutinesApi
 class CoroutinesEnterNoteActivity : AppCompatActivity() {
 
-    private val params: EnterNoteParams by lazy {
+    private val params: EnterNoteParams? by lazy {
         intent.getParcelableExtra(EXTRA_ENTER_NOTE_PARAMS)
     }
 
