@@ -14,7 +14,7 @@ const val EXTRA_ENTER_NOTE_PARAMS = "EXTRA_ENTER_NOTE_PARAMS"
 
 class RxEnterNoteActivity : AppCompatActivity() {
 
-    private val params: EnterNoteParams by lazy {
+    private val params: EnterNoteParams? by lazy {
         intent.getParcelableExtra(EXTRA_ENTER_NOTE_PARAMS)
     }
 
