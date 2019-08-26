@@ -86,6 +86,15 @@ allprojects {
         }
     }
 
+    plugins.withType(com.android.build.gradle.LibraryPlugin) {
+        project.android.libraryVariants.all { variant ->
+            // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
+            variant.generateBuildConfigProvider.configure { task ->
+                task.enabled = false
+            }
+        }
+    }
+
     plugins.withType(com.android.build.gradle.BasePlugin).configureEach { plugin ->
         plugin.extension.compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8

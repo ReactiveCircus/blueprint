@@ -22,13 +22,6 @@ android {
         androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 
-    // TODO replace with https://issuetracker.google.com/issues/72050365 once released.
-    libraryVariants.all { variant ->
-        variant.generateBuildConfigProvider.configure { task ->
-            task.enabled = false
-        }
-    }
-
     testOptions {
         animationsDisabled = true
     }
