@@ -9,9 +9,11 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.Toolbar
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.contrib.NavigationViewActions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.google.android.material.R
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matcher
@@ -36,6 +38,15 @@ fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: In
         )
     )
         .perform(ViewActions.click())
+}
+
+/**
+ * Select the navigation item associated with [menuItemResId]
+ * from the navigation view associated with [navigationViewResId].
+ */
+fun RobotActions.selectNavigationItem(@IdRes navigationViewResId: Int, @IdRes menuItemResId: Int) {
+    Espresso.onView(withId(navigationViewResId))
+        .perform(NavigationViewActions.navigateTo(menuItemResId))
 }
 
 /**
