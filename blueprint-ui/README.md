@@ -12,7 +12,7 @@ Note that the library uses `androidx.appcompat:appcompat` transitively.
 
 ## Extensions
 
-The following Kotlin extensions on `Activity` and `Context` can be found in [UiExtensions.kt][ui-extensions]:
+Kotlin extensions on `Activity`:
 
 ```Kotlin
 /**
@@ -24,21 +24,6 @@ fun Activity.hideKeyboard(focusedView: View)
  * Programmatically show soft keyboard.
  */
 fun Activity.showKeyboard()
-
-/**
- * Apply tinting to a vector drawable.
- */
-fun Context.tintVectorDrawable(
-    theme: Resources.Theme,
-    @DrawableRes resId: Int,
-    @ColorInt tint: Int
-): Drawable
-
-/**
- * Resolves the given color attribute and returns the resource ID associated with the color.
- */
-@ColorInt
-fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int
 
 /**
  * Shows status bar on the activity.
@@ -56,17 +41,49 @@ fun Activity.hideStatusBar()
 fun Activity.setStatusBarColor(@ColorRes colorRes: Int)
 
 /**
- * Whether animation is turned on on the device.
- */
-fun Context.isAnimationOn(): Boolean
-
-/**
  * Returns screen size of the activity.
  */
 val Activity.screenSize: DisplayMetrics
 ```
 
-[ActivityLauncher.kt][activity-launcher] has extensions on `Activity` and `Context` for launching new activity.  
+Kotlin extensions on `Context`:
+
+```Kotlin
+/**
+ * Apply tinting to a vector drawable.
+ */
+fun Context.tintVectorDrawable(
+    theme: Resources.Theme,
+    @DrawableRes resId: Int,
+    @ColorInt tint: Int
+): Drawable
+
+/**
+ * Resolves the given color attribute and returns the resource ID associated with the color.
+ */
+@ColorInt
+fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int
+
+/**
+ * Whether animation is turned on on the device.
+ */
+fun Context.isAnimationOn(): Boolean
+```
+
+Kotlin extensions on `AppCompat`:
+
+```Kotlin
+/**
+ * Sets the precomputed text future on the [AppCompatTextView].
+ *
+ * @param charSequence the text to be displayed
+ * @param executor the executor to be used for processing the text layout.
+ *  Default single threaded pool will be used if null is passed in.
+ */
+fun AppCompatTextView.setPrecomputedTextFuture(charSequence: CharSequence, executor: Executor? = null)
+```
+
+[Intent.kt][intent-extensions] has extensions on `Activity` and `Context` for launching new activity.  
 
 For example to launch a new Activity from an Activity:
 
@@ -93,5 +110,4 @@ The `IndeterminateProgressBar` hides the indeterminate drawable if animation is 
 <reactivecircus.blueprint.ui.widget.IndeterminateProgressBar/>
 ```
 
-[ui-extensions]: src/main/kotlin/reactivecircus/blueprint/ui/extension/UiExtensions.kt
-[activity-launcher]: src/main/kotlin/reactivecircus/blueprint/ui/extension/ActivityLauncher.kt
+[intent-extensions]: src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt
