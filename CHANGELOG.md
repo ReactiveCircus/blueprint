@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 1.2.0
+
+_2019-08-28_
+
+* **blueprint-ui** - Added new extension for setting precomputed text on `AppCompatTextView`.
+* Refactor `blueprint-ui` internals.
+* Disable BuildConfig generation for Android library modules.
+* Stop exposing resources from transitive dependencies for Android library modules.
+* Update AGP, Gradle, RxJava 2, Coroutines, detekt, LeakCanary.
+* Improved documentation.
+
 ## Version 1.1.0
 
 _2019-08-20_
