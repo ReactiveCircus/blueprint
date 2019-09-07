@@ -7,7 +7,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.invoking
+import org.amshove.kluent.coInvoking
 import org.amshove.kluent.shouldEqual
 import org.amshove.kluent.shouldThrow
 import org.junit.Test
@@ -48,10 +48,8 @@ class CoroutinesGetNoteByUuidTest {
     fun `throw exception when note cannot be found from repository`() = runBlockingTest {
         coEvery { noteRepository.getNoteByUuid(any()) } returns null
 
-        invoking {
-            runBlockingTest {
-                getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params("uuid"))
-            }
+        coInvoking {
+            getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params("uuid"))
         } shouldThrow IllegalStateException::class
 
         coVerify { noteRepository.getNoteByUuid(any()) }

@@ -48,7 +48,7 @@ buildscript {
             timber             : '4.7.1',
             junit              : '4.12',
             mockk              : '1.9.3',
-            kluent             : '1.53'
+            kluent             : '1.54'
     ]
 
     repositories {
