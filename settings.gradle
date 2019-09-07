@@ -1,3 +1,4 @@
+rootProject.name = "Blueprint"
 include ":blueprint-interactor-common"
 include ":blueprint-interactor-coroutines"
 include ":blueprint-interactor-rx2"
