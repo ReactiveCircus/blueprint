@@ -7,10 +7,12 @@ import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
+import com.google.android.material.internal.CheckableImageButton
 import com.google.android.material.textfield.TextInputLayout
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import reactivecircus.blueprint.testing.RobotActions
+import com.google.android.material.R as MaterialR
 
 /**
  * Enter [text] into the edit text associated with [viewId].
@@ -52,6 +54,60 @@ fun RobotActions.hideTextInputPasswordToggleButton(@IdRes viewId: Int) {
 
             override fun getDescription(): String {
                 return "Password toggle button hidden."
+            }
+        })
+}
+
+/**
+ * Click on either the start of end icon on the [TextInputLayout] associated with [viewId].
+ */
+fun RobotActions.clickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boolean) {
+    Espresso.onView(ViewMatchers.withId(viewId))
+        .perform(object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+            }
+
+            override fun perform(uiController: UiController?, view: View?) {
+                val iconResId = if (endIcon) {
+                    MaterialR.id.text_input_end_icon
+                } else {
+                    MaterialR.id.text_input_start_icon
+                }
+                (view as? TextInputLayout)
+                    ?.findViewById<CheckableImageButton>(iconResId)
+                    ?.performClick()
+            }
+
+            override fun getDescription(): String {
+                return "${if (endIcon) "end" else "start"} icon clicked."
+            }
+        })
+}
+
+/**
+ * Long click on either the start of end icon on the [TextInputLayout] associated with [viewId].
+ */
+fun RobotActions.longClickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boolean) {
+    Espresso.onView(ViewMatchers.withId(viewId))
+        .perform(object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+            }
+
+            override fun perform(uiController: UiController?, view: View?) {
+                val iconResId = if (endIcon) {
+                    MaterialR.id.text_input_end_icon
+                } else {
+                    MaterialR.id.text_input_start_icon
+                }
+                (view as? TextInputLayout)
+                    ?.findViewById<CheckableImageButton>(iconResId)
+                    ?.performLongClick()
+            }
+
+            override fun getDescription(): String {
+                return "${if (endIcon) "end" else "start"} icon long clicked."
             }
         })
 }
