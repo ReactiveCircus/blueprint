@@ -1,38 +1,16 @@
 plugins {
+    id 'blueprint-plugin'
     id 'com.android.application'
     id 'kotlin-android'
 }
 
 android {
-    compileSdkVersion androidBuildConfig.compileSdk
-    buildToolsVersion androidBuildConfig.buildTools
-
     defaultConfig {
-        minSdkVersion androidBuildConfig.minSdk
-        targetSdkVersion androidBuildConfig.targetSdk
         applicationId 'reactivecircus.blueprint.demo.rx'
         versionCode 1
         versionName "1.0"
         testApplicationId 'reactivecircus.blueprint.demo.rx.test'
         testInstrumentationRunner "reactivecircus.blueprint.demo.RxScreenTestRunner"
-        resConfigs "en"
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-    }
-
-    dexOptions {
-        preDexLibraries !isCiBuild
-    }
-
-    packagingOptions {
-        exclude 'kotlin/**'
-        exclude '**/*.kotlin_metadata'
-        exclude 'META-INF/*.kotlin_module'
-        exclude 'META-INF/*.version'
     }
 
     lintOptions {
@@ -48,10 +26,6 @@ android {
             shrinkResources true
             proguardFiles('shrinker-rules.pro')
         }
-    }
-
-    testOptions {
-        animationsDisabled = true
     }
 }
 

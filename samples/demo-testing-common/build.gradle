@@ -1,20 +1,7 @@
 plugins {
+    id 'blueprint-plugin'
     id 'com.android.library'
     id 'kotlin-android'
-}
-
-android {
-    compileSdkVersion androidBuildConfig.compileSdk
-    buildToolsVersion androidBuildConfig.buildTools
-
-    defaultConfig {
-        minSdkVersion androidBuildConfig.minSdk
-        targetSdkVersion androidBuildConfig.targetSdk
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-    }
 }
 
 dependencies {
