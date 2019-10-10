@@ -66,28 +66,25 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_save -> {
-                if (noteEditText.text.toString().isNotBlank()) {
-                    when (params) {
-                        is EnterNoteParams.CreateNew -> {
-                            viewModel.createNote(noteEditText.text.toString().trim())
-                        }
-                        is EnterNoteParams.Update -> {
-                            val updatedNote = viewModel.noteLiveData.value?.note!!.copy(
-                                content = noteEditText.text.toString().trim(),
-                                timeLastUpdated = System.currentTimeMillis()
-                            )
-                            viewModel.updateNote(updatedNote)
-                        }
+        return if (item.itemId == R.id.action_save) {
+            if (noteEditText.text.toString().isNotBlank()) {
+                when (params) {
+                    is EnterNoteParams.CreateNew -> {
+                        viewModel.createNote(noteEditText.text.toString().trim())
+                    }
+                    is EnterNoteParams.Update -> {
+                        val updatedNote = viewModel.noteLiveData.value?.note!!.copy(
+                            content = noteEditText.text.toString().trim(),
+                            timeLastUpdated = System.currentTimeMillis()
+                        )
+                        viewModel.updateNote(updatedNote)
                     }
                 }
-
-                finish()
-
-                true
             }
-            else -> super.onOptionsItemSelected(item)
+
+            finish()
+            true
         }
+        else super.onOptionsItemSelected(item)
     }
 }
