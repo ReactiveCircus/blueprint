@@ -12,7 +12,7 @@ rootProject.ext.versions = [
                 annotation       : '1.1.0',
                 appCompat        : '1.1.0',
                 activity         : '1.1.0-beta01',
-                fragment         : '1.2.0-beta01',
+                fragment         : '1.2.0-beta02',
                 coordinatorLayout: '1.1.0-beta01',
                 recyclerView     : '1.1.0-beta05',
                 constraintLayout : '1.1.3',
