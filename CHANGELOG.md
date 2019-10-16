@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 1.3.0
+
+_2019-10-17_
+
+* New `RobotAction` for selecting a navigation item from the drawer.
+* New `RobotAction` for clicking `TextInputLayout`'s start / end icon.
+* New `RobotAction` for long clicking `TextInputLayout`'s start / end icon.
+* Migrate to custom Gradle plugin for managing build configs.
+* Update AGP, Gradle, RxJava 2, Coroutines, AndroidX, MDC, kluent, detekt.
+* Improve samples.
+
 ## Version 1.2.0
 
 _2019-08-28_
@@ -9,23 +20,23 @@ _2019-08-28_
 * Disable BuildConfig generation for Android library modules.
 * Stop exposing resources from transitive dependencies for Android library modules.
 * Update AGP, Gradle, RxJava 2, Coroutines, detekt, LeakCanary.
-* Improved documentation.
+* Improve documentation.
 
 ## Version 1.1.0
 
 _2019-08-20_
 
-* Added a new `RobotAction` for clicking on the action button on the currently displayed snackbar.
+* New `RobotAction` for clicking on the action button on the currently displayed snackbar.
 * Refactor / simplify `blueprint-testing-robot` internals.
 * Update RxJava 3 to RC2 - this is a breaking change as RxJava 3 base package now has `rxjava3`.
 * Update AGP, AndroidX, Coroutines, detekt.
-* Improved documentation.
+* Improve documentation.
 
 ## Version 1.0.1
 
 _2019-08-02_
 
-Fixed a publishing issue. All artifacts should now be available on Maven Central.
+Fix a publishing issue. All artifacts should now be available on Maven Central.
 
 ## Version 1.0.0
 
