@@ -29,7 +29,7 @@ rootProject.ext.versions = [
                 ],
                 espresso         : '3.3.0-alpha02'
         ],
-        material           : '1.1.0-beta01',
+        material           : '1.2.0-alpha01',
         rxJava2            : '2.2.13',
         rxJava3            : '3.0.0-RC4',
         rxKotlin           : '2.3.0',
