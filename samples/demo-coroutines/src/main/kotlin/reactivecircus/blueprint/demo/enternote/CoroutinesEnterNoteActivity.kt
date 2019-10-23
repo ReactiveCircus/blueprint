@@ -84,7 +84,8 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
 
             finish()
             true
+        } else {
+            super.onOptionsItemSelected(item)
         }
-        else super.onOptionsItemSelected(item)
     }
 }
