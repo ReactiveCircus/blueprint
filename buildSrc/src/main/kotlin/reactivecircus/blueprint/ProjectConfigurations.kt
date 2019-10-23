@@ -17,11 +17,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
  * Note that classpath dependencies still need to be defined in the `buildscript` block in the top-level build.gradle file.
  */
 fun Project.configureRootProject() {
-    // apply detekt plugin to all sub-projects
-    subprojects {
-        it.applyDetektConfigs()
-    }
-
     // register task for cleaning the build directory in the root project
     tasks.register("clean", Delete::class.java) {
         delete(rootProject.buildDir)
