@@ -1,6 +1,9 @@
 # Blueprint
 
-[![CircleCI](https://circleci.com/gh/ReactiveCircus/blueprint.svg?style=svg)](https://circleci.com/gh/ReactiveCircus/blueprint) [![Android API](https://img.shields.io/badge/API-21%2B-blue.svg?label=API&maxAge=300)](https://www.android.com/history/) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![CircleCI](https://circleci.com/gh/ReactiveCircus/blueprint.svg?style=svg)](https://circleci.com/gh/ReactiveCircus/blueprint)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.reactivecircus.blueprint/blueprint-ui/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.reactivecircus.blueprint/blueprint-ui)
+[![Android API](https://img.shields.io/badge/API-21%2B-blue.svg?label=API&maxAge=300)](https://www.android.com/history/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Architectural frameworks and toolkits for bootstrapping modern Android codebases, written in **Kotlin**.
 
