@@ -35,3 +35,5 @@ potential-bugs:
 
 style:
   active: true
+  UnnecessaryAbstractClass:
+    active: false

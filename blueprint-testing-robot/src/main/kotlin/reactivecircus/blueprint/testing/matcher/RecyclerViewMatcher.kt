@@ -1,5 +1,3 @@
-@file:Suppress("ReturnCount")
-
 package reactivecircus.blueprint.testing.matcher
 
 import android.content.res.Resources
@@ -44,7 +42,8 @@ class RecyclerViewMatcher(private val recyclerViewId: Int) {
                 description.appendText("with id: $idDescription")
             }
 
-            public override fun matchesSafely(view: View): Boolean {
+            @Suppress("ReturnCount")
+            override fun matchesSafely(view: View): Boolean {
                 resources = view.resources
 
                 // only try to match views which are within descendant of RecyclerView

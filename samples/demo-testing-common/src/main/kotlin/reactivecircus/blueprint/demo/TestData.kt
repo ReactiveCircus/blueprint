@@ -1,9 +1,8 @@
-@file:Suppress("MagicNumber")
-
 package reactivecircus.blueprint.demo
 
 import reactivecircus.blueprint.demo.domain.model.Note
 
+@Suppress("MagicNumber")
 val testNotes: List<Note> by lazy {
     val timeCreated = System.currentTimeMillis()
     val timeUpdated = System.currentTimeMillis() + 10

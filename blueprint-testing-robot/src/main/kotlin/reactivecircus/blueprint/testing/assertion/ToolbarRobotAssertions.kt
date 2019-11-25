@@ -71,7 +71,7 @@ fun RobotAssertions.toolbarHasSubtitle(@StringRes subtitleTextResId: Int) {
  */
 private fun withToolbarTitle(textMatcher: Matcher<String>): Matcher<Any> {
     return object : BoundedMatcher<Any, Toolbar>(Toolbar::class.java) {
-        public override fun matchesSafely(toolbar: Toolbar): Boolean {
+        override fun matchesSafely(toolbar: Toolbar): Boolean {
             return textMatcher.matches(toolbar.title.toString())
         }
 
@@ -87,7 +87,7 @@ private fun withToolbarTitle(textMatcher: Matcher<String>): Matcher<Any> {
  */
 private fun withToolbarSubtitle(textMatcher: Matcher<CharSequence>): Matcher<Any> {
     return object : BoundedMatcher<Any, Toolbar>(Toolbar::class.java) {
-        public override fun matchesSafely(toolbar: Toolbar): Boolean {
+        override fun matchesSafely(toolbar: Toolbar): Boolean {
             return textMatcher.matches(toolbar.subtitle.toString())
         }
 

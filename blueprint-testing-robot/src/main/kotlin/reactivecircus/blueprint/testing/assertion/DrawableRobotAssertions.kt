@@ -1,5 +1,3 @@
-@file:Suppress("ReturnCount")
-
 package reactivecircus.blueprint.testing.assertion
 
 import android.annotation.SuppressLint
@@ -78,6 +76,7 @@ private class DrawableMatcher(
     }
 
     @SuppressLint("NewApi")
+    @Suppress("ReturnCount", "ComplexMethod")
     override fun matchesSafely(target: View): Boolean {
         if (expectedId < 0) {
             return false
