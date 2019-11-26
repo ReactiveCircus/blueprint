@@ -3,7 +3,7 @@ rootProject.ext.versions = [
         mavenPublishPlugin : '0.9.0-SNAPSHOT',
         kotlin             : '1.3.60',
         detekt             : '1.2.0',
-        leakCanary         : '2.0-beta-4',
+        leakCanary         : '2.0-beta-5',
         kotlinx            : [
                 coroutines: '1.3.2',
         ],
