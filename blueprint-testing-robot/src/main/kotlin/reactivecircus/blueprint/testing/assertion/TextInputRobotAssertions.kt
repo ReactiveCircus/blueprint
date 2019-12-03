@@ -43,7 +43,7 @@ fun RobotAssertions.textInputLayoutHasNoError(@IdRes viewId: Int) {
 private fun noTextInputLayoutError(): Matcher<View> {
     return object : TypeSafeMatcher<View>() {
         override fun matchesSafely(view: View): Boolean {
-            return view is TextInputLayout && !view.isErrorEnabled
+            return view is TextInputLayout && view.error == null
         }
 
         override fun describeTo(description: Description) {
