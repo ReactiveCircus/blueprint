@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 1.3.1
+
+_2019-12-03_
+
+* Fix `RobotAssertions.textInputLayoutHasNoError` which wasn't properly checking whether error message is empty.
+* Update Kotlin, AGP, Gradle, RxJava 2, LeakCanary, AndroidX, MDC, kluent, detekt.
+
 ## Version 1.3.0
 
 _2019-10-17_
