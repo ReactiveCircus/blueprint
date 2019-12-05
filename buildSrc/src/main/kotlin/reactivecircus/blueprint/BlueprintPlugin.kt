@@ -52,7 +52,6 @@ class BlueprintPlugin : Plugin<Project> {
                     }
                     is AppPlugin -> {
                         project.appExtension.configureCommonAndroidOptions()
-                        project.appExtension.configureAndroidApplicationOptions()
                     }
                 }
             }
