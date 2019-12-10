@@ -2,6 +2,7 @@ package reactivecircus.blueprint.ui.extension
 
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -46,10 +47,23 @@ fun Activity.hideStatusBar() {
 }
 
 /**
- * Sets status bar color on the activity.
+ * Sets status bar color on the activity and optionally draws the status bar system ui in light or dark mode.
+ * @param colorRes resource ID of the color to be set to the status bar.
+ * @param lightBackground whether to draw the status bar such that.
+ * it is compatible with a light status bar background.
  */
-fun Activity.setStatusBarColor(@ColorRes colorRes: Int) {
+fun Activity.setStatusBarColor(
+    @ColorRes colorRes: Int,
+    lightBackground: Boolean = false
+) {
     window.statusBarColor = ContextCompat.getColor(this, colorRes)
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        window.decorView.systemUiVisibility = if (lightBackground) {
+            View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        } else {
+            0
+        }
+    }
 }
 
 /**
