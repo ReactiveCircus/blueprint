@@ -36,9 +36,9 @@ fun Activity.showStatusBar()
 fun Activity.hideStatusBar()
 
 /**
- * Sets status bar color on the activity.
+ * Sets status bar color on the activity and optionally draws the status bar system ui in light or dark mode.
  */
-fun Activity.setStatusBarColor(@ColorRes colorRes: Int)
+fun Activity.setStatusBarColor(@ColorRes colorRes: Int, lightBackground: Boolean = false)
 
 /**
  * Returns screen size of the activity.
