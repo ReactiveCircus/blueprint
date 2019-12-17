@@ -45,9 +45,7 @@ class CoroutinesEnterNoteViewModel(
 
     fun updateNote(updatedNote: Note) {
         viewModelScope.launch {
-            viewModelScope.launch {
-                updateNote.execute(CoroutinesUpdateNote.Params(updatedNote))
-            }
+            updateNote.execute(CoroutinesUpdateNote.Params(updatedNote))
         }
     }
 }
