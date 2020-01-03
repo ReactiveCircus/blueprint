@@ -35,7 +35,7 @@ rootProject.ext.versions = [
         rxKotlin           : '2.3.0',
         rxAndroid          : '2.1.1',
         timber             : '4.7.1',
-        junit              : '4.12',
+        junit              : '4.13',
         mockk              : '1.9.3',
         kluent             : '1.58'
 ]
