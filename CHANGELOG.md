@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.4.0
+
+_2020-01-19_
+
+* Breaking change: **blueprint-threading-coroutines** has been renamed to **blueprint-async-coroutines**.
+* Breaking change: **blueprint-threading-rx2** has been renamed to **blueprint-async-rx2**.
+* Breaking change: **blueprint-threading-rx3** has been renamed to **blueprint-async-rx3**.
+* Update Kotlin, AGP, Gradle, RxJava 2, RxJava 3, LeakCanary, AndroidX, MDC, JUnit, detekt.
+
 ## Version 1.3.1
 
 _2019-12-03_
