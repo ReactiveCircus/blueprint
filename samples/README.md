@@ -16,7 +16,7 @@ Since the 2 demo apps have identical functionality, we are able to share a lot o
 This [app module][demo-coroutines] uses the following Blueprint libraries:
 
 * [blueprint-interactor-coroutines][interactor-coroutines]
-* [blueprint-threading-coroutines][threading-coroutines]
+* [blueprint-async-coroutines][async-coroutines]
 * [blueprint-ui][ui]
 * [blueprint-testing-robot][testing-robot]
 
@@ -27,7 +27,7 @@ It also depends on the [demo-common][demo-common] and [demo-testing-common][demo
 This [app module][demo-rx] uses the following Blueprint libraries:
 
 * [blueprint-interactor-rx2][interactor-rx2]
-* [blueprint-threading-rx2][threading-rx2]
+* [blueprint-async-rx2][async-rx2]
 * [blueprint-ui][ui]
 * [blueprint-testing-robot][testing-robot]
 
@@ -63,8 +63,8 @@ Consequently the 2 different Interactor implementations expose different async p
 
 Another difference is the wrapper APIs for **encapsulated threading behavior**:
 
-* The **Coroutines-based** implementation uses `CoroutineDispatcherProvider` from the `blueprint-threading-coroutines` library.
-* The **RxJava-based** implementation uses `SchedulerProvider` from the `blueprint-threading-rx2` library.
+* The **Coroutines-based** implementation uses `CoroutineDispatcherProvider` from the `blueprint-async-coroutines` library.
+* The **RxJava-based** implementation uses `SchedulerProvider` from the `blueprint-async-rx2` library.
 
 They offer the same abstraction to help with DI and testing, but one interacts with Kotlin's `CoroutineDispatcher` API and the other one interacts with RxJava's `Scheduler` API.
 
@@ -87,9 +87,9 @@ For a better representation of a highly-modularized, production-quality app that
 [demo-common]: demo-common/
 [demo-testing-common]: demo-testing-common/
 [interactor-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-interactor-coroutines/
-[threading-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-coroutines/
+[async-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-coroutines/
 [interactor-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-interactor-rx2/
-[threading-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-rx2/
+[async-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-rx2/
 [ui]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/
 [testing-robot]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html

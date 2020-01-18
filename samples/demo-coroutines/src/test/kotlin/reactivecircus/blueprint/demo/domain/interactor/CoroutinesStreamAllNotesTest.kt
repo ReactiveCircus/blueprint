@@ -12,7 +12,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 @ExperimentalCoroutinesApi
 class CoroutinesStreamAllNotesTest {

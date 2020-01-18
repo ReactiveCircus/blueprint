@@ -31,7 +31,7 @@ android {
 
 dependencies {
     implementation project(':blueprint-interactor-coroutines')
-    implementation project(':blueprint-threading-coroutines')
+    implementation project(':blueprint-async-coroutines')
     implementation project(':blueprint-ui')
     implementation project(':demo-common')
 

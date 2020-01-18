@@ -94,7 +94,7 @@ streamAllNotes.buildFlow(CoroutinesStreamAllNotes.Params(CoroutinesStreamAllNote
 
 The `CoroutineDispatcherProvider` from the examples above is responsible encapsulating the threading behavior with a wrapper API.
 
-This class from the [blueprint-threading-coroutines][threading-coroutines] artifact has 3 properties, representing the common groups of threading use cases in an app:
+This class from the [blueprint-async-coroutines][async-coroutines] artifact has 3 properties, representing the common groups of threading use cases in an app:
 
 * `io: CoroutineDispatcher` - Dispatcher for IO-bound work
 * `computation: CoroutineDispatcher` - Dispatcher for computational work
@@ -186,7 +186,7 @@ To run UI (on-device) tests:
 
 [demo-testing-common]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-testing-common/
 [interactor-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-interactor-coroutines/
-[threading-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-coroutines/
+[async-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-coroutines/
 [sample-interactor-test]: src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/CoroutinesStreamAllNotesTest.kt
 [ui]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/
 [testing-robot]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot/

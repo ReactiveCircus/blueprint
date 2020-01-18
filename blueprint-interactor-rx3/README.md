@@ -48,7 +48,7 @@ disposable += fetchUsers.buildSingle(EmptyParams)
     )
 ```
 
-Note that the `SchedulerProvider` in the constructor of the Interactor comes from the [blueprint-threading-rx3][threading-rx3] artifact, which encapsulates the threading behavior with a wrapper API.
+Note that the `SchedulerProvider` in the constructor of the Interactor comes from the [blueprint-async-rx3][async-rx3] artifact, which encapsulates the threading behavior with a wrapper API.
 
 Now let's implement another Interactor for updating a user profile. This interactor expects no result and we just need to know the whether it has been completed successfully. So our Interactor should extend from `CompletableInteractor`:
 
@@ -119,5 +119,5 @@ disposable += streamUsers
 Please check the [Blueprint RxJava Demo app][demo-rx] for more examples of writing and testing Interactors. 
 
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-[threading-rx3]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-rx3/
+[async-rx3]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-rx3/
 [demo-rx]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-rx/

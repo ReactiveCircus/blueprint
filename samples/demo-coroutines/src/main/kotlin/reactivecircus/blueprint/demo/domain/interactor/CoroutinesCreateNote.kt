@@ -5,7 +5,7 @@ import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.interactor.InteractorParams
 import reactivecircus.blueprint.interactor.coroutines.SuspendingInteractor
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 class CoroutinesCreateNote(
     private val noteRepository: CoroutinesNoteRepository,

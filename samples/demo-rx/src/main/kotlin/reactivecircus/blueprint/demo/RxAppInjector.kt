@@ -12,7 +12,7 @@ import reactivecircus.blueprint.demo.domain.interactor.RxUpdateNote
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
 import reactivecircus.blueprint.demo.enternote.RxEnterNoteViewModel
 import reactivecircus.blueprint.demo.noteslist.RxNotesListViewModel
-import reactivecircus.blueprint.threading.rx2.SchedulerProvider
+import reactivecircus.blueprint.async.rx2.SchedulerProvider
 
 open class RxAppInjector {
 

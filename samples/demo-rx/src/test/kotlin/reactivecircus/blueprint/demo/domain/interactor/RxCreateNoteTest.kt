@@ -10,7 +10,7 @@ import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
-import reactivecircus.blueprint.threading.rx2.SchedulerProvider
+import reactivecircus.blueprint.async.rx2.SchedulerProvider
 
 class RxCreateNoteTest {
 

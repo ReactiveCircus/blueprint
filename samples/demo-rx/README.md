@@ -132,7 +132,7 @@ disposable += streamAllNotes
 
 The `SchedulerProvider` from the examples above is responsible encapsulating the threading behavior with a wrapper API.
 
-This class from the [blueprint-threading-rx2][threading-rx2] artifact has 3 properties, representing the common groups of threading use cases in an app:
+This class from the [blueprint-async-rx2][async-rx2] artifact has 3 properties, representing the common groups of threading use cases in an app:
 
 * `io: Scheduler` - Scheduler for IO-bound work
 * `computation: Scheduler` - Scheduler for computational work
@@ -223,7 +223,7 @@ To run UI (on-device) tests:
 
 [demo-testing-common]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-testing-common/
 [interactor-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-interactor-rx2/
-[threading-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-rx2/
+[async-rx2]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-rx2/
 [sample-interactor-test]: src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/RxStreamAllNotesTest.kt
 [ui]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/
 [testing-robot]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot/
