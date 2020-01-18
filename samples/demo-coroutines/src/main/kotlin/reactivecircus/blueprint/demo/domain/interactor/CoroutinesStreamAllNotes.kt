@@ -7,7 +7,7 @@ import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.interactor.InteractorParams
 import reactivecircus.blueprint.interactor.coroutines.FlowInteractor
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 class CoroutinesStreamAllNotes(
     private val noteRepository: CoroutinesNoteRepository,

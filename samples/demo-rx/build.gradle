@@ -31,7 +31,7 @@ android {
 
 dependencies {
     implementation project(':blueprint-interactor-rx2')
-    implementation project(':blueprint-threading-rx2')
+    implementation project(':blueprint-async-rx2')
     implementation project(':blueprint-ui')
     implementation project(':demo-common')
 

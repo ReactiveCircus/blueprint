@@ -13,7 +13,7 @@ import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteViewModel
 import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesListViewModel
-import reactivecircus.blueprint.threading.coroutines.CoroutineDispatcherProvider
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 @FlowPreview
 @ExperimentalCoroutinesApi

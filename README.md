@@ -31,8 +31,8 @@ If you use **Kotlin Coroutines and Flow**:
 // Building Interactors based on Kotlin Coroutines and Flow
 implementation "io.github.reactivecircus.blueprint:blueprint-interactor-coroutines:${blueprint_version}"
 
-// Wrapper API for threading with Kotlin CoroutineDispatcher
-implementation "io.github.reactivecircus.blueprint:blueprint-threading-coroutines:${blueprint_version}"
+// Wrapper API for doing async work with Kotlin CoroutineDispatcher
+implementation "io.github.reactivecircus.blueprint:blueprint-async-coroutines:${blueprint_version}"
 
 // Android UI extensions, utilities and widgets
 implementation "io.github.reactivecircus.blueprint:blueprint-ui:${blueprint_version}"
@@ -47,8 +47,8 @@ If you use **RxJava 2**:
 // Building Interactors based on RxJava 2
 implementation "io.github.reactivecircus.blueprint:blueprint-interactor-rx2:${blueprint_version}"
 
-// Wrapper API for threading with RxJava 2 Schedulers
-implementation "io.github.reactivecircus.blueprint:blueprint-threading-rx2:${blueprint_version}"
+// Wrapper API for doing async work with RxJava 2 Schedulers
+implementation "io.github.reactivecircus.blueprint:blueprint-async-rx2:${blueprint_version}"
 
 // Android UI extensions, utilities and widgets
 implementation "io.github.reactivecircus.blueprint:blueprint-ui:${blueprint_version}"
@@ -63,8 +63,8 @@ If you use **RxJava 3**:
 // Building Interactors based on RxJava 3
 implementation "io.github.reactivecircus.blueprint:blueprint-interactor-rx3:${blueprint_version}"
 
-// Wrapper API for threading with RxJava 3 Schedulers
-implementation "io.github.reactivecircus.blueprint:blueprint-threading-rx3:${blueprint_version}"
+// Wrapper API for doing async work with RxJava 3 Schedulers
+implementation "io.github.reactivecircus.blueprint:blueprint-async-rx3:${blueprint_version}"
 
 // Android UI extensions, utilities and widgets
 implementation "io.github.reactivecircus.blueprint:blueprint-ui:${blueprint_version}"
@@ -92,11 +92,11 @@ This artifact provides 2 base classes for building Interactors (use case in Clea
 
 Please check [blueprint-interactor-coroutines][interactor-coroutines] for details.
 
-### Blueprint Threading Coroutines
+### Blueprint Async Coroutines
 
 This artifact provides a `CoroutineDispatcherProvider` API for encapsulating the threading behavior with Kotlin CoroutineDispatcher.
 
-Please check [blueprint-threading-coroutines][threading-coroutines] for details.
+Please check [blueprint-async-coroutines][async-coroutines] for details.
 
 ### Blueprint Interactor RxJava 2
 
@@ -108,11 +108,11 @@ This artifact provides 3 base classes for building Interactors (use case in Clea
 
 Please check [blueprint-interactor-rx2][interactor-rx2] for details.
 
-### Blueprint Threading RxJava 2
+### Blueprint Async RxJava 2
 
 This artifact provides a `SchedulerProvider` API for encapsulating the threading behavior with RxJava 2 Schedulers.
 
-Please check [blueprint-threading-rx2][threading-rx2] for details.
+Please check [blueprint-async-rx2][async-rx2] for details.
 
 ### Blueprint Interactor RxJava 3
 
@@ -124,11 +124,11 @@ This artifact provides 3 base classes for building Interactors (use case in Clea
 
 Please check [blueprint-interactor-rx3][interactor-rx3] for details.
 
-### Blueprint Threading RxJava 3
+### Blueprint Async RxJava 3
 
 This artifact provides a `SchedulerProvider` API for encapsulating the threading behavior with RxJava 3 Schedulers.
 
-Please check [blueprint-threading-rx3][threading-rx3] for details.
+Please check [blueprint-async-rx3][async-rx3] for details.
 
 ### Blueprint UI
 
@@ -164,11 +164,11 @@ limitations under the License.
 [snap]: https://oss.sonatype.org/content/repositories/snapshots/
 [samples]: samples/
 [interactor-coroutines]: blueprint-interactor-coroutines/
-[threading-coroutines]: blueprint-threading-coroutines/
+[async-coroutines]: blueprint-async-coroutines/
 [interactor-rx2]: blueprint-interactor-rx2/
-[threading-rx2]: blueprint-threading-rx2/
+[async-rx2]: blueprint-async-rx2/
 [interactor-rx3]: blueprint-interactor-rx3/
-[threading-rx3]: blueprint-threading-rx3/
+[async-rx3]: blueprint-async-rx3/
 [ui]: blueprint-ui/
 [testing-robot]: blueprint-testing-robot/
 [testing-robot-article]: https://academy.realm.io/posts/kau-jake-wharton-testing-robots/

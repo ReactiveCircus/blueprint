@@ -14,12 +14,12 @@ val testNotes: List<Note> by lazy {
             timeLastUpdated = timeUpdated
         ),
         Note(
-            content = "Wrapper API for threading with Kotlin CoroutineDispatcher",
+            content = "Wrapper API for doing async work with Kotlin CoroutineDispatcher",
             timeCreated = timeCreated - 10,
             timeLastUpdated = timeUpdated - 10
         ),
         Note(
-            content = "Wrapper API for threading with RxJava's Schedulers",
+            content = "Wrapper API for doing async work with RxJava's Schedulers",
             timeCreated = timeCreated - 20,
             timeLastUpdated = timeUpdated - 20
         ),

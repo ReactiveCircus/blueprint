@@ -41,7 +41,7 @@ viewModelScope.launch {
 }
 ```
 
-Note that the `CoroutineDispatcherProvider` in the constructor of the Interactor comes from the [blueprint-threading-coroutines][threading-coroutines] artifact, which encapsulates the threading behavior with a wrapper API.
+Note that the `CoroutineDispatcherProvider` in the constructor of the Interactor comes from the [blueprint-async-coroutines][async-coroutines] artifact, which encapsulates the threading behavior with a wrapper API.
 
 Now let's implement another Interactor for updating a user profile. This interactor expects no result and we just need to know the whether it has been completed successfully. So our Interactor should again extend from `SuspendingInteractor`:
 
@@ -105,5 +105,5 @@ streamUsers.buildFlow(EmptyParams)
 Please check the [Blueprint Coroutines Demo app][demo-coroutines] for more examples of writing and testing Interactors. 
 
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-[threading-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-threading-coroutines/
+[async-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-coroutines/
 [demo-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-coroutines/
