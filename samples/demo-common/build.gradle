@@ -12,11 +12,13 @@ androidExtensions {
 
 android {
     lintOptions {
-        disable 'IconDuplicates'
+        disable 'IconDuplicates', 'MissingClass'
     }
 }
 
 dependencies {
+    implementation project(':blueprint-ui')
+
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
 
