@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.observe
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import reactivecircus.blueprint.common.R
@@ -53,7 +54,7 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
             setNavigationOnClickListener { finish() }
         }
 
-        viewModel.noteLiveData.observe(this) { state ->
+        viewModel.noteLiveData.observe<State>(this) { state ->
             state.note?.run {
                 noteEditText.setText(this.content)
             }
