@@ -1,0 +1,14 @@
+public abstract class reactivecircus/blueprint/interactor/coroutines/FlowInteractor {
+	public fun <init> ()V
+	public final fun buildFlow (Lreactivecircus/blueprint/interactor/InteractorParams;)Lkotlinx/coroutines/flow/Flow;
+	protected abstract fun createFlow (Lreactivecircus/blueprint/interactor/InteractorParams;)Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getDispatcher ()Lkotlinx/coroutines/CoroutineDispatcher;
+}
+
+public abstract class reactivecircus/blueprint/interactor/coroutines/SuspendingInteractor {
+	public fun <init> ()V
+	protected abstract fun doWork (Lreactivecircus/blueprint/interactor/InteractorParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun execute (Lreactivecircus/blueprint/interactor/InteractorParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getDispatcher ()Lkotlinx/coroutines/CoroutineDispatcher;
+}
+

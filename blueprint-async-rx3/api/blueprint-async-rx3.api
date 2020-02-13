@@ -1,0 +1,7 @@
+public final class reactivecircus/blueprint/async/rx3/SchedulerProvider {
+	public fun <init> (Lio/reactivex/rxjava3/core/Scheduler;Lio/reactivex/rxjava3/core/Scheduler;Lio/reactivex/rxjava3/core/Scheduler;)V
+	public final fun getComputation ()Lio/reactivex/rxjava3/core/Scheduler;
+	public final fun getIo ()Lio/reactivex/rxjava3/core/Scheduler;
+	public final fun getUi ()Lio/reactivex/rxjava3/core/Scheduler;
+}
+

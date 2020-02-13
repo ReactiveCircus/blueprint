@@ -1,0 +1,7 @@
+public final class reactivecircus/blueprint/async/coroutines/CoroutineDispatcherProvider {
+	public fun <init> (Lkotlinx/coroutines/CoroutineDispatcher;Lkotlinx/coroutines/CoroutineDispatcher;Lkotlinx/coroutines/CoroutineDispatcher;)V
+	public final fun getComputation ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public final fun getIo ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public final fun getUi ()Lkotlinx/coroutines/CoroutineDispatcher;
+}
+
