@@ -1,0 +1,19 @@
+public abstract class reactivecircus/blueprint/interactor/rx3/CompletableInteractor {
+	public fun <init> (Lio/reactivex/rxjava3/core/Scheduler;Lio/reactivex/rxjava3/core/Scheduler;)V
+	public final fun buildCompletable (Lreactivecircus/blueprint/interactor/InteractorParams;)Lio/reactivex/rxjava3/core/Completable;
+	protected abstract fun createInteractor (Lreactivecircus/blueprint/interactor/InteractorParams;)Lio/reactivex/rxjava3/core/Completable;
+}
+
+public abstract class reactivecircus/blueprint/interactor/rx3/ObservableInteractor {
+	public fun <init> (Lio/reactivex/rxjava3/core/Scheduler;Lio/reactivex/rxjava3/core/Scheduler;)V
+	public final fun buildObservable (Lreactivecircus/blueprint/interactor/InteractorParams;)Lio/reactivex/rxjava3/core/Observable;
+	protected abstract fun createInteractor (Lreactivecircus/blueprint/interactor/InteractorParams;)Lio/reactivex/rxjava3/core/Observable;
+}
+
+public abstract class reactivecircus/blueprint/interactor/rx3/SingleInteractor {
+	public fun <init> (Lio/reactivex/rxjava3/core/Scheduler;Lio/reactivex/rxjava3/core/Scheduler;)V
+	public final fun buildSingle (Lreactivecircus/blueprint/interactor/InteractorParams;Z)Lio/reactivex/rxjava3/core/Single;
+	public static synthetic fun buildSingle$default (Lreactivecircus/blueprint/interactor/rx3/SingleInteractor;Lreactivecircus/blueprint/interactor/InteractorParams;ZILjava/lang/Object;)Lio/reactivex/rxjava3/core/Single;
+	protected abstract fun createInteractor (Lreactivecircus/blueprint/interactor/InteractorParams;)Lio/reactivex/rxjava3/core/Single;
+}
+

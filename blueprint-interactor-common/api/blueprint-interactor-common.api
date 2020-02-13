@@ -1,0 +1,7 @@
+public final class reactivecircus/blueprint/interactor/EmptyParams : reactivecircus/blueprint/interactor/InteractorParams {
+	public static final field INSTANCE Lreactivecircus/blueprint/interactor/EmptyParams;
+}
+
+public abstract interface class reactivecircus/blueprint/interactor/InteractorParams {
+}
+
