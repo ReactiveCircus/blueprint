@@ -5,11 +5,13 @@ buildscript {
         mavenCentral()
         google()
         gradlePluginPortal()
+        maven { url "https://kotlin.bintray.com/kotlinx" }
     }
 
     dependencies {
         classpath "com.android.tools.build:gradle:${versions.androidGradlePlugin}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}"
+        classpath "org.jetbrains.kotlinx:binary-compatibility-validator:${versions.binaryCompatibilityValidator}"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.detekt}"
         classpath "com.vanniktech:gradle-maven-publish-plugin:${versions.mavenPublishPlugin}"
     }
@@ -17,6 +19,12 @@ buildscript {
 
 plugins {
     id 'blueprint-plugin'
+}
+
+apply plugin: 'binary-compatibility-validator'
+
+apiValidation {
+    ignoredProjects += ["demo-common", "demo-coroutines", "demo-rx", "demo-testing-common"]
 }
 
 subprojects {
