@@ -1,9 +1,9 @@
 package reactivecircus.blueprint.demo.data.repository
 
-import io.reactivex.Completable
-import io.reactivex.Maybe
-import io.reactivex.Observable
-import io.reactivex.processors.BehaviorProcessor
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Maybe
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.processors.BehaviorProcessor
 import reactivecircus.blueprint.demo.data.cache.NoteCache
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository

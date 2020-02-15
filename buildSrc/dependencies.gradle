@@ -32,10 +32,10 @@ rootProject.ext.versions = [
         material           : '1.2.0-alpha04',
         rxJava2            : '2.2.17',
         rxJava3            : '3.0.0',
-        rxKotlin           : '2.3.0',
-        rxAndroid          : '2.1.1',
+        rxKotlin3          : '3.0.0-RC1',
+        rxAndroid3         : '3.0.0',
         timber             : '4.7.1',
         junit              : '4.13',
         mockk              : '1.9.3',
-        kluent             : '1.58'
+        kluent             : '1.58',
 ]

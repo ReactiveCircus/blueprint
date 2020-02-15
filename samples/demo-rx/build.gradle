@@ -30,8 +30,8 @@ android {
 }
 
 dependencies {
-    implementation project(':blueprint-interactor-rx2')
-    implementation project(':blueprint-async-rx2')
+    implementation project(':blueprint-interactor-rx3')
+    implementation project(':blueprint-async-rx3')
     implementation project(':blueprint-ui')
     implementation project(':demo-common')
 
@@ -59,9 +59,9 @@ dependencies {
     implementation "com.jakewharton.timber:timber:${versions.timber}"
 
     // rx
-    implementation "io.reactivex.rxjava2:rxjava:${versions.rxJava2}"
-    implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}"
-    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}"
+    implementation "io.reactivex.rxjava3:rxjava:${versions.rxJava3}"
+    implementation "io.reactivex.rxjava3:rxkotlin:${versions.rxKotlin3}"
+    implementation "io.reactivex.rxjava3:rxandroid:${versions.rxAndroid3}"
 
     // Enable LeakCanary for debug builds
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"

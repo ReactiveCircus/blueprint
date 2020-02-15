@@ -1,12 +1,12 @@
 package reactivecircus.blueprint.demo.domain.interactor
 
-import io.reactivex.Maybe
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Maybe
+import io.reactivex.rxjava3.core.Single
+import reactivecircus.blueprint.async.rx3.SchedulerProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
 import reactivecircus.blueprint.interactor.InteractorParams
-import reactivecircus.blueprint.interactor.rx2.SingleInteractor
-import reactivecircus.blueprint.async.rx2.SchedulerProvider
+import reactivecircus.blueprint.interactor.rx3.SingleInteractor
 
 class RxGetNoteByUuid(
     private val noteRepository: RxNoteRepository,
