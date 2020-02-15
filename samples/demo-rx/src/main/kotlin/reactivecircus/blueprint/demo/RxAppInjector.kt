@@ -1,7 +1,8 @@
 package reactivecircus.blueprint.demo
 
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+import reactivecircus.blueprint.async.rx3.SchedulerProvider
 import reactivecircus.blueprint.demo.data.cache.InMemoryNoteCache
 import reactivecircus.blueprint.demo.data.cache.NoteCache
 import reactivecircus.blueprint.demo.data.repository.RxInMemoryNoteRepository
@@ -12,7 +13,6 @@ import reactivecircus.blueprint.demo.domain.interactor.RxUpdateNote
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
 import reactivecircus.blueprint.demo.enternote.RxEnterNoteViewModel
 import reactivecircus.blueprint.demo.noteslist.RxNotesListViewModel
-import reactivecircus.blueprint.async.rx2.SchedulerProvider
 
 open class RxAppInjector {
 

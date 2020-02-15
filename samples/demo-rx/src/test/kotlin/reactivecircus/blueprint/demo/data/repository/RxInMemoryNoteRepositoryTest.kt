@@ -38,7 +38,7 @@ class RxInMemoryNoteRepositoryTest {
         verifyAll { noteCache.allNotes() }
 
         testObserver.assertValue(dummyNotes)
-            .assertNotTerminated()
+            .assertNotComplete()
     }
 
     @Test
@@ -50,7 +50,7 @@ class RxInMemoryNoteRepositoryTest {
         verifyAll { noteCache.findNote(any()) }
 
         testObserver.assertValue(dummyNotes[0])
-            .assertTerminated()
+            .assertComplete()
     }
 
     @Test
@@ -62,7 +62,7 @@ class RxInMemoryNoteRepositoryTest {
         verifyAll { noteCache.findNote(any()) }
 
         testObserver.assertNoValues()
-            .assertTerminated()
+            .assertComplete()
     }
 
     @Test
@@ -100,7 +100,7 @@ class RxInMemoryNoteRepositoryTest {
         verify(exactly = 1) { noteCache.allNotes() }
 
         testObserver.assertValue(dummyNotes)
-            .assertNotTerminated()
+            .assertNotComplete()
     }
 
     @Test
@@ -130,6 +130,6 @@ class RxInMemoryNoteRepositoryTest {
         verify(exactly = 1) { noteCache.allNotes() }
 
         testObserver.assertValue(dummyNotes)
-            .assertNotTerminated()
+            .assertNotComplete()
     }
 }

@@ -3,12 +3,12 @@ package reactivecircus.blueprint.demo.domain.interactor
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.junit.Test
+import reactivecircus.blueprint.async.rx3.SchedulerProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
-import reactivecircus.blueprint.async.rx2.SchedulerProvider
 
 class RxStreamAllNotesTest {
 

@@ -1,11 +1,11 @@
 package reactivecircus.blueprint.demo.domain.interactor
 
-import io.reactivex.Completable
+import io.reactivex.rxjava3.core.Completable
+import reactivecircus.blueprint.async.rx3.SchedulerProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
 import reactivecircus.blueprint.interactor.InteractorParams
-import reactivecircus.blueprint.interactor.rx2.CompletableInteractor
-import reactivecircus.blueprint.async.rx2.SchedulerProvider
+import reactivecircus.blueprint.interactor.rx3.CompletableInteractor
 
 class RxUpdateNote(
     private val noteRepository: RxNoteRepository,

@@ -4,13 +4,13 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
-import io.reactivex.Completable
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.schedulers.Schedulers
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import reactivecircus.blueprint.async.rx3.SchedulerProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.RxNoteRepository
-import reactivecircus.blueprint.async.rx2.SchedulerProvider
 
 class RxCreateNoteTest {
 

@@ -2,9 +2,9 @@ package reactivecircus.blueprint.demo.noteslist
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxkotlin3.plusAssign
+import io.reactivex.rxkotlin3.subscribeBy
 import reactivecircus.blueprint.demo.domain.interactor.RxStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
 import timber.log.Timber
@@ -28,7 +28,7 @@ class RxNotesListViewModel(
                 RxStreamAllNotes.Params(RxStreamAllNotes.SortedBy.TIME_LAST_UPDATED)
             )
             .map<State> { State.Idle(it) }
-            .startWith(State.LoadingNotes)
+            .startWithItem(State.LoadingNotes)
             .subscribeBy(
                 onNext = {
                     notesLiveData.value = it

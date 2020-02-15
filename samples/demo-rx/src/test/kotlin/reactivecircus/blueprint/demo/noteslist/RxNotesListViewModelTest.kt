@@ -5,8 +5,8 @@ import androidx.lifecycle.Observer
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import io.reactivex.Observable
-import io.reactivex.subjects.PublishSubject
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.PublishSubject
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.RxStreamAllNotes
