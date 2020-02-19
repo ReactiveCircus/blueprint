@@ -1,0 +1,4 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+reactivecircus.blueprint.interactor
