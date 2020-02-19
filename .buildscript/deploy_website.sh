@@ -1,13 +1,18 @@
 #!/bin/bash
 
+set -e
+
 REPO="git@github.com:ReactiveCircus/blueprint.git"
+REMOTE_NAME="origin"
 DIR=temp-clone
 
-set -e
+if [ -n "${CI}" ]; then
+  REPO="https://github.com/${GITHUB_REPOSITORY}.git"
+fi
 
 # Clone project into a temp directory
 rm -rf $DIR
-git clone $REPO $DIR
+git clone "$REPO" $DIR
 cd $DIR
 
 # Generate API docs
@@ -30,8 +35,17 @@ mkdir -p docs/blueprint-ui && cp blueprint-ui/README.md docs/blueprint-ui/index.
 mkdir -p docs/blueprint-testing-robot && cp blueprint-testing-robot/README.md docs/blueprint-testing-robot/index.md
 cp CHANGELOG.md docs/changelog.md
 
+# If on CI, configure git remote with access token
+if [ -n "${CI}" ]; then
+  REMOTE_NAME="https://x-access-token:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+  git config --global user.name "${GITHUB_ACTOR}"
+  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+  git remote add deploy "$REMOTE_NAME"
+  git fetch deploy && git fetch deploy gh-pages:gh-pages
+fi
+
 # Build the website and deploy to GitHub Pages
-mkdocs gh-deploy
+mkdocs gh-deploy --remote-name "$REMOTE_NAME"
 
 # Delete temp directory
 cd ..
