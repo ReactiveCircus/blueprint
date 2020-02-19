@@ -1,0 +1,80 @@
+site_name: 'Blueprint'
+site_description: 'Architectural frameworks and toolkits for bootstrapping modern Android codebases'
+site_author: 'Yang Chen'
+site_url: 'https://reactivecircus.github.io/blueprint'
+remote_branch: gh-pages
+
+repo_name: 'blueprint'
+repo_url: 'https://github.com/ReactiveCircus/blueprint'
+
+copyright: 'Copyright &copy; 2019 Yang Chen'
+
+theme:
+  name: 'material'
+  language: 'en'
+  favicon: 'images/reactive_cirrus_logo.png'
+  logo: 'images/reactive_cirrus_logo.png'
+  palette:
+    primary: 'white'
+    accent: 'white'
+  font:
+    text: 'Fira Sans'
+    code: 'Fira Code'
+
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/ReactiveCircus/blueprint'
+
+nav:
+  - 'Overview': index.md
+  - 'Samples':
+    - 'Demos Overview': samples/index.md
+    - 'Coroutines Demo': samples/demo-coroutines/index.md
+    - 'RxJava Demo': samples/demo-rx/index.md
+    - 'Demo Shared Library': samples/demo-common/index.md
+    - 'Demo Testing Infrastructure': samples/demo-testing-common/index.md
+  - 'Interactor Coroutines': blueprint-interactor-coroutines/index.md
+  - 'Interactor RxJava 2': blueprint-interactor-rx2/index.md
+  - 'Interactor RxJava 3': blueprint-interactor-rx3/index.md
+  - 'Async Coroutines': blueprint-async-coroutines/index.md
+  - 'Async RxJava 2': blueprint-async-rx2/index.md
+  - 'Async RxJava 3': blueprint-async-rx3/index.md
+  - 'UI': blueprint-ui/index.md
+  - 'Testing Robot': blueprint-testing-robot/index.md
+  - 'Change Log': changelog.md
+  - 'API':
+      - 'blueprint-async-coroutines': api/blueprint-async-coroutines/index.md
+      - 'blueprint-async-rx2': api/blueprint-async-rx2/index.md
+      - 'blueprint-async-rx3': api/blueprint-async-rx3/index.md
+      - 'blueprint-interactor-common': api/blueprint-interactor-common/index.md
+      - 'blueprint-interactor-coroutines': api/blueprint-interactor-coroutines/index.md
+      - 'blueprint-interactor-rx2': api/blueprint-interactor-rx2/index.md
+      - 'blueprint-interactor-rx3': api/blueprint-interactor-rx3/index.md
+      - 'blueprint-testing-robot': api/blueprint-testing-robot/index.md
+      - 'blueprint-ui': api/blueprint-ui/index.md
+
+markdown_extensions:
+  - admonition
+  - smarty
+  - codehilite:
+      guess_lang: false
+      linenums: True
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - tables
+
+plugins:
+  - search
+  - minify:
+      minify_html: true

@@ -14,6 +14,7 @@ buildscript {
         classpath "org.jetbrains.kotlinx:binary-compatibility-validator:${versions.binaryCompatibilityValidator}"
         classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.detekt}"
         classpath "com.vanniktech:gradle-maven-publish-plugin:${versions.mavenPublishPlugin}"
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${versions.dokka}")
     }
 }
 

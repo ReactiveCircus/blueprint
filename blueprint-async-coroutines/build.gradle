@@ -2,6 +2,14 @@ plugins {
     id 'blueprint-plugin'
     id 'kotlin'
     id 'com.vanniktech.maven.publish'
+    id("org.jetbrains.dokka")
+}
+
+afterEvaluate { project ->
+    project.tasks.dokka {
+        outputDirectory = "$rootDir/docs/api"
+        outputFormat = 'gfm'
+    }
 }
 
 dependencies {
