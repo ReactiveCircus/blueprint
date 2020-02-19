@@ -6,7 +6,7 @@ This is simple note taking app for demonstrating how to use **Blueprint** in a c
 
 The demo app follows **[Clean Architecture][clean-architecture]**. The **Use Cases (also known as Interactors)** define and encapsulate **business rules** specific to the application.
 
-The [blueprint-interactor-rx2][interactor-rx2] artifact provides 3 base classes for building Interactors:
+The [blueprint-interactor-rx3][interactor-rx3] artifact provides 3 base classes for building Interactors:
 
 * `SingleInteractor` for single-shot (with result) tasks
 * `CompletableInteractor` for single-shot (no result) tasks
@@ -132,7 +132,7 @@ disposable += streamAllNotes
 
 The `SchedulerProvider` from the examples above is responsible encapsulating the threading behavior with a wrapper API.
 
-This class from the [blueprint-async-rx2][async-rx2] artifact has 3 properties, representing the common groups of threading use cases in an app:
+This class from the [blueprint-async-rx3][async-rx3] artifact has 3 properties, representing the common groups of threading use cases in an app:
 
 * `io: Scheduler` - Scheduler for IO-bound work
 * `computation: Scheduler` - Scheduler for computational work
@@ -222,8 +222,8 @@ To run UI (on-device) tests:
 
 
 [demo-testing-common]: ../demo-testing-common/
-[interactor-rx2]: ../../blueprint-interactor-rx2/
-[async-rx2]: ../../blueprint-async-rx2/
+[interactor-rx3]: ../../blueprint-interactor-rx3/
+[async-rx3]: ../../blueprint-async-rx3/
 [sample-interactor-test]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-rx/src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/RxStreamAllNotesTest.kt
 [ui]: ../../blueprint-ui/
 [testing-robot]: ../../blueprint-testing-robot/

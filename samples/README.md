@@ -5,7 +5,7 @@ These samples showcase how you may integrate **Blueprint** in your project by im
 There are 2 flavors of the demo app:
 
 * [demo-coroutines][demo-coroutines] - powered by **Kotlin Coroutines and Flow** and various Blueprint libraries.
-* [demo-rx][demo-rx] - powered by **RxJava 2** and various Blueprint libraries.
+* [demo-rx][demo-rx] - powered by **RxJava 3** and various Blueprint libraries.
 
 ## Dependencies
 
@@ -26,8 +26,8 @@ It also depends on the [demo-common][demo-common] and [demo-testing-common][demo
 
 This [app module][demo-rx] uses the following Blueprint libraries:
 
-* [blueprint-interactor-rx2][interactor-rx2]
-* [blueprint-async-rx2][async-rx2]
+* [blueprint-interactor-rx3][interactor-rx3]
+* [blueprint-async-rx3][async-rx3]
 * [blueprint-ui][ui]
 * [blueprint-testing-robot][testing-robot]
 
@@ -54,7 +54,7 @@ One of the key differences between the **Coroutines-based** and **RxJava-based**
 |                                     | Single-shot Task                            | Cold Stream            |
 |-------------------------------------|---------------------------------------------|------------------------|
 | **blueprint-interactor-coroutines** | `SuspendingInteractor`                      | `FlowInteractor`       |
-| **blueprint-interactor-rx2**        | `SingleInteractor`, `CompletableInteractor` | `ObservableInteractor` |
+| **blueprint-interactor-rx3**        | `SingleInteractor`, `CompletableInteractor` | `ObservableInteractor` |
 
 Consequently the 2 different Interactor implementations expose different async primitives to downstream:
 
@@ -64,7 +64,7 @@ Consequently the 2 different Interactor implementations expose different async p
 Another difference is the wrapper APIs for **encapsulated threading behavior**:
 
 * The **Coroutines-based** implementation uses `CoroutineDispatcherProvider` from the `blueprint-async-coroutines` library.
-* The **RxJava-based** implementation uses `SchedulerProvider` from the `blueprint-async-rx2` library.
+* The **RxJava-based** implementation uses `SchedulerProvider` from the `blueprint-async-rx3` library.
 
 They offer the same abstraction to help with DI and testing, but one interacts with Kotlin's `CoroutineDispatcher` API and the other one interacts with RxJava's `Scheduler` API.
 
@@ -88,8 +88,8 @@ For a better representation of a highly-modularized, production-quality app that
 [demo-testing-common]: demo-testing-common/
 [interactor-coroutines]: ../blueprint-interactor-coroutines/
 [async-coroutines]: ../blueprint-async-coroutines/
-[interactor-rx2]: ../blueprint-interactor-rx2/
-[async-rx2]: ../blueprint-async-rx2/
+[interactor-rx3]: ../blueprint-interactor-rx3/
+[async-rx3]: ../blueprint-async-rx3/
 [ui]: ../blueprint-ui/
 [testing-robot]: ../blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
