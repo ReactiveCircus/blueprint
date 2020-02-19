@@ -7,5 +7,5 @@ This is a library module shared by both [demo-coroutines][demo-coroutines] and [
 * Domain model
 * A couple of utils and extensions
 
-[demo-coroutines]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-coroutines/
-[demo-rx]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-rx/
+[demo-coroutines]: ../demo-coroutines/
+[demo-rx]: ../demo-rx/
