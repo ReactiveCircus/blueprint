@@ -110,4 +110,4 @@ The `IndeterminateProgressBar` hides the indeterminate drawable if animation is 
 <reactivecircus.blueprint.ui.widget.IndeterminateProgressBar/>
 ```
 
-[intent-extensions]: src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt
+[intent-extensions]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt

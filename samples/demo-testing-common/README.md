@@ -44,6 +44,6 @@ class EnterNoteRobotAssertions : RobotAssertions {
 
 If the built-in robot actions and robot assertions are not sufficient, you can roll your custom actions or assertions directly using [Espresso][espresso]. Have a look at the custom **Robot Action** example in [blueprint-testing-robot][custom-robot-action].
 
-[testing-robot]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot
-[custom-robot-action]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-testing-robot#building-custom-robot-actions-and-robot-assertions
+[testing-robot]: ../../blueprint-testing-robot/
+[custom-robot-action]: ../../blueprint-testing-robot#building-custom-robot-actions-and-robot-assertions
 [espresso]: https://developer.android.com/training/testing/espresso

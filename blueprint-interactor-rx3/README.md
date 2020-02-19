@@ -119,5 +119,5 @@ disposable += streamUsers
 Please check the [Blueprint RxJava Demo app][demo-rx] for more examples of writing and testing Interactors. 
 
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
-[async-rx3]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-async-rx3/
-[demo-rx]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-rx/
+[async-rx3]: ../blueprint-async-rx3/
+[demo-rx]: ../samples/demo-rx/
