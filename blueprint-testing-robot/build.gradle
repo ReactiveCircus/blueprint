@@ -33,7 +33,7 @@ dependencies {
     implementation "androidx.test.espresso:espresso-intents:${versions.androidx.espresso}"
 
     // Android tests
-    implementation("androidx.fragment:fragment-testing:${versions.androidx.fragment}") {
+    debugImplementation("androidx.fragment:fragment-testing:${versions.androidx.fragment}") {
         exclude group: 'androidx.test'
     }
     androidTestImplementation "androidx.test:monitor:${versions.androidx.test.monitor}"
