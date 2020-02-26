@@ -37,10 +37,10 @@ jobs:
       - *restore_gradle_cache
       - run:
           name: Assemble
-          command: ./gradlew assemble -x lintVitalRelease # TODO revert to `./gradlew assemble` once https://issuetracker.google.com/issues/147374439 is fixed
+          command: ./gradlew assemble
       - run:
           name: Run Checks (test, detekt and lint)
-          command: ./gradlew test detekt # TODO revert to `./gradlew check` once https://issuetracker.google.com/issues/147374439 is fixed
+          command: ./gradlew check
       - *save_gradle_cache
 
   publish_artifacts:
