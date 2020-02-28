@@ -1,0 +1,179 @@
+public final class reactivecircus/blueprint/testing/InstrumentationKt {
+	public static final fun currentActivity ()Landroid/app/Activity;
+}
+
+public final class reactivecircus/blueprint/testing/RepeatRule : org/junit/rules/TestRule {
+	public fun <init> (I)V
+	public fun apply (Lorg/junit/runners/model/Statement;Lorg/junit/runner/Description;)Lorg/junit/runners/model/Statement;
+}
+
+public abstract interface class reactivecircus/blueprint/testing/RobotActions {
+}
+
+public abstract interface class reactivecircus/blueprint/testing/RobotAssertions {
+}
+
+public abstract class reactivecircus/blueprint/testing/ScreenRobot {
+	public fun <init> (Lreactivecircus/blueprint/testing/RobotActions;Lreactivecircus/blueprint/testing/RobotAssertions;)V
+	public final fun check (Lkotlin/jvm/functions/Function1;)Lreactivecircus/blueprint/testing/RobotAssertions;
+	public final fun given (Lkotlin/jvm/functions/Function0;)V
+	public final fun perform (Lkotlin/jvm/functions/Function1;)Lreactivecircus/blueprint/testing/RobotActions;
+}
+
+public final class reactivecircus/blueprint/testing/ViewActionsKt {
+	public static final fun asViewAction (Ljava/lang/Object;J)V
+	public static synthetic fun asViewAction$default (Ljava/lang/Object;JILjava/lang/Object;)V
+	public static final fun scrollTo (I)V
+	public static final fun scrollTo (Ljava/lang/String;)V
+	public static final fun scrollToItemInRecyclerView (II)V
+}
+
+public final class reactivecircus/blueprint/testing/action/CheckableRobotActionsKt {
+	public static final fun clickRadioButton (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+	public static final fun selectCheckBox (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+}
+
+public final class reactivecircus/blueprint/testing/action/DialogRobotActionsKt {
+	public static final fun clickDialogButton1 ()V
+	public static final fun clickDialogButton2 ()V
+	public static final fun clickDialogButton3 ()V
+}
+
+public final class reactivecircus/blueprint/testing/action/DrawerRobotActionsKt {
+	public static final fun closeDrawer (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun openDrawer (Lreactivecircus/blueprint/testing/RobotActions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/action/GestureRobotActionsKt {
+	public static final fun clickView (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun longClickView (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun swipeDownOnView (I)V
+	public static final fun swipeLeftOnView (I)V
+	public static final fun swipeRightOnView (I)V
+	public static final fun swipeUpOnView (I)V
+}
+
+public final class reactivecircus/blueprint/testing/action/KeyboardRobotActionsKt {
+	public static final fun closeKeyboard (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun pressKeyboardActionButton (Lreactivecircus/blueprint/testing/RobotActions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/action/NavigationRobotActionsKt {
+	public static final fun clickNavigateUpButton (Lreactivecircus/blueprint/testing/RobotActions;)V
+	public static final fun interceptIntents (Lreactivecircus/blueprint/testing/RobotActions;)V
+	public static final fun pressBack (Lreactivecircus/blueprint/testing/RobotActions;)V
+	public static final fun selectBottomNavigationItem (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+	public static final fun selectNavigationItem (Lreactivecircus/blueprint/testing/RobotActions;II)V
+}
+
+public final class reactivecircus/blueprint/testing/action/RecyclerViewRobotActionsKt {
+	public static final fun clickRecyclerViewItem (Lreactivecircus/blueprint/testing/RobotActions;II)V
+}
+
+public final class reactivecircus/blueprint/testing/action/SnackbarRobotActionsKt {
+	public static final fun clickSnackbarActionButton (Lreactivecircus/blueprint/testing/RobotActions;)V
+}
+
+public final class reactivecircus/blueprint/testing/action/TextRobotActionsKt {
+	public static final fun clearTextInView (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun clickTextInputLayoutIcon (Lreactivecircus/blueprint/testing/RobotActions;IZ)V
+	public static final fun enterTextIntoView (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+	public static final fun hideTextInputPasswordToggleButton (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun longClickTextInputLayoutIcon (Lreactivecircus/blueprint/testing/RobotActions;IZ)V
+	public static final fun replaceTextInView (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/CheckableRobotAssertionsKt {
+	public static final fun radioButtonSelected (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
+	public static final fun radioGroupHasNoSelections (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun radioGroupHasSelections (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun radioGroupHasText (Lreactivecircus/blueprint/testing/RobotAssertions;I[Ljava/lang/String;)V
+	public static final fun viewChecked (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun viewNotChecked (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/DialogRobotAssertionsKt {
+	public static final fun dialogWithButton1Displayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun dialogWithButton2Displayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun dialogWithButton3Displayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun dialogWithTextDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun dialogWithTextDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/DrawableRobotAssertionsKt {
+	public static final fun backgroundDrawableDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun drawableDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun foregroundDrawableDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/DrawerRobotAssertionsKt {
+	public static final fun drawerClosed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun drawerOpened (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/KeyboardRobotAssertionsKt {
+	public static final fun keyboardInputTypeIsEmail (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/NavigationRobotAssertionsKt {
+	public static final fun bottomNavigationViewItemSelected (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun noActivityDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/RecyclerViewRobotAssertionsKt {
+	public static final fun recyclerViewHasSize (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun viewDisplayedInRecyclerView (Lreactivecircus/blueprint/testing/RobotAssertions;I[I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/SnackbarRobotAssertionsKt {
+	public static final fun snackBarDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/TextInputRobotAssertionsKt {
+	public static final fun textInputLayoutHasError (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun textInputLayoutHasError (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
+	public static final fun textInputLayoutHasNoError (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/TextRobotAssertionsKt {
+	public static final fun textDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
+	public static final fun textDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[Ljava/lang/String;)V
+	public static final fun textNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
+	public static final fun textNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[Ljava/lang/String;)V
+	public static final fun viewContainsText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
+	public static final fun viewHasHint (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun viewHasText (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun viewHasText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
+	public static final fun viewStartsWithText (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;I)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/ToolbarRobotAssertionsKt {
+	public static final fun toolbarHasSubtitle (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun toolbarHasSubtitle (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;)V
+	public static final fun toolbarHasTitle (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun toolbarHasTitle (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;)V
+}
+
+public final class reactivecircus/blueprint/testing/assertion/ViewRobotAssertionsKt {
+	public static final fun viewClickable (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun viewDisabled (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun viewDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
+	public static final fun viewEnabled (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun viewNotClickable (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
+	public static final fun viewNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
+}
+
+public final class reactivecircus/blueprint/testing/matcher/RecyclerViewMatcher {
+	public fun <init> (I)V
+	public final fun atPosition (I)Lorg/hamcrest/Matcher;
+	public final fun atPositionOnView (II)Lorg/hamcrest/Matcher;
+}
+
+public final class reactivecircus/blueprint/testing/matcher/RecyclerViewMatcherKt {
+	public static final fun withRecyclerView (I)Lreactivecircus/blueprint/testing/matcher/RecyclerViewMatcher;
+}
+
+public final class reactivecircus/blueprint/testing/matcher/StringMatchersKt {
+	public static final fun containsIgnoringCase (Ljava/lang/String;)Lorg/hamcrest/Matcher;
+}
+
