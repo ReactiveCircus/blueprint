@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 1.5.0
+
+_2020-03-08_
+
+* New `onRecyclerViewIdle(@IdRes recyclerViewId: Int)` for waiting until `RecyclerView has no more pending updates.
+* Fix `RecyclerViewItemCountAssertion`'s param type nullability.
+* Update Kotlin, AGP, Gradle, RxJava 2, RxJava 3, RxKotlin 3, RxAndroid 3, LeakCanary, AndroidX, MDC, detekt.
+
 ## Version 1.4.0
 
 _2020-01-19_
