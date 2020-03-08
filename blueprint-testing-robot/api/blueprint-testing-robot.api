@@ -23,6 +23,7 @@ public abstract class reactivecircus/blueprint/testing/ScreenRobot {
 public final class reactivecircus/blueprint/testing/ViewActionsKt {
 	public static final fun asViewAction (Ljava/lang/Object;J)V
 	public static synthetic fun asViewAction$default (Ljava/lang/Object;JILjava/lang/Object;)V
+	public static final fun onRecyclerViewIdle (I)V
 	public static final fun scrollTo (I)V
 	public static final fun scrollTo (Ljava/lang/String;)V
 	public static final fun scrollToItemInRecyclerView (II)V
