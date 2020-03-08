@@ -3,6 +3,7 @@ package reactivecircus.blueprint.demo.util
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import java.util.Calendar
+import java.util.Locale
 import java.util.TimeZone
 
 class DateTest {
@@ -17,6 +18,6 @@ class DateTest {
             timeZone = TimeZone.getDefault()
         }.time.toInstant().toEpochMilli()
 
-        timestamp.toFormattedDateString(pattern) shouldEqual "Mon 25 Jun at 8:30 AM"
+        timestamp.toFormattedDateString(pattern, Locale.ENGLISH) shouldEqual "Mon 25 Jun at 8:30 AM"
     }
 }
