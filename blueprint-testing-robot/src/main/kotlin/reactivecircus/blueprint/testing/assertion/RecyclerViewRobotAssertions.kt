@@ -67,13 +67,19 @@ fun RobotAssertions.viewDisplayedInRecyclerView(@IdRes recyclerViewId: Int, @IdR
  */
 private class RecyclerViewItemCountAssertion(private val expectedCount: Int) : ViewAssertion {
 
-    override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
+    override fun check(view: View?, noViewFoundException: NoMatchingViewException?) {
         if (noViewFoundException != null) {
             throw noViewFoundException
         }
+        if (view !is RecyclerView) {
+            throw IllegalStateException("The asserted view is not RecyclerView")
+        }
 
-        val recyclerView = view as RecyclerView
-        val adapter = recyclerView.adapter
+        if (view.adapter == null) {
+            throw IllegalStateException("No adapter is assigned to RecyclerView")
+        }
+
+        val adapter = view.adapter
         MatcherAssert.assertThat(adapter?.itemCount, CoreMatchers.equalTo(expectedCount))
     }
 }
