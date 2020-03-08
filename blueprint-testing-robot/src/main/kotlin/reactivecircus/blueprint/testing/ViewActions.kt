@@ -10,6 +10,8 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.core.AllOf
@@ -44,6 +46,24 @@ fun scrollTo(text: String) {
 fun scrollToItemInRecyclerView(@IdRes recyclerViewId: Int, itemIndex: Int) {
     Espresso.onView(AllOf.allOf(ViewMatchers.withId(recyclerViewId), ViewMatchers.isDisplayed()))
         .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(itemIndex))
+}
+
+private const val RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS = 10L
+
+/**
+ * Wait until the [RecyclerView] has no more pending updates.
+ */
+fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
+    Espresso.onIdle()
+
+    val recyclerView =
+        requireNotNull(currentActivity()).findViewById(recyclerViewId) as RecyclerView
+
+    while (recyclerView.hasPendingAdapterUpdates()) {
+        runBlocking {
+            delay(RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS)
+        }
+    }
 }
 
 private const val DEFAULT_VIEW_ACTION_DELAY_MILLIS = 200L
