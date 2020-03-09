@@ -2,9 +2,16 @@
 
 ## Version 1.5.0
 
+_2020-03-09_
+
+* New `clearToolbarScrollFlags(@IdRes toolbarId: Int)` for clearing any scrolling behavior on the `toolbar`.
+* Internal improvements on `blueprint-testing-robot`.
+
+## Version 1.5.0
+
 _2020-03-08_
 
-* New `onRecyclerViewIdle(@IdRes recyclerViewId: Int)` for waiting until `RecyclerView has no more pending updates.
+* New `onRecyclerViewIdle(@IdRes recyclerViewId: Int)` for waiting until `RecyclerView` has no more pending updates.
 * Fix `RecyclerViewItemCountAssertion`'s param type nullability.
 * Update Kotlin, AGP, Gradle, RxJava 2, RxJava 3, RxKotlin 3, RxAndroid 3, LeakCanary, AndroidX, MDC, detekt.
 
