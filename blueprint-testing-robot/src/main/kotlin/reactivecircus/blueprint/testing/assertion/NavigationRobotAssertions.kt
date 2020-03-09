@@ -14,11 +14,11 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.common.truth.Truth.assertThat
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.MatcherAssert
-import org.junit.Assert
 import reactivecircus.blueprint.testing.RobotAssertions
 import reactivecircus.blueprint.testing.currentActivity
 
@@ -52,9 +52,10 @@ inline fun <reified A : Activity> RobotAssertions.activityLaunched() {
  * Check if the fragment of type [F] with [tag] is displayed.
  */
 inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(tag: String) {
-    val fragment =
-        (currentActivity() as FragmentActivity).supportFragmentManager.findFragmentByTag(tag)
-    Assert.assertTrue(fragment != null && fragment.isVisible && fragment is F)
+    val fragment = (currentActivity() as FragmentActivity)
+        .supportFragmentManager.findFragmentByTag(tag)
+    assertThat(fragment != null && fragment.isVisible && fragment is F)
+        .isTrue()
 }
 
 /**
@@ -65,7 +66,8 @@ inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(@IdRes navHo
     val fragment = (currentActivity() as? FragmentActivity)?.supportFragmentManager
         ?.findFragmentById(navHostViewId)?.childFragmentManager?.primaryNavigationFragment
 
-    Assert.assertTrue(fragment != null && fragment.isVisible && fragment is F)
+    assertThat(fragment != null && fragment.isVisible && fragment is F)
+        .isTrue()
 }
 
 /**

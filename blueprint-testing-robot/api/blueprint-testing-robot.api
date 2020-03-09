@@ -23,6 +23,7 @@ public abstract class reactivecircus/blueprint/testing/ScreenRobot {
 public final class reactivecircus/blueprint/testing/ViewActionsKt {
 	public static final fun asViewAction (Ljava/lang/Object;J)V
 	public static synthetic fun asViewAction$default (Ljava/lang/Object;JILjava/lang/Object;)V
+	public static final fun clearToolbarScrollFlags (I)V
 	public static final fun onRecyclerViewIdle (I)V
 	public static final fun scrollTo (I)V
 	public static final fun scrollTo (Ljava/lang/String;)V
@@ -123,7 +124,6 @@ public final class reactivecircus/blueprint/testing/assertion/NavigationRobotAss
 
 public final class reactivecircus/blueprint/testing/assertion/RecyclerViewRobotAssertionsKt {
 	public static final fun recyclerViewHasSize (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
-	public static final fun viewDisplayedInRecyclerView (Lreactivecircus/blueprint/testing/RobotAssertions;I[I)V
 }
 
 public final class reactivecircus/blueprint/testing/assertion/SnackbarRobotAssertionsKt {

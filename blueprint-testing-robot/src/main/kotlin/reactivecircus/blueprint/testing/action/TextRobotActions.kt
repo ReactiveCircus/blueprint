@@ -48,8 +48,8 @@ fun RobotActions.hideTextInputPasswordToggleButton(@IdRes viewId: Int) {
                 )
             }
 
-            override fun perform(uiController: UiController?, view: View?) {
-                (view as? TextInputLayout)?.isEndIconVisible = false
+            override fun perform(uiController: UiController, view: View) {
+                (view as TextInputLayout).isEndIconVisible = false
             }
 
             override fun getDescription(): String {
@@ -68,15 +68,15 @@ fun RobotActions.clickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boolean) 
                 return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
             }
 
-            override fun perform(uiController: UiController?, view: View?) {
+            override fun perform(uiController: UiController, view: View) {
                 val iconResId = if (endIcon) {
                     MaterialR.id.text_input_end_icon
                 } else {
                     MaterialR.id.text_input_start_icon
                 }
-                (view as? TextInputLayout)
-                    ?.findViewById<CheckableImageButton>(iconResId)
-                    ?.performClick()
+                (view as TextInputLayout)
+                    .findViewById<CheckableImageButton>(iconResId)
+                    .performClick()
             }
 
             override fun getDescription(): String {
@@ -95,15 +95,15 @@ fun RobotActions.longClickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boole
                 return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
             }
 
-            override fun perform(uiController: UiController?, view: View?) {
+            override fun perform(uiController: UiController, view: View) {
                 val iconResId = if (endIcon) {
                     MaterialR.id.text_input_end_icon
                 } else {
                     MaterialR.id.text_input_start_icon
                 }
-                (view as? TextInputLayout)
-                    ?.findViewById<CheckableImageButton>(iconResId)
-                    ?.performLongClick()
+                (view as TextInputLayout)
+                    .findViewById<CheckableImageButton>(iconResId)
+                    .performLongClick()
             }
 
             override fun getDescription(): String {

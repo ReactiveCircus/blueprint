@@ -39,5 +39,6 @@ rootProject.ext.versions = [
         timber                      : '4.7.1',
         junit                       : '4.13',
         mockk                       : '1.9.3',
+        truth                       : '1.0',
         kluent                      : '1.58',
 ]

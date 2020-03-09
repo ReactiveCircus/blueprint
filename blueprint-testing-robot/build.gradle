@@ -30,6 +30,7 @@ dependencies {
     // Material components
     implementation "com.google.android.material:material:${versions.material}"
 
+    implementation "com.google.truth:truth:${versions.truth}"
     implementation "androidx.test:core-ktx:${versions.androidx.test.core}"
     implementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"
     implementation "androidx.test.espresso:espresso-contrib:${versions.androidx.espresso}"
