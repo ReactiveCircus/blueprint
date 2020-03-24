@@ -3,8 +3,8 @@ package reactivecircus.blueprint.demo.noteslist
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxkotlin3.plusAssign
-import io.reactivex.rxkotlin3.subscribeBy
+import io.reactivex.rxjava3.kotlin.plusAssign
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import reactivecircus.blueprint.demo.domain.interactor.RxStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
 import timber.log.Timber
