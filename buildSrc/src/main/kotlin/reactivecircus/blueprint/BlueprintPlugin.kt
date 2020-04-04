@@ -48,7 +48,7 @@ class BlueprintPlugin : Plugin<Project> {
                     }
                     is LibraryPlugin -> {
                         project.libraryExtension.configureCommonAndroidOptions()
-                        project.libraryExtension.configureAndroidLibraryOptions()
+                        project.libraryExtension.configureAndroidLibraryOptions(project)
                     }
                     is AppPlugin -> {
                         project.appExtension.configureCommonAndroidOptions()
