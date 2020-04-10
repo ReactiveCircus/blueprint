@@ -1,6 +1,12 @@
 # Change Log
 
-## Version 1.5.0
+## Version 1.7.1
+
+_2020-04-11_
+
+* Update Kotlin, AGP, RxJava 2, RxJava 3, RxKotlin 3, AndroidX, detekt.
+
+## Version 1.6.0
 
 _2020-03-09_
 
