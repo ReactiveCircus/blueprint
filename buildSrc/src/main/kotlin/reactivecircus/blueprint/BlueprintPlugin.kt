@@ -2,16 +2,17 @@
 
 package reactivecircus.blueprint
 
-import com.android.build.gradle.AppExtension
 import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
+import com.android.build.gradle.TestedExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaLibraryPlugin
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.JavaPluginConvention
+import org.gradle.kotlin.dsl.getByType
 
 /**
  * A plugin that provides baseline gradle configurations for all projects, including:
@@ -21,7 +22,7 @@ import org.gradle.api.plugins.JavaPluginConvention
  * - Kotlin JVM projects
  * - Java JVM projects
  *
- * Apply this plugin to the build.gradle file in all projects:
+ * Apply this plugin to the build.gradle.kts file in all projects:
  * ```
  * plugins {
  *     id 'blueprint-plugin'
@@ -31,14 +32,16 @@ import org.gradle.api.plugins.JavaPluginConvention
 class BlueprintPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.afterEvaluate {
-            project.configureForAllProjects()
+            configureForAllProjects()
 
-            if (project.isRoot) {
-                project.configureRootProject()
+            // apply configurations specific to root project
+            if (isRoot) {
+                configureRootProject()
             }
 
-            project.plugins.all { plugin ->
-                when (plugin) {
+            // apply baseline configurations based on plugins applied
+            plugins.all {
+                when (this) {
                     is JavaPlugin,
                     is JavaLibraryPlugin -> {
                         project.convention.getPlugin(JavaPluginConvention::class.java).apply {
@@ -47,11 +50,11 @@ class BlueprintPlugin : Plugin<Project> {
                         }
                     }
                     is LibraryPlugin -> {
-                        project.libraryExtension.configureCommonAndroidOptions()
-                        project.libraryExtension.configureAndroidLibraryOptions(project)
+                        extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
+                        extensions.getByType<LibraryExtension>().configureAndroidLibraryOptions(project)
                     }
                     is AppPlugin -> {
-                        project.appExtension.configureCommonAndroidOptions()
+                        extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
                     }
                 }
             }
@@ -60,5 +63,3 @@ class BlueprintPlugin : Plugin<Project> {
 }
 
 val Project.isRoot get() = this == this.rootProject
-val Project.appExtension: AppExtension get() = extensions.getByType(AppExtension::class.java)
-val Project.libraryExtension: LibraryExtension get() = extensions.getByType(LibraryExtension::class.java)

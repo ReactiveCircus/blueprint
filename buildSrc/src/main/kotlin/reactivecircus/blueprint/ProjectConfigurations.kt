@@ -1,7 +1,7 @@
 package reactivecircus.blueprint
 
-import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
+import com.android.build.gradle.TestedExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -9,14 +9,15 @@ import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinCompile
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompile
 import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
  * Configure root project.
- * Note that classpath dependencies still need to be defined in the `buildscript` block in the top-level build.gradle file.
+ * Note that classpath dependencies still need to be defined in the `buildscript` block in the top-level build.gradle.kts file.
  */
 fun Project.configureRootProject() {
     // register task for cleaning the build directory in the root project
@@ -28,7 +29,7 @@ fun Project.configureRootProject() {
 /**
  * Apply common configurations for all Android projects (Application and Library).
  */
-fun BaseExtension.configureCommonAndroidOptions() {
+fun TestedExtension.configureCommonAndroidOptions() {
     setCompileSdkVersion(androidSdk.compileSdk)
     buildToolsVersion(androidSdk.buildTools)
 
@@ -48,11 +49,9 @@ fun BaseExtension.configureCommonAndroidOptions() {
 
     testOptions.animationsDisabled = true
 
-    dexOptions.preDexLibraries = !isCiBuild
-
     compileOptions(Action {
-        it.sourceCompatibility = JavaVersion.VERSION_1_8
-        it.targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     })
 }
 
@@ -89,29 +88,28 @@ fun Project.configureForAllProjects() {
         jcenter()
     }
 
-    tasks.withType(JavaCompile::class.java).configureEach { task ->
-        task.sourceCompatibility = JavaVersion.VERSION_1_8.toString()
-        task.targetCompatibility = JavaVersion.VERSION_1_8.toString()
+    tasks.withType<JavaCompile>().configureEach {
+        sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+        targetCompatibility = JavaVersion.VERSION_1_8.toString()
     }
 
-    tasks.withType(KotlinJvmCompile::class.java).configureEach { task ->
-        task.kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    tasks.withType(KotlinCompile::class.java).configureEach { task ->
-        task.kotlinOptions {
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
             freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
         }
     }
 
-    tasks.withType(Test::class.java).configureEach { test ->
-        test.maxParallelForks = Runtime.getRuntime().availableProcessors() * 2
-        test.testLogging {
-            it.events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
+    tasks.withType<Test>().configureEach {
+        maxParallelForks = Runtime.getRuntime().availableProcessors() * 2
+        testLogging {
+            events(TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED)
         }
     }
 }
-
 
 private val Project.hasUnitTestSource: Boolean
     get() {
