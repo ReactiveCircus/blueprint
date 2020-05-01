@@ -33,7 +33,7 @@ rootProject.ext.versions = [
         ],
         material                    : '1.2.0-alpha06',
         rxJava2                     : '2.2.19',
-        rxJava3                     : '3.0.2',
+        rxJava3                     : '3.0.3',
         rxKotlin3                   : '3.0.0',
         rxAndroid3                  : '3.0.0',
         timber                      : '4.7.1',
