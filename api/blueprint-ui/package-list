@@ -2,7 +2,7 @@ $dokka.format:gfm
 $dokka.linkExtension:md
 $dokka.location:reactivecircus.blueprint.ui.extension$hideKeyboard(android.app.Activity, android.view.View)reactivecircus.blueprint.ui.extension/android.app.-activity/hide-keyboard.md
 $dokka.location:reactivecircus.blueprint.ui.extension$hideStatusBar(android.app.Activity)reactivecircus.blueprint.ui.extension/android.app.-activity/hide-status-bar.md
-$dokka.location:reactivecircus.blueprint.ui.extension$isAnimationOn(android.content.Context)reactivecircus.blueprint.ui.extension/android.content.-context/is-animation-on.md
+$dokka.location:reactivecircus.blueprint.ui.extension$isAnimationOn#android.content.Contextreactivecircus.blueprint.ui.extension/android.content.-context/is-animation-on.md
 $dokka.location:reactivecircus.blueprint.ui.extension$launchActivity(android.app.Activity, kotlin.Int, android.os.Bundle, kotlin.Function1((android.content.Intent, kotlin.Unit)))reactivecircus.blueprint.ui.extension/android.app.-activity/launch-activity.md
 $dokka.location:reactivecircus.blueprint.ui.extension$launchActivity(android.content.Context, android.os.Bundle, kotlin.Function1((android.content.Intent, kotlin.Unit)))reactivecircus.blueprint.ui.extension/android.content.-context/launch-activity.md
 $dokka.location:reactivecircus.blueprint.ui.extension$resolveColorAttr(android.content.Context, kotlin.Int)reactivecircus.blueprint.ui.extension/android.content.-context/resolve-color-attr.md
