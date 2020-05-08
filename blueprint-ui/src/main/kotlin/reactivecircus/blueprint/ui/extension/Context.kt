@@ -42,6 +42,9 @@ fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int {
 /**
  * Whether animation is turned on on the device.
  */
-fun Context.isAnimationOn(): Boolean {
-    return Settings.Global.getFloat(contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0
-}
+val Context.isAnimationOn: Boolean
+    get() = Settings.Global.getFloat(
+        contentResolver,
+        Settings.Global.ANIMATOR_DURATION_SCALE,
+        1f
+    ) > 0

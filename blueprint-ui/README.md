@@ -67,7 +67,7 @@ fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int
 /**
  * Whether animation is turned on on the device.
  */
-fun Context.isAnimationOn(): Boolean
+val Context.isAnimationOn: Boolean
 ```
 
 Kotlin extensions on `AppCompat`:
