@@ -4,15 +4,15 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 @ExperimentalCoroutinesApi
 class CoroutinesStreamAllNotesTest {
@@ -34,7 +34,7 @@ class CoroutinesStreamAllNotesTest {
 
         val result = streamAllNotes.buildFlow(
             CoroutinesStreamAllNotes.Params(CoroutinesStreamAllNotes.SortedBy.TIME_CREATED)
-        ).single()
+        ).first()
 
         verify(exactly = 1) {
             noteRepository.streamAllNotes()
@@ -63,7 +63,7 @@ class CoroutinesStreamAllNotesTest {
 
         val result = streamAllNotes.buildFlow(
             CoroutinesStreamAllNotes.Params(CoroutinesStreamAllNotes.SortedBy.TIME_CREATED)
-        ).single()
+        ).first()
 
         verify(exactly = 1) {
             noteRepository.streamAllNotes()
@@ -92,7 +92,7 @@ class CoroutinesStreamAllNotesTest {
 
         val result = streamAllNotes.buildFlow(
             CoroutinesStreamAllNotes.Params(CoroutinesStreamAllNotes.SortedBy.TIME_LAST_UPDATED)
-        ).single()
+        ).first()
 
         verify(exactly = 1) {
             noteRepository.streamAllNotes()

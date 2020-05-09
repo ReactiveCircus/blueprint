@@ -2,14 +2,12 @@ package reactivecircus.blueprint.demo.noteslist
 
 import androidx.test.filters.LargeTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import org.junit.Test
 import reactivecircus.blueprint.demo.CoroutinesBaseScreenTest
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteActivity
 import reactivecircus.blueprint.demo.testNotes
 import reactivecircus.blueprint.testing.assertion.activityLaunched
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 @LargeTest
 class CoroutinesNotesListScreenTest : CoroutinesBaseScreenTest() {

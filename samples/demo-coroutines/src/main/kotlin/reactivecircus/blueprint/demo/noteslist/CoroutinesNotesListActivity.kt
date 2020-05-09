@@ -6,12 +6,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
-import androidx.lifecycle.observe
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -21,7 +22,6 @@ import reactivecircus.blueprint.demo.enternote.EnterNoteParams
 import reactivecircus.blueprint.demo.util.viewModel
 import reactivecircus.blueprint.ui.extension.launchActivity
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesNotesListActivity : AppCompatActivity() {
 
@@ -71,28 +71,30 @@ class CoroutinesNotesListActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.notesLiveData.observe<State>(this) { state ->
-            when (state) {
-                is State.LoadingNotes -> {
-                    notesRecyclerView.isVisible = false
-                    progressBar.isVisible = true
-                    noNotesTextView.isVisible = false
-                }
-                is State.Idle -> {
-                    state.run {
-                        if (notes.isNotEmpty()) {
-                            notesRecyclerView.isVisible = true
-                            noNotesTextView.isVisible = false
-                            notesListAdapter.submitList(notes)
-                        } else {
-                            notesRecyclerView.isVisible = false
-                            noNotesTextView.isVisible = true
-                        }
+        viewModel.notesFlow
+            .onEach { state ->
+                when (state) {
+                    is State.LoadingNotes -> {
+                        notesRecyclerView.isVisible = false
+                        progressBar.isVisible = true
+                        noNotesTextView.isVisible = false
                     }
-                    progressBar.isVisible = false
+                    is State.Idle -> {
+                        state.run {
+                            if (notes.isNotEmpty()) {
+                                notesRecyclerView.isVisible = true
+                                noNotesTextView.isVisible = false
+                                notesListAdapter.submitList(notes)
+                            } else {
+                                notesRecyclerView.isVisible = false
+                                noNotesTextView.isVisible = true
+                            }
+                        }
+                        progressBar.isVisible = false
+                    }
                 }
             }
-        }
+            .launchIn(lifecycleScope)
     }
 
     private val itemClickedCallback: (note: Note) -> Unit = { note ->

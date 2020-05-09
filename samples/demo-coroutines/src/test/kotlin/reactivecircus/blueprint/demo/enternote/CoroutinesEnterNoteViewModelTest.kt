@@ -1,13 +1,13 @@
 package reactivecircus.blueprint.demo.enternote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.slot
-import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.single
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
 import org.amshove.kluent.shouldEqual
 import org.junit.Rule
@@ -48,8 +48,6 @@ class CoroutinesEnterNoteViewModelTest {
         coEvery { execute(any()) } returns Unit
     }
 
-    private val stateObserver = mockk<Observer<State>>(relaxed = true)
-
     private val viewModelCreateMode: CoroutinesEnterNoteViewModel by lazy {
         CoroutinesEnterNoteViewModel(
             noteUuid = null,
@@ -70,38 +68,24 @@ class CoroutinesEnterNoteViewModelTest {
 
     @Test
     fun `emit State with null value when initialized in create mode`() = runBlockingTest {
-        viewModelCreateMode.noteLiveData.observeForever(stateObserver)
+        viewModelCreateMode.noteStateFlow.take(1).single() shouldEqual State.Idle(null)
 
         coVerify(exactly = 0) {
             getNoteByUuid.execute(any())
-        }
-
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State(null)
-            )
         }
     }
 
     @Test
     fun `emit State with loaded Note when initialized in update mode`() = runBlockingTest {
-        viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
+        viewModelUpdateMode.noteStateFlow.take(1).single() shouldEqual State.Idle(dummyNote)
 
         coVerify(exactly = 1) {
             getNoteByUuid.execute(any())
-        }
-
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State(dummyNote)
-            )
         }
     }
 
     @Test
     fun `execute CreateNote with new note content`() = runBlockingTest {
-        viewModelCreateMode.noteLiveData.observeForever(stateObserver)
-
         viewModelCreateMode.createNote(dummyNote.content)
 
         val slot = slot<CoroutinesCreateNote.Params>()
@@ -115,8 +99,6 @@ class CoroutinesEnterNoteViewModelTest {
 
     @Test
     fun `execute UpdateNote with updated note`() = runBlockingTest {
-        viewModelUpdateMode.noteLiveData.observeForever(stateObserver)
-
         val updatedNote = dummyNote.copy(content = "updated note")
         viewModelUpdateMode.updateNote(updatedNote)
 

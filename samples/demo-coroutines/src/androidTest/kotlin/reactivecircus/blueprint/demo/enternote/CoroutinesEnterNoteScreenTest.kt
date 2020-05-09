@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.LargeTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import org.junit.Test
 import reactivecircus.blueprint.demo.CoroutinesBaseScreenTest
 import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesListActivity
@@ -13,7 +12,6 @@ import reactivecircus.blueprint.demo.testNotes
 import reactivecircus.blueprint.testing.action.clickNavigateUpButton
 import reactivecircus.blueprint.ui.extension.newIntent
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 @LargeTest
 class CoroutinesEnterNoteScreenTest : CoroutinesBaseScreenTest() {

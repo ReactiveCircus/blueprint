@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.enternote
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -20,7 +21,9 @@ class RxEnterNoteViewModel(
     private val updateNote: RxUpdateNote
 ) : ViewModel() {
 
-    val noteLiveData = MutableLiveData<State>()
+    private val mutableNoteLiveData = MutableLiveData<State>()
+
+    val noteLiveData: LiveData<State> = mutableNoteLiveData
 
     private val disposable = CompositeDisposable()
 
@@ -29,14 +32,14 @@ class RxEnterNoteViewModel(
             disposable += getNoteByUuid.buildSingle(RxGetNoteByUuid.Params(noteUuid))
                 .subscribeBy(
                     onSuccess = { note ->
-                        noteLiveData.value = State(note)
+                        mutableNoteLiveData.value = State(note)
                     },
                     onError = {
                         Timber.e(it)
                     }
                 )
         } else {
-            noteLiveData.value = State(null)
+            mutableNoteLiveData.value = State(null)
         }
     }
 

@@ -10,7 +10,7 @@ class InMemoryNoteCache : NoteCache {
     private val notes = mutableListOf<Note>()
 
     override fun allNotes(): List<Note> {
-        return notes
+        return notes.toList()
     }
 
     override fun findNote(criteria: (Note) -> Boolean): Note? {

@@ -1,16 +1,22 @@
 package reactivecircus.blueprint.demo.enternote
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesCreateNote
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesGetNoteByUuid
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.model.Note
 
-data class State(val note: Note?)
+sealed class State {
+    object Loading : State()
+    data class Idle(val note: Note?) : State()
+}
 
+@ExperimentalCoroutinesApi
 class CoroutinesEnterNoteViewModel(
     noteUuid: String?,
     getNoteByUuid: CoroutinesGetNoteByUuid,
@@ -18,15 +24,17 @@ class CoroutinesEnterNoteViewModel(
     private val updateNote: CoroutinesUpdateNote
 ) : ViewModel() {
 
-    val noteLiveData = MutableLiveData<State>()
+    private val noteDataFlow = MutableStateFlow<State>(State.Loading)
+
+    val noteStateFlow: StateFlow<State> = noteDataFlow
 
     init {
         viewModelScope.launch {
             if (noteUuid != null) {
                 val note = getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params(noteUuid))
-                noteLiveData.value = State(note)
+                noteDataFlow.value = State.Idle(note)
             } else {
-                noteLiveData.value = State(null)
+                noteDataFlow.value = State.Idle(null)
             }
         }
     }

@@ -76,7 +76,7 @@ A number of important things are left out as our focus here is how the **Bluepri
 
 * We implemented a **very** simple Dependency Injection (Service Locator to be precise) framework. Consider using [Dagger][dagger] or [Koin][koin] in a real project.
 * Different layers (e.g. **domain**, **data**, **presentation**) should probably live in their own modules in a real project.
-* Both samples use AndroidX `ViewModel` and `LiveData` in the presentation layer. For better managing complex states you might want to consider using a redux-based architecture that employs **Uni-directional Data Flow**. I personally recommend [RxRedux][rxredux] and its Coroutines-based equivalent.
+* Both samples use AndroidX `ViewModel` in the presentation layer. For better managing complex states you might want to consider using a redux-based architecture that employs **Uni-directional Data Flow**. I personally recommend [RxRedux][rxredux] and its Coroutines-based equivalent.
 * In a real project you will want to set up **product flavors** for different environments (e.g. mock, staging, production).
 * Obviously the apps don't talk to any backend APIs and lack persistent storage.
 

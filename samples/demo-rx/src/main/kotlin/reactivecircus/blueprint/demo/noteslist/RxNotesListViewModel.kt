@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.noteslist
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
@@ -18,7 +19,9 @@ class RxNotesListViewModel(
     streamAllNotes: RxStreamAllNotes
 ) : ViewModel() {
 
-    val notesLiveData = MutableLiveData<State>()
+    private val mutableNotesLiveData = MutableLiveData<State>()
+
+    val notesLiveData: LiveData<State> = mutableNotesLiveData
 
     private val disposable = CompositeDisposable()
 
@@ -31,7 +34,7 @@ class RxNotesListViewModel(
             .startWithItem(State.LoadingNotes)
             .subscribeBy(
                 onNext = {
-                    notesLiveData.value = it
+                    mutableNotesLiveData.value = it
                 },
                 onError = {
                     Timber.e(it)

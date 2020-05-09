@@ -1,7 +1,6 @@
 package reactivecircus.blueprint.interactor.coroutines
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import reactivecircus.blueprint.interactor.InteractorParams
@@ -27,6 +26,5 @@ abstract class FlowInteractor<in P : InteractorParams, out R> {
     /**
      * Build a new [Flow] from this interactor.
      */
-    @ExperimentalCoroutinesApi
     fun buildFlow(params: P): Flow<R> = createFlow(params).flowOn(dispatcher)
 }
