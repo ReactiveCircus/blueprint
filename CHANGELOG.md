@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 1.8.0
+
+_2020-05-09_
+
+* Breaking change: `Context.isAnimationOn` is now a property extension.
+* Update Kotlin, AGP, Coroutines, RxJava 3, AndroidX, detekt, LeakCanary.
+* Coroutines sample has been updated to replace `LiveData` with the new `StateFlow` introduced in Coroutines 1.3.6.
+
 ## Version 1.7.1
 
 _2020-04-11_
