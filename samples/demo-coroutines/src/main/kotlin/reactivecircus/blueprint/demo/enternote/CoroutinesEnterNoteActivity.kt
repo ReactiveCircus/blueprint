@@ -6,16 +6,16 @@ import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.observe
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
 import reactivecircus.blueprint.demo.util.viewModel
 
 const val EXTRA_ENTER_NOTE_PARAMS = "EXTRA_ENTER_NOTE_PARAMS"
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesEnterNoteActivity : AppCompatActivity() {
 
@@ -54,11 +54,15 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
             setNavigationOnClickListener { finish() }
         }
 
-        viewModel.noteLiveData.observe<State>(this) { state ->
-            state.note?.run {
-                noteEditText.setText(this.content)
+        viewModel.noteStateFlow
+            .onEach { state ->
+                if (state is State.Idle) {
+                    state.note?.run {
+                        noteEditText.setText(this.content)
+                    }
+                }
             }
-        }
+            .launchIn(lifecycleScope)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -67,14 +71,15 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == R.id.action_save) {
-            if (noteEditText.text.toString().isNotBlank()) {
-                when (params) {
-                    is EnterNoteParams.CreateNew -> {
-                        viewModel.createNote(noteEditText.text.toString().trim())
-                    }
-                    is EnterNoteParams.Update -> {
-                        val updatedNote = viewModel.noteLiveData.value?.note!!.copy(
+        return if (item.itemId == R.id.action_save && noteEditText.text.toString().isNotBlank()) {
+            when (params) {
+                is EnterNoteParams.CreateNew -> {
+                    viewModel.createNote(noteEditText.text.toString().trim())
+                }
+                is EnterNoteParams.Update -> {
+                    val state = viewModel.noteStateFlow.value
+                    if (state is State.Idle) {
+                        val updatedNote = state.note!!.copy(
                             content = noteEditText.text.toString().trim(),
                             timeLastUpdated = System.currentTimeMillis()
                         )

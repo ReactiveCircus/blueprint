@@ -1,17 +1,20 @@
 package reactivecircus.blueprint.demo.noteslist
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.channels.Channel.Factory.CONFLATED
+import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.single
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
+import org.amshove.kluent.shouldEqual
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
@@ -43,8 +46,6 @@ class CoroutinesNotesListViewModelTest {
 
     private val streamAllNotes = mockk<CoroutinesStreamAllNotes>()
 
-    private val stateObserver = mockk<Observer<State>>(relaxed = true)
-
     private val viewModel: CoroutinesNotesListViewModel by lazy {
         CoroutinesNotesListViewModel(streamAllNotes)
     }
@@ -53,39 +54,23 @@ class CoroutinesNotesListViewModelTest {
     fun `emit State#LoadingNotes when initialized`() = runBlockingTest {
         every { streamAllNotes.buildFlow(any()) } returns emptyFlow()
 
-        viewModel.notesLiveData.observeForever(stateObserver)
-
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State.LoadingNotes
-            )
-        }
+        viewModel.notesFlow.first() shouldEqual State.LoadingNotes
     }
 
     @Test
     fun `emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
-        val emitter = BroadcastChannel<List<Note>>(CONFLATED)
+        val emitter = BroadcastChannel<List<Note>>(BUFFERED)
         every { streamAllNotes.buildFlow(any()) } returns emitter.asFlow()
 
-        viewModel.notesLiveData.observeForever(stateObserver)
+        viewModel.notesFlow.take(1).single() shouldEqual State.LoadingNotes
 
         verify(exactly = 1) {
             streamAllNotes.buildFlow(any())
         }
 
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State.LoadingNotes
-            )
-        }
-
         emitter.offer(dummyNotes)
 
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State.Idle(dummyNotes)
-            )
-        }
+        viewModel.notesFlow.take(1).single() shouldEqual State.Idle(dummyNotes)
 
         val updatedDummyNotes = dummyNotes + listOf(
             Note(
@@ -97,10 +82,6 @@ class CoroutinesNotesListViewModelTest {
 
         emitter.offer(updatedDummyNotes)
 
-        verify(exactly = 1) {
-            stateObserver.onChanged(
-                State.Idle(updatedDummyNotes)
-            )
-        }
+        viewModel.notesFlow.take(1).single() shouldEqual State.Idle(updatedDummyNotes)
     }
 }

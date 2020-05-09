@@ -25,7 +25,7 @@ class RxGetNoteByUuid(
     override fun createInteractor(params: Params): Single<Note> {
         return noteRepository.getNoteByUuid(params.uuid)
             .switchIfEmpty(
-                Maybe.error<Note>(IllegalStateException("Could not find note by uuid."))
+                Maybe.error(IllegalStateException("Could not find note by uuid."))
             )
             .toSingle()
     }
