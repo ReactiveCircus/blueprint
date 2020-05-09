@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.8.1
+
+_2020-05-10_
+
+* Fix a publishing issue.
+
 ## Version 1.8.0
 
 _2020-05-09_
