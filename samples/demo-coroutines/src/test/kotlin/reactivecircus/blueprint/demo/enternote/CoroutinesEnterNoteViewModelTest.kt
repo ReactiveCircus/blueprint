@@ -1,6 +1,5 @@
 package reactivecircus.blueprint.demo.enternote
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -20,9 +19,6 @@ import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
 @ExperimentalCoroutinesApi
 class CoroutinesEnterNoteViewModelTest {
-
-    @get:Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()

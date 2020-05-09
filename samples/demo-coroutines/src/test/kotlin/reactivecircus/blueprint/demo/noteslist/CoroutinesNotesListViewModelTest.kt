@@ -1,6 +1,5 @@
 package reactivecircus.blueprint.demo.noteslist
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -24,9 +23,6 @@ import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 @FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesNotesListViewModelTest {
-
-    @get:Rule
-    val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
