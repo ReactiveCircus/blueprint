@@ -8,7 +8,7 @@
     <span class=k>override</span> <span class=k>fun</span> <span class=nf>createInteractor</span><span class=p>(</span><span class=n>params</span><span class=p>:</span> <span class=n>Params</span><span class=p>):</span> <span class=n>Single</span><span class=p>&lt;</span><span class=n>Note</span><span class=p>&gt;</span> <span class=p>{</span>
         <span class=k>return</span> <span class=n>noteRepository</span><span class=p>.</span><span class=n>getNoteByUuid</span><span class=p>(</span><span class=n>params</span><span class=p>.</span><span class=n>uuid</span><span class=p>)</span>
             <span class=p>.</span><span class=n>switchIfEmpty</span><span class=p>(</span>
-                <span class=n>Maybe</span><span class=p>.</span><span class=n>error</span><span class=p>&lt;</span><span class=n>Note</span><span class=p>&gt;(</span><span class=n>IllegalStateException</span><span class=p>(</span><span class=s>&quot;Could not find note by uuid.&quot;</span><span class=p>))</span>
+                <span class=n>Maybe</span><span class=p>.</span><span class=n>error</span><span class=p>(</span><span class=n>IllegalStateException</span><span class=p>(</span><span class=s>&quot;Could not find note by uuid.&quot;</span><span class=p>))</span>
             <span class=p>)</span>
             <span class=p>.</span><span class=n>toSingle</span><span class=p>()</span>
     <span class=p>}</span>
