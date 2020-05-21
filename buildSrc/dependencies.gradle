@@ -10,26 +10,26 @@ rootProject.ext.versions = [
                 coroutines: '1.3.7',
         ],
         androidx                    : [
-                core             : '1.3.0-rc01',
+                core             : '1.4.0-alpha01',
                 annotation       : '1.2.0-alpha01',
-                appCompat        : '1.2.0-rc01',
-                activity         : '1.2.0-alpha04',
-                fragment         : '1.3.0-alpha04',
+                appCompat        : '1.3.0-alpha01',
+                activity         : '1.2.0-alpha05',
+                fragment         : '1.3.0-alpha05',
                 coordinatorLayout: '1.1.0',
                 recyclerView     : '1.2.0-alpha03',
                 constraintLayout : '1.1.3',
                 arch             : '2.1.0',
-                lifecycle        : '2.3.0-alpha02',
+                lifecycle        : '2.3.0-alpha03',
                 test             : [
-                        core   : '1.3.0-beta01',
-                        monitor: '1.3.0-beta01',
-                        rules  : '1.3.0-beta01',
-                        runner : '1.3.0-beta01',
+                        core   : '1.3.0-beta02',
+                        monitor: '1.3.0-beta02',
+                        rules  : '1.3.0-beta02',
+                        runner : '1.3.0-beta02',
                         ext    : [
-                                junit: '1.1.2-beta01'
+                                junit: '1.1.2-beta02'
                         ]
                 ],
-                espresso         : '3.3.0-beta01'
+                espresso         : '3.3.0-beta02'
         ],
         material                    : '1.2.0-alpha06',
         rxJava2                     : '2.2.19',
