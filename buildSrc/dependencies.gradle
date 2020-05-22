@@ -38,7 +38,7 @@ rootProject.ext.versions = [
         rxAndroid3                  : '3.0.0',
         timber                      : '4.7.1',
         junit                       : '4.13',
-        mockk                       : '1.9.3',
+        mockk                       : '1.10.0',
         truth                       : '1.0.1',
         kluent                      : '1.58',
 ]
