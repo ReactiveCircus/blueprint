@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.9.0
+
+_2020-05-30_
+
+* Breaking change: `clickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boolean)` has been refactored into `clickTextInputLayoutStartIcon(@IdRes viewId: Int)` and `clickTextInputLayoutEndIcon(@IdRes viewId: Int)`.
+* Breaking change: `longClickTextInputLayoutIcon(@IdRes viewId: Int, endIcon: Boolean)` has been refactored into `longClickTextInputLayoutStartIcon(@IdRes viewId: Int)` and `longClickTextInputLayoutEndIcon(@IdRes viewId: Int)`.
+* New `clickTextInputLayoutErrorIcon(@IdRes viewId: Int)` and `longClickTextInputLayoutErrorIcon(@IdRes viewId: Int)` extensions on the `TextInputLayout`.
+* Update AGP, Gradle, Coroutines, RxJava 3, AndroidX, MDC, detekt.
+
 ## Version 1.8.1
 
 _2020-05-10_
