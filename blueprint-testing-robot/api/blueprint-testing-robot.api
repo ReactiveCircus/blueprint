@@ -78,10 +78,14 @@ public final class reactivecircus/blueprint/testing/action/SnackbarRobotActionsK
 
 public final class reactivecircus/blueprint/testing/action/TextRobotActionsKt {
 	public static final fun clearTextInView (Lreactivecircus/blueprint/testing/RobotActions;I)V
-	public static final fun clickTextInputLayoutIcon (Lreactivecircus/blueprint/testing/RobotActions;IZ)V
+	public static final fun clickTextInputLayoutEndIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun clickTextInputLayoutErrorIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun clickTextInputLayoutStartIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
 	public static final fun enterTextIntoView (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
 	public static final fun hideTextInputPasswordToggleButton (Lreactivecircus/blueprint/testing/RobotActions;I)V
-	public static final fun longClickTextInputLayoutIcon (Lreactivecircus/blueprint/testing/RobotActions;IZ)V
+	public static final fun longClickTextInputLayoutEndIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun longClickTextInputLayoutErrorIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
+	public static final fun longClickTextInputLayoutStartIcon (Lreactivecircus/blueprint/testing/RobotActions;I)V
 	public static final fun replaceTextInView (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
 }
 
