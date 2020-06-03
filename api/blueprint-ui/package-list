@@ -13,4 +13,3 @@ $dokka.location:reactivecircus.blueprint.ui.extension$showKeyboard(android.app.A
 $dokka.location:reactivecircus.blueprint.ui.extension$showStatusBar(android.app.Activity)reactivecircus.blueprint.ui.extension/android.app.-activity/show-status-bar.md
 $dokka.location:reactivecircus.blueprint.ui.extension$tintVectorDrawable(android.content.Context, android.content.res.Resources.Theme, kotlin.Int, kotlin.Int)reactivecircus.blueprint.ui.extension/android.content.-context/tint-vector-drawable.md
 reactivecircus.blueprint.ui.extension
-reactivecircus.blueprint.ui.widget
