@@ -19,10 +19,3 @@ public final class reactivecircus/blueprint/ui/extension/ContextKt {
 	public static final fun tintVectorDrawable (Landroid/content/Context;Landroid/content/res/Resources$Theme;II)Landroid/graphics/drawable/Drawable;
 }
 
-public final class reactivecircus/blueprint/ui/widget/IndeterminateProgressBar : android/widget/ProgressBar {
-	public fun <init> (Landroid/content/Context;)V
-	public fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;)V
-	public synthetic fun <init> (Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun setIndeterminateDrawable (Landroid/graphics/drawable/Drawable;)V
-}
-

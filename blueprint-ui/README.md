@@ -100,14 +100,4 @@ launchActivity<ScanQrCodeActivity>(requestCode = SCAN_QR_CODE_REQUEST)
 
 This internally launches the activity with `Activity.startActivityForResult(...)`.
 
-## Test-friendly ProgressBar
-
-Sometimes **Espresso** might **continuously** wait for an indeterminate progress bar animation (spinning) to complete even when animations are turned off on device during instrumentation tests, causing a timeout.
-
-The `IndeterminateProgressBar` hides the indeterminate drawable if animation is off. Replace the stock `ProgressBar` with the following:
-
-```xml
-<reactivecircus.blueprint.ui.widget.IndeterminateProgressBar/>
-```
-
 [intent-extensions]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt

@@ -138,12 +138,6 @@ launchActivity<CoroutinesEnterNoteActivity> {
 }
 ```
 
-Test-friendly ProgressBar which hides the indeterminate drawable if animation is off:
-
-```xml
-<reactivecircus.blueprint.ui.widget.IndeterminateProgressBar/>
-```
-
 ## UI Testing
 
 The UI testing framework and Testing Robot DSL from the [blueprint-testing-robot][testing-robot] provide the building blocks for authoring structured, readable, and framework-agnostic UI tests.
