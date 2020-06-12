@@ -63,6 +63,8 @@ dependencies {
 
     // Enable LeakCanary for debug builds
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
+    // Fix SDK leaks
+    implementation "com.squareup.leakcanary:plumber-android:${versions.leakCanary}"
 
     // Unit tests
     testImplementation "junit:junit:${versions.junit}"

@@ -47,7 +47,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:${versions.androidx.fragment}"
     implementation "androidx.recyclerview:recyclerview:${versions.androidx.recyclerView}"
     implementation "androidx.core:core-ktx:${versions.androidx.core}"
-    implementation "androidx.lifecycle:lifecycle-viewmodel:${versions.androidx.lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-common-java8:${versions.androidx.lifecycle}"
     implementation "androidx.arch.core:core-runtime:${versions.androidx.arch}"
@@ -65,6 +65,8 @@ dependencies {
 
     // Enable LeakCanary for debug builds
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
+    // Fix SDK leaks
+    implementation "com.squareup.leakcanary:plumber-android:${versions.leakCanary}"
 
     // Unit tests
     testImplementation "junit:junit:${versions.junit}"
