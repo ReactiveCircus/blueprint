@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import reactivecircus.blueprint.common.R
@@ -16,6 +17,7 @@ import reactivecircus.blueprint.demo.util.viewModel
 
 const val EXTRA_ENTER_NOTE_PARAMS = "EXTRA_ENTER_NOTE_PARAMS"
 
+@FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesEnterNoteActivity : AppCompatActivity() {
 
