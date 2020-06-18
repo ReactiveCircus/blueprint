@@ -5,6 +5,10 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        resValues = true
+    }
+
     defaultConfig {
         applicationId 'reactivecircus.blueprint.demo.rx'
         versionCode 1

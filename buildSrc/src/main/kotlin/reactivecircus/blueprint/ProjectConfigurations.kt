@@ -76,9 +76,6 @@ fun LibraryExtension.configureAndroidLibraryOptions(project: Project) {
             }
         }
     }
-
-    // Disable generating BuildConfig.java
-    buildFeatures.buildConfig = false
 }
 
 /**
