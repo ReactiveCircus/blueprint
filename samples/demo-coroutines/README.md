@@ -181,7 +181,7 @@ To run UI (on-device) tests:
 [demo-testing-common]: ../demo-testing-common/
 [interactor-coroutines]: ../../blueprint-interactor-coroutines/
 [async-coroutines]: ../../blueprint-async-coroutines/
-[sample-interactor-test]: https://github.com/ReactiveCircus/blueprint/tree/master/samples/demo-coroutines/src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/CoroutinesStreamAllNotesTest.kt
+[sample-interactor-test]: https://github.com/ReactiveCircus/blueprint/tree/main/samples/demo-coroutines/src/test/kotlin/reactivecircus/blueprint/demo/domain/interactor/CoroutinesStreamAllNotesTest.kt
 [ui]: ../../blueprint-ui/
 [testing-robot]: ../../blueprint-testing-robot/
 [clean-architecture]: http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html

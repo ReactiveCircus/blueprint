@@ -100,4 +100,4 @@ launchActivity<ScanQrCodeActivity>(requestCode = SCAN_QR_CODE_REQUEST)
 
 This internally launches the activity with `Activity.startActivityForResult(...)`.
 
-[intent-extensions]: https://github.com/ReactiveCircus/blueprint/tree/master/blueprint-ui/src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt
+[intent-extensions]: https://github.com/ReactiveCircus/blueprint/tree/main/blueprint-ui/src/main/kotlin/reactivecircus/blueprint/ui/extension/Intent.kt
