@@ -18,7 +18,6 @@ jobs:
       # TODO remove the following once android-30 platform is pre-installed in GitHub Actions VMs
       - name: Install android-30 platform
         run: |
-          sudo chown $USER:$USER $ANDROID_HOME -R
           $ANDROID_HOME/tools/bin/sdkmanager --install "platforms;android-30" > /dev/null
       - uses: actions/setup-java@v1
         with:
