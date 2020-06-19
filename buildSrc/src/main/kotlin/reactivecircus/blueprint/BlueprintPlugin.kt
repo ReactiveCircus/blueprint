@@ -51,9 +51,11 @@ class BlueprintPlugin : Plugin<Project> {
                 is LibraryPlugin -> {
                     project.extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
                     project.extensions.getByType<LibraryExtension>().configureAndroidLibraryOptions(project)
+                    project.configureSlimTests()
                 }
                 is AppPlugin -> {
                     project.extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
+                    project.configureSlimTests()
                 }
             }
         }

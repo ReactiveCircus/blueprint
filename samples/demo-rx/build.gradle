@@ -19,6 +19,8 @@ android {
 
     lintOptions {
         disable 'GoogleAppIndexingWarning'
+        // TODO remove once lint analysis error is fixed
+        disable "NullSafeMutableLiveData"
     }
 
     buildTypes {
