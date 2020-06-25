@@ -26,7 +26,7 @@ class CoroutinesEnterNoteViewModel(
 
     private val noteDataFlow = MutableStateFlow<State>(State.Loading)
 
-    val noteStateFlow: StateFlow<State> = noteDataFlow
+    val noteStateFlow: StateFlow<State> get() = noteDataFlow
 
     init {
         viewModelScope.launch {

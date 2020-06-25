@@ -25,7 +25,7 @@ class CoroutinesNotesListViewModel(
 
     private val notesStateFlow = MutableStateFlow<State>(State.LoadingNotes)
 
-    val notesFlow: Flow<State> = notesStateFlow
+    val notesFlow: Flow<State> get() = notesStateFlow
 
     init {
         streamAllNotes.buildFlow(CoroutinesStreamAllNotes.Params(CoroutinesStreamAllNotes.SortedBy.TIME_LAST_UPDATED))

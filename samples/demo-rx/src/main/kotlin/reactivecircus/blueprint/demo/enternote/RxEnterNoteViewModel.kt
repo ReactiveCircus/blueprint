@@ -23,7 +23,7 @@ class RxEnterNoteViewModel(
 
     private val mutableNoteLiveData = MutableLiveData<State>()
 
-    val noteLiveData: LiveData<State> = mutableNoteLiveData
+    val noteLiveData: LiveData<State> get() = mutableNoteLiveData
 
     private val disposable = CompositeDisposable()
 

@@ -21,7 +21,7 @@ class RxNotesListViewModel(
 
     private val mutableNotesLiveData = MutableLiveData<State>()
 
-    val notesLiveData: LiveData<State> = mutableNotesLiveData
+    val notesLiveData: LiveData<State> get() = mutableNotesLiveData
 
     private val disposable = CompositeDisposable()
 
