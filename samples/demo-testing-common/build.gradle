@@ -9,7 +9,7 @@ dependencies {
     implementation project(':blueprint-testing-robot')
 
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     // Espresso
     implementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"

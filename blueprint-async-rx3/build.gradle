@@ -14,7 +14,7 @@ afterEvaluate { project ->
 
 dependencies {
     // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
 
     // rx
     implementation "io.reactivex.rxjava3:rxjava:${versions.rxJava3}"
