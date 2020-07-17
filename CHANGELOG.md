@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.10.0
+
+_2020-07-17_
+
+* New `RobotAssertions.viewEndsWithText(@IdRes viewId: Int, expected: String)` for asserting that a view has text that ends with the expected string.
+* Fix `RobotAssertions.viewStartsWithText(@IdRes viewId: Int, expected: String)`.
+* Depend on `kotlin-sdtlib` instead of `kotlin-stdlib-jdk8`
+* Update Coroutines, AndroidX and MDC.
+
 ## Version 1.9.0
 
 _2020-05-30_
