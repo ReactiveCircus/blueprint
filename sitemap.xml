@@ -1,99 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://reactivecircus.github.io/blueprint/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/samples/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/samples/demo-coroutines/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/samples/demo-rx/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/samples/demo-common/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/samples/demo-testing-common/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-interactor-coroutines/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-interactor-rx2/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-interactor-rx3/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-async-coroutines/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-async-rx2/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-async-rx3/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-ui/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/blueprint-testing-robot/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/changelog/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-async-coroutines/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-async-rx2/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-async-rx3/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-interactor-common/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-interactor-coroutines/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-interactor-rx2/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-interactor-rx3/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-testing-robot/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://reactivecircus.github.io/blueprint/api/blueprint-ui/</loc>
-     <lastmod>2020-06-22</lastmod>
+     <lastmod>2020-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
