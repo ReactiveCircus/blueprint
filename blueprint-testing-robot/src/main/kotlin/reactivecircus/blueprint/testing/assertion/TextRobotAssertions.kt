@@ -1,13 +1,12 @@
 package reactivecircus.blueprint.testing.assertion
 
-import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import org.hamcrest.core.AllOf
 import org.hamcrest.core.StringContains
+import org.hamcrest.core.StringEndsWith
 import org.hamcrest.core.StringStartsWith
 import reactivecircus.blueprint.testing.RobotAssertions
 
@@ -68,32 +67,33 @@ fun RobotAssertions.viewHasText(@IdRes viewId: Int, @StringRes messageResId: Int
 }
 
 /**
- * Check if any descendant views of the view associated with [viewId] has [expected] string.
+ * Check if the view associated with [viewId] has text that contains the [expected] string.
  */
 fun RobotAssertions.viewContainsText(@IdRes viewId: Int, expected: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(
-            ViewAssertions.matches(
-                ViewMatchers.withText(
-                    StringContains.containsString(
-                        expected
-                    )
-                )
-            )
+            ViewAssertions.matches(ViewMatchers.withText(StringContains.containsString(expected)))
         )
 }
 
 /**
- * Check if the view associated with [parentResId] has text that starts with [expected].
+ * Check if the view associated with [viewId] has text that starts with the [expected] string.
  */
-fun RobotAssertions.viewStartsWithText(expected: String, @IdRes parentResId: Int) {
-    Espresso.onView(
-        AllOf.allOf<View>(
-            ViewMatchers.withText(StringStartsWith.startsWith(expected)),
-            ViewMatchers.isDescendantOfA(ViewMatchers.withId(parentResId))
+fun RobotAssertions.viewStartsWithText(@IdRes viewId: Int, expected: String) {
+    Espresso.onView(ViewMatchers.withId(viewId))
+        .check(
+            ViewAssertions.matches(ViewMatchers.withText(StringStartsWith.startsWith(expected)))
         )
-    )
-        .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+}
+
+/**
+ * Check if the view associated with [viewId] has text that ends with the [expected] string.
+ */
+fun RobotAssertions.viewEndsWithText(@IdRes viewId: Int, expected: String) {
+    Espresso.onView(ViewMatchers.withId(viewId))
+        .check(
+            ViewAssertions.matches(ViewMatchers.withText(StringEndsWith.endsWith(expected)))
+        )
 }
 
 /**

@@ -146,10 +146,11 @@ public final class reactivecircus/blueprint/testing/assertion/TextRobotAssertion
 	public static final fun textNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
 	public static final fun textNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[Ljava/lang/String;)V
 	public static final fun viewContainsText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
+	public static final fun viewEndsWithText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
 	public static final fun viewHasHint (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
 	public static final fun viewHasText (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
 	public static final fun viewHasText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
-	public static final fun viewStartsWithText (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;I)V
+	public static final fun viewStartsWithText (Lreactivecircus/blueprint/testing/RobotAssertions;ILjava/lang/String;)V
 }
 
 public final class reactivecircus/blueprint/testing/assertion/ToolbarRobotAssertionsKt {
