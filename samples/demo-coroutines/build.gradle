@@ -22,13 +22,16 @@ android {
     }
 
     buildTypes {
-        debug {
-            resValue 'string', 'leak_canary_display_activity_label', "Blueprint Coroutines Demo Leaks"
-        }
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles('shrinker-rules.pro')
+        }
+    }
+
+    onVariantProperties {
+        if (buildType == "debug") {
+            addResValue("leak_canary_display_activity_label", "string", "Blueprint Coroutines Demo Leaks", null)
         }
     }
 }
