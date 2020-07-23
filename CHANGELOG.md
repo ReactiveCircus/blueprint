@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.11.0
+
+_2020-07-23_
+
+* Move all AndroidX dependencies to the latest stable version.
+
 ## Version 1.10.0
 
 _2020-07-17_
