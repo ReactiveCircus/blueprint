@@ -8,9 +8,6 @@ dependencies {
     implementation project(':demo-common')
     implementation project(':blueprint-testing-robot')
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-
     // Espresso
     implementation "androidx.test.espresso:espresso-core:${versions.androidx.espresso}"
     implementation "androidx.test.espresso:espresso-contrib:${versions.androidx.espresso}"

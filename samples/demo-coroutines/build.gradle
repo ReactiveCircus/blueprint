@@ -42,9 +42,6 @@ dependencies {
     implementation project(':blueprint-ui')
     implementation project(':demo-common')
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-
     // AndroidX
     implementation "androidx.annotation:annotation:${versions.androidx.annotation}"
     implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"

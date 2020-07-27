@@ -15,9 +15,6 @@ afterEvaluate { project ->
 dependencies {
     api project(':blueprint-interactor-common')
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-
     // Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinx.coroutines}"
 

@@ -19,9 +19,6 @@ android {
 dependencies {
     implementation project(':blueprint-ui')
 
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-
     // AndroidX
     implementation "androidx.coordinatorlayout:coordinatorlayout:${versions.androidx.coordinatorLayout}"
     implementation "androidx.constraintlayout:constraintlayout:${versions.androidx.constraintLayout}"

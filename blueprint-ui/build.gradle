@@ -14,9 +14,6 @@ afterEvaluate { project ->
 }
 
 dependencies {
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
-
     // AndroidX
     implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
 }
