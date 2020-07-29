@@ -53,7 +53,6 @@ dependencies {
     implementation "androidx.core:core-ktx:${versions.androidx.core}"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidx.lifecycle}"
     implementation "androidx.lifecycle:lifecycle-common-java8:${versions.androidx.lifecycle}"
-    implementation "androidx.arch.core:core-runtime:${versions.androidx.arch}"
 
     // Material Components
     implementation "com.google.android.material:material:${versions.material}"
