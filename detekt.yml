@@ -1,36 +1,6 @@
-processors:
-  active: true
-
-console-reports:
-  active: true
-
-comments:
-  active: true
-
-complexity:
-  active: true
-
-empty-blocks:
-  active: true
-
-exceptions:
-  active: true
-
 formatting:
-  active: true
-  android: false
-  autoCorrect: true
-
-naming:
-  active: true
-
-performance:
-  active: true
-
-potential-bugs:
-  active: true
+  android: true
 
 style:
-  active: true
   UnnecessaryAbstractClass:
     active: false
