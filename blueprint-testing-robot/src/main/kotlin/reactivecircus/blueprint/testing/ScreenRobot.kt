@@ -3,21 +3,21 @@ package reactivecircus.blueprint.testing
 /**
  * Base class for implementing a robot DSL.
  */
-abstract class ScreenRobot<out A : RobotActions, out S : RobotAssertions>(
+public abstract class ScreenRobot<out A : RobotActions, out S : RobotAssertions>(
     private val robotActions: A,
     private val robotAssertions: S
 ) {
-    fun given(block: () -> Unit) = block()
-    fun perform(block: A.() -> Unit) = robotActions.apply { block() }
-    fun check(block: S.() -> Unit) = robotAssertions.apply { block() }
+    public fun given(block: () -> Unit): Unit = block()
+    public fun perform(block: A.() -> Unit): A = robotActions.apply { block() }
+    public fun check(block: S.() -> Unit): S = robotAssertions.apply { block() }
 }
 
 /**
  * Robot actions for performing common view actions.
  */
-interface RobotActions
+public interface RobotActions
 
 /**
  * Robot assertions for performing common view assertions.
  */
-interface RobotAssertions
+public interface RobotAssertions

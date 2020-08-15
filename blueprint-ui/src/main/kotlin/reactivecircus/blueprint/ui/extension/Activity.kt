@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 /**
  * Programmatically close soft keyboard.
  */
-fun Activity.hideKeyboard(focusedView: View) {
+public fun Activity.hideKeyboard(focusedView: View) {
     val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     inputManager.hideSoftInputFromWindow(focusedView.windowToken, 0)
 }
@@ -20,7 +20,7 @@ fun Activity.hideKeyboard(focusedView: View) {
 /**
  * Programmatically show soft keyboard.
  */
-fun Activity.showKeyboard() {
+public fun Activity.showKeyboard() {
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
 }
@@ -28,7 +28,7 @@ fun Activity.showKeyboard() {
 /**
  * Shows status bar on the activity.
  */
-fun Activity.showStatusBar() {
+public fun Activity.showStatusBar() {
     val decorView = window.decorView
     val uiOptions = View.SYSTEM_UI_FLAG_VISIBLE
     decorView.systemUiVisibility = uiOptions
@@ -37,7 +37,7 @@ fun Activity.showStatusBar() {
 /**
  * Hides status bar from the activity.
  */
-fun Activity.hideStatusBar() {
+public fun Activity.hideStatusBar() {
     val decorView = window.decorView
     val uiOptions = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -52,7 +52,7 @@ fun Activity.hideStatusBar() {
  * @param lightBackground whether to draw the status bar such that.
  * it is compatible with a light status bar background.
  */
-fun Activity.setStatusBarColor(
+public fun Activity.setStatusBarColor(
     @ColorRes colorRes: Int,
     lightBackground: Boolean = false
 ) {
@@ -69,7 +69,7 @@ fun Activity.setStatusBarColor(
 /**
  * Returns screen size of the activity.
  */
-val Activity.screenSize: DisplayMetrics
+public val Activity.screenSize: DisplayMetrics
     get() {
         val display = windowManager.defaultDisplay
         val metrics = DisplayMetrics()

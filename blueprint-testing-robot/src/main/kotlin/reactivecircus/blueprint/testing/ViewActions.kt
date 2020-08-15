@@ -25,7 +25,7 @@ private const val MAX_SCROLL_ATTEMPTS = 100
 /**
  * Scroll until the view associated with [viewId] is visible.
  */
-fun scrollTo(@IdRes viewId: Int) {
+public fun scrollTo(@IdRes viewId: Int) {
     ViewActions.repeatedlyUntil(
         ViewActions.scrollTo(),
         Matchers.allOf(ViewMatchers.withId(viewId), isDisplayed()),
@@ -36,7 +36,7 @@ fun scrollTo(@IdRes viewId: Int) {
 /**
  * Scroll until the [text]] is visible.
  */
-fun scrollTo(text: String) {
+public fun scrollTo(text: String) {
     ViewActions.repeatedlyUntil(
         ViewActions.scrollTo(),
         Matchers.allOf(ViewMatchers.withText(text), isDisplayed()),
@@ -47,7 +47,7 @@ fun scrollTo(text: String) {
 /**
  * Scroll to the item at [itemIndex] in the [RecyclerView] associated with [recyclerViewId].
  */
-fun scrollToItemInRecyclerView(@IdRes recyclerViewId: Int, itemIndex: Int) {
+public fun scrollToItemInRecyclerView(@IdRes recyclerViewId: Int, itemIndex: Int) {
     Espresso.onView(AllOf.allOf(ViewMatchers.withId(recyclerViewId), isDisplayed()))
         .perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(itemIndex))
 }
@@ -57,7 +57,7 @@ private const val RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS = 10L
 /**
  * Wait until the [RecyclerView] has no more pending updates.
  */
-fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
+public fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
     Espresso.onIdle()
     Espresso.onView(allOf(ViewMatchers.withId(recyclerViewId), isDisplayed()))
         .perform(object : ViewAction {
@@ -82,7 +82,7 @@ fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
 /**
  * Clear the scrollFlags on the [Toolbar] associated with [toolbarId].
  */
-fun clearToolbarScrollFlags(@IdRes toolbarId: Int) {
+public fun clearToolbarScrollFlags(@IdRes toolbarId: Int) {
     Espresso.onView(ViewMatchers.withId(toolbarId))
         .perform(object : ViewAction {
             override fun getConstraints(): Matcher<View> {
@@ -114,7 +114,7 @@ private const val DEFAULT_VIEW_ACTION_DELAY_MILLIS = 200L
  * but needs to participate in Espresso's internal synchronisation mechanisms
  * to prevent the next [ViewAction] or [Matcher] from executing too early.
  */
-fun Any.asViewAction(delayMillis: Long = DEFAULT_VIEW_ACTION_DELAY_MILLIS) {
+public fun Any.asViewAction(delayMillis: Long = DEFAULT_VIEW_ACTION_DELAY_MILLIS) {
     also {
         Espresso.onView(isRoot())
             .perform(object : ViewAction {

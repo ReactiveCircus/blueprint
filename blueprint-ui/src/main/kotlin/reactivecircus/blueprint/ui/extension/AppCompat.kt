@@ -12,7 +12,7 @@ import java.util.concurrent.Executor
  * @param executor the executor to be used for processing the text layout.
  *  Default single threaded pool will be used if null is passed in.
  */
-fun AppCompatTextView.setPrecomputedTextFuture(
+public fun AppCompatTextView.setPrecomputedTextFuture(
     charSequence: CharSequence,
     executor: Executor? = null
 ) {

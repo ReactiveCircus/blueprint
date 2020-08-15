@@ -9,6 +9,6 @@ import com.google.android.material.R as MaterialR
 /**
  * Click the action button on the currently displayed Snackbar.
  */
-fun RobotActions.clickSnackbarActionButton() {
+public fun RobotActions.clickSnackbarActionButton() {
     Espresso.onView(ViewMatchers.withId(MaterialR.id.snackbar_action)).perform(ViewActions.click())
 }

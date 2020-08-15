@@ -15,7 +15,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if the edit text associated with [viewId] has an email input type.
  */
-fun RobotAssertions.keyboardInputTypeIsEmail(@IdRes viewId: Int) {
+public fun RobotAssertions.keyboardInputTypeIsEmail(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(withEmailInputType()))
 }

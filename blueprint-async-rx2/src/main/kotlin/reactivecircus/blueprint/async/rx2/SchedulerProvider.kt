@@ -8,17 +8,17 @@ import io.reactivex.Scheduler
  * on different threads, but they don't need to know about the underlying implementation.
  * A single-threaded version for example can be injected for testing.
  */
-class SchedulerProvider(
+public class SchedulerProvider(
     /**
      * Scheduler for IO-bound work
      */
-    val io: Scheduler,
+    public val io: Scheduler,
     /**
      * Scheduler for computational work
      */
-    val computation: Scheduler,
+    public val computation: Scheduler,
     /**
      * Scheduler for UI work
      */
-    val ui: Scheduler
+    public val ui: Scheduler
 )

@@ -8,7 +8,7 @@ import java.util.Locale
 /**
  * Returns a matcher that matches string containing a subString (case insensitive).
  */
-fun containsIgnoringCase(subString: String): Matcher<String> {
+public fun containsIgnoringCase(subString: String): Matcher<String> {
 
     return object : TypeSafeMatcher<String>() {
         override fun matchesSafely(actualString: String): Boolean {

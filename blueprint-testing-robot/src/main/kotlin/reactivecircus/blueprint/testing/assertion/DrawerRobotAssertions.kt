@@ -10,7 +10,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if the drawer associated with [drawerId] is opened.
  */
-fun RobotAssertions.drawerOpened(@IdRes drawerId: Int) {
+public fun RobotAssertions.drawerOpened(@IdRes drawerId: Int) {
     Espresso.onView(ViewMatchers.withId(drawerId))
         .check(ViewAssertions.matches(DrawerMatchers.isOpen()))
 }
@@ -18,7 +18,7 @@ fun RobotAssertions.drawerOpened(@IdRes drawerId: Int) {
 /**
  * Check if the drawer associated with [drawerId] is closed.
  */
-fun RobotAssertions.drawerClosed(@IdRes drawerId: Int) {
+public fun RobotAssertions.drawerClosed(@IdRes drawerId: Int) {
     Espresso.onView(ViewMatchers.withId(drawerId))
         .check(ViewAssertions.matches(DrawerMatchers.isClosed()))
 }

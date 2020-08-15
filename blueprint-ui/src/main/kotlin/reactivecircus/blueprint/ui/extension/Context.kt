@@ -15,7 +15,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 /**
  * Apply tinting to a vector drawable.
  */
-fun Context.tintVectorDrawable(
+public fun Context.tintVectorDrawable(
     theme: Resources.Theme,
     @DrawableRes resId: Int,
     @ColorInt tint: Int
@@ -31,7 +31,7 @@ fun Context.tintVectorDrawable(
  * Resolves the given color attribute and returns the resource ID associated with the color.
  */
 @ColorInt
-fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int {
+public fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int {
     val resolvedAttr = TypedValue()
     theme.resolveAttribute(colorAttr, resolvedAttr, true)
     // resourceId is used if it's a ColorStateList, and data if it's a color reference or a hex color
@@ -42,7 +42,7 @@ fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int {
 /**
  * Whether animation is turned on on the device.
  */
-val Context.isAnimationOn: Boolean
+public val Context.isAnimationOn: Boolean
     get() = Settings.Global.getFloat(
         contentResolver,
         Settings.Global.ANIMATOR_DURATION_SCALE,

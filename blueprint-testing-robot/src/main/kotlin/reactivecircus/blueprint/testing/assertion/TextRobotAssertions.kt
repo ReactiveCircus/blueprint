@@ -13,7 +13,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if all texts associated with [textResIds] are displayed.
  */
-fun RobotAssertions.textDisplayed(@StringRes vararg textResIds: Int) {
+public fun RobotAssertions.textDisplayed(@StringRes vararg textResIds: Int) {
     textResIds.forEach { textResId ->
         Espresso.onView(ViewMatchers.withText(textResId))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -23,7 +23,7 @@ fun RobotAssertions.textDisplayed(@StringRes vararg textResIds: Int) {
 /**
  * Check if all [texts] are displayed.
  */
-fun RobotAssertions.textDisplayed(vararg texts: String) {
+public fun RobotAssertions.textDisplayed(vararg texts: String) {
     texts.forEach { text ->
         Espresso.onView(ViewMatchers.withText(text))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -33,7 +33,7 @@ fun RobotAssertions.textDisplayed(vararg texts: String) {
 /**
  * Check if no views associated with [textResIds] is displayed.
  */
-fun RobotAssertions.textNotDisplayed(@StringRes vararg textResIds: Int) {
+public fun RobotAssertions.textNotDisplayed(@StringRes vararg textResIds: Int) {
     textResIds.forEach { textResId ->
         Espresso.onView(ViewMatchers.withText(textResId))
             .check(ViewAssertions.doesNotExist())
@@ -43,7 +43,7 @@ fun RobotAssertions.textNotDisplayed(@StringRes vararg textResIds: Int) {
 /**
  * Check if none of [texts] is displayed.
  */
-fun RobotAssertions.textNotDisplayed(vararg texts: String) {
+public fun RobotAssertions.textNotDisplayed(vararg texts: String) {
     texts.forEach { text ->
         Espresso.onView(ViewMatchers.withText(text))
             .check(ViewAssertions.doesNotExist())
@@ -53,7 +53,7 @@ fun RobotAssertions.textNotDisplayed(vararg texts: String) {
 /**
  * Check if the view associated with [viewId] has [expected] text.
  */
-fun RobotAssertions.viewHasText(@IdRes viewId: Int, expected: String) {
+public fun RobotAssertions.viewHasText(@IdRes viewId: Int, expected: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.withText(expected)))
 }
@@ -61,7 +61,7 @@ fun RobotAssertions.viewHasText(@IdRes viewId: Int, expected: String) {
 /**
  * Check if the view associated with [viewId] has string associated with [messageResId] text.
  */
-fun RobotAssertions.viewHasText(@IdRes viewId: Int, @StringRes messageResId: Int) {
+public fun RobotAssertions.viewHasText(@IdRes viewId: Int, @StringRes messageResId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.withText(messageResId)))
 }
@@ -69,7 +69,7 @@ fun RobotAssertions.viewHasText(@IdRes viewId: Int, @StringRes messageResId: Int
 /**
  * Check if the view associated with [viewId] has text that contains the [expected] string.
  */
-fun RobotAssertions.viewContainsText(@IdRes viewId: Int, expected: String) {
+public fun RobotAssertions.viewContainsText(@IdRes viewId: Int, expected: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(
             ViewAssertions.matches(ViewMatchers.withText(StringContains.containsString(expected)))
@@ -79,7 +79,7 @@ fun RobotAssertions.viewContainsText(@IdRes viewId: Int, expected: String) {
 /**
  * Check if the view associated with [viewId] has text that starts with the [expected] string.
  */
-fun RobotAssertions.viewStartsWithText(@IdRes viewId: Int, expected: String) {
+public fun RobotAssertions.viewStartsWithText(@IdRes viewId: Int, expected: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(
             ViewAssertions.matches(ViewMatchers.withText(StringStartsWith.startsWith(expected)))
@@ -89,7 +89,7 @@ fun RobotAssertions.viewStartsWithText(@IdRes viewId: Int, expected: String) {
 /**
  * Check if the view associated with [viewId] has text that ends with the [expected] string.
  */
-fun RobotAssertions.viewEndsWithText(@IdRes viewId: Int, expected: String) {
+public fun RobotAssertions.viewEndsWithText(@IdRes viewId: Int, expected: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(
             ViewAssertions.matches(ViewMatchers.withText(StringEndsWith.endsWith(expected)))
@@ -100,7 +100,7 @@ fun RobotAssertions.viewEndsWithText(@IdRes viewId: Int, expected: String) {
  * Check if the view associated with [viewId]
  * has a hint that equals to the string associated with [messageResId].
  */
-fun RobotAssertions.viewHasHint(@IdRes viewId: Int, @StringRes messageResId: Int) {
+public fun RobotAssertions.viewHasHint(@IdRes viewId: Int, @StringRes messageResId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.withHint(messageResId)))
 }

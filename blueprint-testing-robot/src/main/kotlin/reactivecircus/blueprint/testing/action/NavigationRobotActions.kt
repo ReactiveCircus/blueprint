@@ -23,7 +23,7 @@ import reactivecircus.blueprint.testing.RobotActions
  * Select the bottom navigation item with [navItemTitle]
  * from the bottom navigation view associated with [bottomNavigationViewResId].
  */
-fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: Int, navItemTitle: String) {
+public fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: Int, navItemTitle: String) {
     Espresso.onView(
         CoreMatchers.allOf(
             ViewMatchers.withId(R.id.icon),
@@ -44,7 +44,7 @@ fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: In
  * Select the navigation item associated with [menuItemResId]
  * from the navigation view associated with [navigationViewResId].
  */
-fun RobotActions.selectNavigationItem(@IdRes navigationViewResId: Int, @IdRes menuItemResId: Int) {
+public fun RobotActions.selectNavigationItem(@IdRes navigationViewResId: Int, @IdRes menuItemResId: Int) {
     Espresso.onView(withId(navigationViewResId))
         .perform(NavigationViewActions.navigateTo(menuItemResId))
 }
@@ -52,21 +52,21 @@ fun RobotActions.selectNavigationItem(@IdRes navigationViewResId: Int, @IdRes me
 /**
  * Press the Android back button.
  */
-fun RobotActions.pressBack() {
+public fun RobotActions.pressBack() {
     Espresso.pressBackUnconditionally()
 }
 
 /**
  * Click the navigation up button in the current toolbar.
  */
-fun RobotActions.clickNavigateUpButton() {
+public fun RobotActions.clickNavigateUpButton() {
     Espresso.onView(withToolbarNavigationButton()).perform(ViewActions.click())
 }
 
 /**
  * Intercept the future intent and respond with [Activity.RESULT_OK].
  */
-fun RobotActions.interceptIntents() {
+public fun RobotActions.interceptIntents() {
     Intents.intending(CoreMatchers.not(IntentMatchers.isInternal()))
         .respondWith(Instrumentation.ActivityResult(Activity.RESULT_OK, null))
 }

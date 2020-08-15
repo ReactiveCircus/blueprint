@@ -10,7 +10,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if a snackbar with [text] as message is displayed.
  */
-fun RobotAssertions.snackBarDisplayed(text: String) {
+public fun RobotAssertions.snackBarDisplayed(text: String) {
     Espresso.onView(
         CoreMatchers.allOf(
             ViewMatchers.withId(R.id.snackbar_text),

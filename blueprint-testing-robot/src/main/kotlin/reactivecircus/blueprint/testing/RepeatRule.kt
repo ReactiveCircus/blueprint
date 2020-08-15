@@ -8,7 +8,7 @@ import org.junit.runners.model.Statement
  * TestRule to execute tests multiple times.
  * This can be used to debug flaky tests.
  */
-class RepeatRule(private val iterations: Int) : TestRule {
+public class RepeatRule(private val iterations: Int) : TestRule {
 
     init {
         require(iterations > 0) { "iterations < 1: $iterations" }

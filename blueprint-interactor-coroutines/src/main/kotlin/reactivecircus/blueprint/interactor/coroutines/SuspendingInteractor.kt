@@ -10,12 +10,12 @@ import reactivecircus.blueprint.interactor.InteractorParams
  *
  * Work will be executed on thread as specified by the [dispatcher] of the interactor.
  */
-abstract class SuspendingInteractor<in P : InteractorParams, out R> {
+public abstract class SuspendingInteractor<in P : InteractorParams, out R> {
 
     /**
      * The coroutine context this interactor should execute on.
      */
-    abstract val dispatcher: CoroutineDispatcher
+    public abstract val dispatcher: CoroutineDispatcher
 
     /**
      * Define the work to be performed by this interactor.
@@ -25,7 +25,7 @@ abstract class SuspendingInteractor<in P : InteractorParams, out R> {
     /**
      * Execute the the interactor.
      */
-    suspend fun execute(params: P): R = withContext(context = dispatcher) {
+    public suspend fun execute(params: P): R = withContext(context = dispatcher) {
         doWork(params)
     }
 }

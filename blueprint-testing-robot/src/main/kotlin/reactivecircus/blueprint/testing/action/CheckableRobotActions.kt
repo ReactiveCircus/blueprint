@@ -12,7 +12,7 @@ import reactivecircus.blueprint.testing.scrollTo
  * Click on the radio button with [buttonText]
  * within the radio group associated with [radioGroupId].
  */
-fun RobotActions.clickRadioButton(@IdRes radioGroupId: Int, buttonText: String) {
+public fun RobotActions.clickRadioButton(@IdRes radioGroupId: Int, buttonText: String) {
     scrollTo(buttonText)
     Espresso.onView(
         AllOf.allOf(
@@ -27,7 +27,7 @@ fun RobotActions.clickRadioButton(@IdRes radioGroupId: Int, buttonText: String) 
 /**
  * Select the checkbox with [text] within the view group associated with [layoutId].
  */
-fun RobotActions.selectCheckBox(@IdRes layoutId: Int, text: String) {
+public fun RobotActions.selectCheckBox(@IdRes layoutId: Int, text: String) {
     scrollTo(text)
     Espresso.onView(
         AllOf.allOf(

@@ -10,7 +10,7 @@ import reactivecircus.blueprint.interactor.InteractorParams
  * Upon subscription a use case will execute its job in the thread specified by the [ioScheduler].
  * and will post the result to the thread specified by [uiScheduler].
  */
-abstract class SingleInteractor<P : InteractorParams, T>(
+public abstract class SingleInteractor<P : InteractorParams, T>(
     private val ioScheduler: Scheduler,
     private val uiScheduler: Scheduler
 ) {
@@ -25,7 +25,7 @@ abstract class SingleInteractor<P : InteractorParams, T>(
      * @param params - parameters required for this interactor
      * @param blocking - when set to true the single will be subscribed and observed on the current thread
      */
-    fun buildSingle(params: P, blocking: Boolean = false): Single<T> {
+    public fun buildSingle(params: P, blocking: Boolean = false): Single<T> {
         return if (blocking) {
             createInteractor(params)
         } else {

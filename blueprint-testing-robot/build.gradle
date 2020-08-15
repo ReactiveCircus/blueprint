@@ -18,6 +18,13 @@ android {
         testApplicationId 'reactivecircus.blueprint.testing.testapp'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    kotlin.explicitApi = 'strict'
+    kotlinOptions {
+        freeCompilerArgs += [
+                '-Xexplicit-api=strict',
+        ]
+    }
 }
 
 dependencies {

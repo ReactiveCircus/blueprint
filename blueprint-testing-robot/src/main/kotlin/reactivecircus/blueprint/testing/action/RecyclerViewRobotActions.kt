@@ -12,7 +12,7 @@ import reactivecircus.blueprint.testing.scrollToItemInRecyclerView
 /**
  * Click on the item at [position] within the recycler view associated with [recyclerViewId].
  */
-fun RobotActions.clickRecyclerViewItem(@IdRes recyclerViewId: Int, position: Int) {
+public fun RobotActions.clickRecyclerViewItem(@IdRes recyclerViewId: Int, position: Int) {
     // scroll to the item to make sure it's visible
     scrollToItemInRecyclerView(recyclerViewId, position)
 

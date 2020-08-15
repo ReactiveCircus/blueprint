@@ -15,7 +15,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if text input layout associated with [viewId] has [errorMessage] as the error.
  */
-fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, errorMessage: String) {
+public fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, errorMessage: String) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(hasTextInputLayoutErrorText(errorMessage)))
 }
@@ -24,7 +24,7 @@ fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, errorMessage: St
  * Check if text input layout associated with [viewId]
  * has string associated with [errorMessageResId] as the error.
  */
-fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, @StringRes errorMessageResId: Int) {
+public fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, @StringRes errorMessageResId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(hasTextInputLayoutErrorText(errorMessageResId)))
 }
@@ -32,7 +32,7 @@ fun RobotAssertions.textInputLayoutHasError(@IdRes viewId: Int, @StringRes error
 /**
  * Check if the text input layout associated with [viewId] has NO error.
  */
-fun RobotAssertions.textInputLayoutHasNoError(@IdRes viewId: Int) {
+public fun RobotAssertions.textInputLayoutHasNoError(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(noTextInputLayoutError()))
 }

@@ -20,7 +20,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if the drawable associated with [resourceId] is displayed.
  */
-fun RobotAssertions.drawableDisplayed(@IdRes resourceId: Int) {
+public fun RobotAssertions.drawableDisplayed(@IdRes resourceId: Int) {
     Espresso.onView(withDrawable(resourceId))
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
@@ -28,7 +28,7 @@ fun RobotAssertions.drawableDisplayed(@IdRes resourceId: Int) {
 /**
  * Check if the background drawable associated with [resourceId] is displayed.
  */
-fun RobotAssertions.backgroundDrawableDisplayed(@IdRes resourceId: Int) {
+public fun RobotAssertions.backgroundDrawableDisplayed(@IdRes resourceId: Int) {
     Espresso.onView(withBackgroundDrawable(resourceId))
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
@@ -36,7 +36,7 @@ fun RobotAssertions.backgroundDrawableDisplayed(@IdRes resourceId: Int) {
 /**
  * Check if the foreground drawable associated with [resourceId] is displayed.
  */
-fun RobotAssertions.foregroundDrawableDisplayed(@IdRes resourceId: Int) {
+public fun RobotAssertions.foregroundDrawableDisplayed(@IdRes resourceId: Int) {
     Espresso.onView(withForegroundDrawable(resourceId))
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }

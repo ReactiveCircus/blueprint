@@ -9,13 +9,13 @@ import reactivecircus.blueprint.testing.RobotActions
 /**
  * Close the soft keyboard.
  */
-fun RobotActions.closeKeyboard(@IdRes viewId: Int) {
+public fun RobotActions.closeKeyboard(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId)).perform(ViewActions.closeSoftKeyboard())
 }
 
 /**
  * Press the action button on the keyboard.
  */
-fun RobotActions.pressKeyboardActionButton(@IdRes viewId: Int) {
+public fun RobotActions.pressKeyboardActionButton(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId)).perform(ViewActions.pressImeActionButton())
 }

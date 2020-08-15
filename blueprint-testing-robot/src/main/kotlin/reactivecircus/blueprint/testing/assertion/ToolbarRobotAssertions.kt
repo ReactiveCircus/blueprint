@@ -16,7 +16,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if the current [Toolbar] has a title of [title].
  */
-fun RobotAssertions.toolbarHasTitle(title: String) {
+public fun RobotAssertions.toolbarHasTitle(title: String) {
     Espresso.onView(ViewMatchers.isAssignableFrom(Toolbar::class.java))
         .check(ViewAssertions.matches(withToolbarTitle(Is.`is`(title))))
 }
@@ -24,7 +24,7 @@ fun RobotAssertions.toolbarHasTitle(title: String) {
 /**
  * Check if the current [Toolbar] has a title of a string associated with [titleTextResId].
  */
-fun RobotAssertions.toolbarHasTitle(@StringRes titleTextResId: Int) {
+public fun RobotAssertions.toolbarHasTitle(@StringRes titleTextResId: Int) {
     Espresso.onView(ViewMatchers.isAssignableFrom(Toolbar::class.java))
         .check(
             ViewAssertions.matches(
@@ -42,7 +42,7 @@ fun RobotAssertions.toolbarHasTitle(@StringRes titleTextResId: Int) {
 /**
  * Check if the current [Toolbar] has a subtitle of [subtitle].
  */
-fun RobotAssertions.toolbarHasSubtitle(subtitle: String) {
+public fun RobotAssertions.toolbarHasSubtitle(subtitle: String) {
     Espresso.onView(ViewMatchers.isAssignableFrom(Toolbar::class.java))
         .check(ViewAssertions.matches(withToolbarSubtitle(Is.`is`(subtitle))))
 }
@@ -51,7 +51,7 @@ fun RobotAssertions.toolbarHasSubtitle(subtitle: String) {
  * Check if the current [Toolbar]
  * has a subtitle of a string associated with [subtitleTextResId].
  */
-fun RobotAssertions.toolbarHasSubtitle(@StringRes subtitleTextResId: Int) {
+public fun RobotAssertions.toolbarHasSubtitle(@StringRes subtitleTextResId: Int) {
     Espresso.onView(ViewMatchers.isAssignableFrom(Toolbar::class.java))
         .check(
             ViewAssertions.matches(

@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference
 /**
  * Finds the activity in the foreground (if any).
  */
-fun currentActivity(): Activity? {
+public fun currentActivity(): Activity? {
     val currentActivityReference = AtomicReference<Activity>()
     getInstrumentation().runOnMainSync {
         val resumedActivities = ActivityLifecycleMonitorRegistry.getInstance()

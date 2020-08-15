@@ -10,7 +10,7 @@ import android.os.Bundle
  * @param requestCode - the requestCode to be passed into [Activity.startActivityForResult]
  * @param options - the options bundle to be  passed into [Activity.startActivityForResult]
  */
-inline fun <reified T : Activity> Activity.launchActivity(
+public inline fun <reified T : Activity> Activity.launchActivity(
     requestCode: Int,
     options: Bundle? = null,
     noinline init: Intent.() -> Unit = {}
@@ -24,7 +24,7 @@ inline fun <reified T : Activity> Activity.launchActivity(
  * Launches an activity from a [Context] via [Activity.startActivity].
  * @param options - the options bundle to be  passed into [Activity.startActivity]
  */
-inline fun <reified T : Activity> Context.launchActivity(
+public inline fun <reified T : Activity> Context.launchActivity(
     options: Bundle? = null,
     noinline init: Intent.() -> Unit = {}
 ) {
@@ -36,5 +36,5 @@ inline fun <reified T : Activity> Context.launchActivity(
 /**
  * Creates a new intent of type [T].
  */
-inline fun <reified T : Activity> newIntent(context: Context): Intent =
+public inline fun <reified T : Activity> newIntent(context: Context): Intent =
     Intent(context, T::class.java)

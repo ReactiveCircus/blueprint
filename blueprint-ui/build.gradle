@@ -13,6 +13,15 @@ afterEvaluate { project ->
     }
 }
 
+android {
+    kotlin.explicitApi = 'strict'
+    kotlinOptions {
+        freeCompilerArgs += [
+                '-Xexplicit-api=strict',
+        ]
+    }
+}
+
 dependencies {
     // AndroidX
     implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"

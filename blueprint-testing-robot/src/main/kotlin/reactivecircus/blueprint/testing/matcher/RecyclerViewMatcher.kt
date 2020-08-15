@@ -14,17 +14,17 @@ import org.hamcrest.TypeSafeMatcher
 /**
  * Returns a matcher that matches a view in the [RecyclerView] at certain position.
  */
-fun withRecyclerView(@IdRes recyclerViewId: Int): RecyclerViewMatcher {
+public fun withRecyclerView(@IdRes recyclerViewId: Int): RecyclerViewMatcher {
     return RecyclerViewMatcher(recyclerViewId)
 }
 
-class RecyclerViewMatcher(private val recyclerViewId: Int) {
+public class RecyclerViewMatcher(private val recyclerViewId: Int) {
 
-    fun atPosition(position: Int): Matcher<View> {
+    public fun atPosition(position: Int): Matcher<View> {
         return atPositionOnView(position, -1)
     }
 
-    fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View> {
+    public fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View> {
 
         return object : TypeSafeMatcher<View>() {
             var resources: Resources? = null

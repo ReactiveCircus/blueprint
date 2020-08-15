@@ -5,6 +5,16 @@ plugins {
     id 'org.jetbrains.dokka'
 }
 
+kotlin.explicitApi = 'strict'
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += [
+                '-Xexplicit-api=strict',
+        ]
+    }
+}
+
 afterEvaluate { project ->
     project.tasks.dokka {
         outputDirectory = "$rootDir/docs/api"

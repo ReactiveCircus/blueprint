@@ -9,13 +9,13 @@ import reactivecircus.blueprint.testing.RobotActions
 /**
  * Open the drawer associated with [drawerId].
  */
-fun RobotActions.openDrawer(@IdRes drawerId: Int) {
+public fun RobotActions.openDrawer(@IdRes drawerId: Int) {
     Espresso.onView(ViewMatchers.withId(drawerId)).perform(DrawerActions.open())
 }
 
 /**
  * Close the drawer associated with [drawerId].
  */
-fun RobotActions.closeDrawer(@IdRes drawerId: Int) {
+public fun RobotActions.closeDrawer(@IdRes drawerId: Int) {
     Espresso.onView(ViewMatchers.withId(drawerId)).perform(DrawerActions.close())
 }

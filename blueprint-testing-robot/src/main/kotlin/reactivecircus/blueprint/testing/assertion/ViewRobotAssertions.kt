@@ -11,7 +11,7 @@ import reactivecircus.blueprint.testing.RobotAssertions
 /**
  * Check if all views associated with [viewIds] are displayed.
  */
-fun RobotAssertions.viewDisplayed(@IdRes vararg viewIds: Int) {
+public fun RobotAssertions.viewDisplayed(@IdRes vararg viewIds: Int) {
     viewIds.forEach { viewId ->
         Espresso.onView(ViewMatchers.withId(viewId))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
@@ -21,7 +21,7 @@ fun RobotAssertions.viewDisplayed(@IdRes vararg viewIds: Int) {
 /**
  * Check if all views associated with [viewIds] are NOT displayed.
  */
-fun RobotAssertions.viewNotDisplayed(@IdRes vararg viewIds: Int) {
+public fun RobotAssertions.viewNotDisplayed(@IdRes vararg viewIds: Int) {
     viewIds.forEach { viewId ->
         Espresso.onView(ViewMatchers.withId(viewId))
             .check(ViewAssertions.matches(CoreMatchers.not<View>(ViewMatchers.isDisplayed())))
@@ -31,7 +31,7 @@ fun RobotAssertions.viewNotDisplayed(@IdRes vararg viewIds: Int) {
 /**
  * Check if the view associated with [viewId] is enabled.
  */
-fun RobotAssertions.viewEnabled(@IdRes viewId: Int) {
+public fun RobotAssertions.viewEnabled(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.isEnabled()))
 }
@@ -39,7 +39,7 @@ fun RobotAssertions.viewEnabled(@IdRes viewId: Int) {
 /**
  * Check if the view associated with [viewId] is disabled.
  */
-fun RobotAssertions.viewDisabled(@IdRes viewId: Int) {
+public fun RobotAssertions.viewDisabled(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(CoreMatchers.not<View>(ViewMatchers.isEnabled())))
 }
@@ -47,7 +47,7 @@ fun RobotAssertions.viewDisabled(@IdRes viewId: Int) {
 /**
  * Check if the view associated with [viewId] is clickable.
  */
-fun RobotAssertions.viewClickable(@IdRes viewId: Int) {
+public fun RobotAssertions.viewClickable(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(ViewMatchers.isClickable()))
 }
@@ -55,7 +55,7 @@ fun RobotAssertions.viewClickable(@IdRes viewId: Int) {
 /**
  * Check if the view associated with [viewId] is NOT clickable.
  */
-fun RobotAssertions.viewNotClickable(@IdRes viewId: Int) {
+public fun RobotAssertions.viewNotClickable(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
         .check(ViewAssertions.matches(CoreMatchers.not<View>(ViewMatchers.isClickable())))
 }

@@ -26,7 +26,7 @@ import reactivecircus.blueprint.testing.currentActivity
  * Check if the bottom navigation view associated with [bottomNavigationViewResId]
  * has [selectedItemResId] as the selected item.
  */
-fun RobotAssertions.bottomNavigationViewItemSelected(
+public fun RobotAssertions.bottomNavigationViewItemSelected(
     @IdRes bottomNavigationViewResId: Int,
     @IdRes selectedItemResId: Int
 ) {
@@ -37,21 +37,21 @@ fun RobotAssertions.bottomNavigationViewItemSelected(
 /**
  * Check if no activity is currently displayed
  */
-fun RobotAssertions.noActivityDisplayed() {
+public fun RobotAssertions.noActivityDisplayed() {
     ActivityNotDisplayedAssertion(currentActivity())
 }
 
 /**
  * Check if the activity of type [A] has been launched.
  */
-inline fun <reified A : Activity> RobotAssertions.activityLaunched() {
+public inline fun <reified A : Activity> RobotAssertions.activityLaunched() {
     Intents.intended(IntentMatchers.hasComponent(A::class.java.name))
 }
 
 /**
  * Check if the fragment of type [F] with [tag] is displayed.
  */
-inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(tag: String) {
+public inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(tag: String) {
     val fragment = (currentActivity() as FragmentActivity)
         .supportFragmentManager.findFragmentByTag(tag)
     assertThat(fragment != null && fragment.isVisible && fragment is F)
@@ -62,7 +62,7 @@ inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(tag: String)
  * Check if the fragment of type [F]
  * with a navigation host associated with [navHostViewId] is displayed.
  */
-inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(@IdRes navHostViewId: Int) {
+public inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(@IdRes navHostViewId: Int) {
     val fragment = (currentActivity() as? FragmentActivity)?.supportFragmentManager
         ?.findFragmentById(navHostViewId)?.childFragmentManager?.primaryNavigationFragment
 
