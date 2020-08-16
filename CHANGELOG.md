@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 1.12.0
+
+_2020-08-16_
+
+* Update to Kotlin 1.4.0 and Coroutines 1.3.9.
+* Enable explicit API mode.
+* Update AndroidX and MDC.
+
 ## Version 1.11.0
 
 _2020-07-23_
