@@ -17,11 +17,11 @@ import reactivecircus.blueprint.testing.RobotAssertions
  */
 public fun RobotAssertions.recyclerViewHasSize(@IdRes recyclerViewId: Int, size: Int) {
     Espresso.onView(
-            allOf(
-                ViewMatchers.withId(recyclerViewId),
-                ViewMatchers.isDisplayed()
-            )
+        allOf(
+            ViewMatchers.withId(recyclerViewId),
+            ViewMatchers.isDisplayed()
         )
+    )
         .check(RecyclerViewItemCountAssertion(size))
 }
 

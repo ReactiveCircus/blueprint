@@ -62,7 +62,8 @@ class CompletableInteractorTest {
         uiScheduler: Scheduler
     ) :
         CompletableInteractor<CompletableParams>(
-            ioScheduler, uiScheduler
+            ioScheduler,
+            uiScheduler
         ) {
         override fun createInteractor(params: CompletableParams): Completable {
             return if (params.shouldFail) {
@@ -79,7 +80,8 @@ class CompletableInteractorTest {
         ioScheduler: Scheduler,
         uiScheduler: Scheduler
     ) : CompletableInteractor<EmptyParams>(
-        ioScheduler, uiScheduler
+        ioScheduler,
+        uiScheduler
     ) {
         override fun createInteractor(params: EmptyParams): Completable {
             return Completable.complete()

@@ -18,11 +18,13 @@ class InMemoryNoteCache : NoteCache {
     }
 
     override fun addNotes(newNotes: List<Note>) {
-        require(notes.none { existingNote ->
-            newNotes.any { newNote ->
-                existingNote.uuid == newNote.uuid
+        require(
+            notes.none { existingNote ->
+                newNotes.any { newNote ->
+                    existingNote.uuid == newNote.uuid
+                }
             }
-        }) {
+        ) {
             "Note already exists."
         }
 

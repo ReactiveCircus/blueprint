@@ -64,7 +64,8 @@ class ObservableInteractorTest {
         uiScheduler: Scheduler
     ) :
         ObservableInteractor<ObservableParams, String>(
-            ioScheduler, uiScheduler
+            ioScheduler,
+            uiScheduler
         ) {
         override fun createInteractor(params: ObservableParams): Observable<String> {
             return if (params.shouldFail) {
@@ -81,7 +82,8 @@ class ObservableInteractorTest {
         ioScheduler: Scheduler,
         uiScheduler: Scheduler
     ) : ObservableInteractor<EmptyParams, String>(
-        ioScheduler, uiScheduler
+        ioScheduler,
+        uiScheduler
     ) {
         override fun createInteractor(params: EmptyParams): Observable<String> {
             return Observable.just(dummyResult)

@@ -14,7 +14,8 @@ fun enterNoteScreen(block: EnterNoteRobot.() -> Unit) =
 
 class EnterNoteRobot :
     ScreenRobot<EnterNoteRobotActions, EnterNoteRobotAssertions>(
-        EnterNoteRobotActions(), EnterNoteRobotAssertions()
+        EnterNoteRobotActions(),
+        EnterNoteRobotAssertions()
     )
 
 class EnterNoteRobotActions : RobotActions {

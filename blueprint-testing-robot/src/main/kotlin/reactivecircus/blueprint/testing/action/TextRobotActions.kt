@@ -41,22 +41,24 @@ public fun RobotActions.clearTextInView(@IdRes viewId: Int) {
  */
 public fun RobotActions.hideTextInputPasswordToggleButton(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return Matchers.allOf(
-                    ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
-                    Matchers.instanceOf(TextInputLayout::class.java)
-                )
-            }
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return Matchers.allOf(
+                        ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+                        Matchers.instanceOf(TextInputLayout::class.java)
+                    )
+                }
 
-            override fun perform(uiController: UiController, view: View) {
-                (view as TextInputLayout).isEndIconVisible = false
-            }
+                override fun perform(uiController: UiController, view: View) {
+                    (view as TextInputLayout).isEndIconVisible = false
+                }
 
-            override fun getDescription(): String {
-                return "Password toggle button hidden."
+                override fun getDescription(): String {
+                    return "Password toggle button hidden."
+                }
             }
-        })
+        )
 }
 
 /**
@@ -64,21 +66,23 @@ public fun RobotActions.hideTextInputPasswordToggleButton(@IdRes viewId: Int) {
  */
 public fun RobotActions.clickTextInputLayoutStartIcon(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
-            }
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+                }
 
-            override fun perform(uiController: UiController, view: View) {
-                (view as TextInputLayout)
-                    .findViewById<CheckableImageButton>(MaterialR.id.text_input_start_icon)
-                    .performClick()
-            }
+                override fun perform(uiController: UiController, view: View) {
+                    (view as TextInputLayout)
+                        .findViewById<CheckableImageButton>(MaterialR.id.text_input_start_icon)
+                        .performClick()
+                }
 
-            override fun getDescription(): String {
-                return "start icon clicked."
+                override fun getDescription(): String {
+                    return "start icon clicked."
+                }
             }
-        })
+        )
 }
 
 /**
@@ -86,21 +90,23 @@ public fun RobotActions.clickTextInputLayoutStartIcon(@IdRes viewId: Int) {
  */
 public fun RobotActions.clickTextInputLayoutEndIcon(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
-            }
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+                }
 
-            override fun perform(uiController: UiController, view: View) {
-                (view as TextInputLayout)
-                    .findViewById<CheckableImageButton>(MaterialR.id.text_input_end_icon)
-                    .performClick()
-            }
+                override fun perform(uiController: UiController, view: View) {
+                    (view as TextInputLayout)
+                        .findViewById<CheckableImageButton>(MaterialR.id.text_input_end_icon)
+                        .performClick()
+                }
 
-            override fun getDescription(): String {
-                return "end icon clicked."
+                override fun getDescription(): String {
+                    return "end icon clicked."
+                }
             }
-        })
+        )
 }
 
 /**
@@ -121,21 +127,23 @@ public fun RobotActions.clickTextInputLayoutErrorIcon(@IdRes viewId: Int) {
  */
 public fun RobotActions.longClickTextInputLayoutStartIcon(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
-            }
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+                }
 
-            override fun perform(uiController: UiController, view: View) {
-                (view as TextInputLayout)
-                    .findViewById<CheckableImageButton>(MaterialR.id.text_input_start_icon)
-                    .performLongClick()
-            }
+                override fun perform(uiController: UiController, view: View) {
+                    (view as TextInputLayout)
+                        .findViewById<CheckableImageButton>(MaterialR.id.text_input_start_icon)
+                        .performLongClick()
+                }
 
-            override fun getDescription(): String {
-                return "start icon long clicked."
+                override fun getDescription(): String {
+                    return "start icon long clicked."
+                }
             }
-        })
+        )
 }
 
 /**
@@ -143,21 +151,23 @@ public fun RobotActions.longClickTextInputLayoutStartIcon(@IdRes viewId: Int) {
  */
 public fun RobotActions.longClickTextInputLayoutEndIcon(@IdRes viewId: Int) {
     Espresso.onView(ViewMatchers.withId(viewId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
-            }
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return ViewMatchers.isAssignableFrom(TextInputLayout::class.java)
+                }
 
-            override fun perform(uiController: UiController, view: View) {
-                (view as TextInputLayout)
-                    .findViewById<CheckableImageButton>(MaterialR.id.text_input_end_icon)
-                    .performLongClick()
-            }
+                override fun perform(uiController: UiController, view: View) {
+                    (view as TextInputLayout)
+                        .findViewById<CheckableImageButton>(MaterialR.id.text_input_end_icon)
+                        .performLongClick()
+                }
 
-            override fun getDescription(): String {
-                return "end icon long clicked."
+                override fun getDescription(): String {
+                    return "end icon long clicked."
+                }
             }
-        })
+        )
 }
 
 /**

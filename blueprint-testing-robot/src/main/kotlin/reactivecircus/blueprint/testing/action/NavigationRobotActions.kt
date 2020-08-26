@@ -13,7 +13,6 @@ import androidx.test.espresso.contrib.NavigationViewActions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.google.android.material.R
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matcher

@@ -19,7 +19,8 @@ public fun RobotActions.clickRecyclerViewItem(@IdRes recyclerViewId: Int, positi
     Espresso.onView(ViewMatchers.withId(recyclerViewId))
         .perform(
             RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
-                position, ViewActions.click()
+                position,
+                ViewActions.click()
             )
         )
 }

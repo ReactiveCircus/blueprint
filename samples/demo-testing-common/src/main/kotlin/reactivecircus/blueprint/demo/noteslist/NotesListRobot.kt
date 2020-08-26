@@ -23,7 +23,8 @@ fun notesListScreen(block: NotesListRobot.() -> Unit) =
 
 class NotesListRobot :
     ScreenRobot<NotesListRobotActions, NotesListRobotAssertions>(
-        NotesListRobotActions(), NotesListRobotAssertions()
+        NotesListRobotActions(),
+        NotesListRobotAssertions()
     )
 
 class NotesListRobotActions : RobotActions {

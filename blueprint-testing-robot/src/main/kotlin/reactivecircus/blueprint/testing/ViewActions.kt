@@ -60,23 +60,24 @@ private const val RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS = 10L
 public fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
     Espresso.onIdle()
     Espresso.onView(allOf(ViewMatchers.withId(recyclerViewId), isDisplayed()))
-        .perform(object : ViewAction {
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> =
+                    allOf(ViewMatchers.withId(recyclerViewId), isDisplayed())
 
-            override fun getConstraints(): Matcher<View> =
-                allOf(ViewMatchers.withId(recyclerViewId), isDisplayed())
+                override fun getDescription(): String =
+                    "waiting until RecyclerView has no more pending updates"
 
-            override fun getDescription(): String =
-                "waiting until RecyclerView has no more pending updates"
-
-            override fun perform(uiController: UiController, view: View) {
-                val recyclerView = view as RecyclerView
-                while (recyclerView.hasPendingAdapterUpdates()) {
-                    runBlocking {
-                        delay(RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS)
+                override fun perform(uiController: UiController, view: View) {
+                    val recyclerView = view as RecyclerView
+                    while (recyclerView.hasPendingAdapterUpdates()) {
+                        runBlocking {
+                            delay(RECYCLER_VIEW_PENDING_UPDATES_CHECK_INTERVAL_MILLIS)
+                        }
                     }
                 }
             }
-        })
+        )
 }
 
 /**
@@ -84,26 +85,28 @@ public fun onRecyclerViewIdle(@IdRes recyclerViewId: Int) {
  */
 public fun clearToolbarScrollFlags(@IdRes toolbarId: Int) {
     Espresso.onView(ViewMatchers.withId(toolbarId))
-        .perform(object : ViewAction {
-            override fun getConstraints(): Matcher<View> {
-                return Matchers.allOf(
-                    ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
-                    Matchers.instanceOf(Toolbar::class.java)
-                )
-            }
-
-            override fun perform(uiController: UiController, view: View) {
-                val toolbar = (view as Toolbar)
-                val params = (view.layoutParams as AppBarLayout.LayoutParams).apply {
-                    scrollFlags = 0
+        .perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> {
+                    return Matchers.allOf(
+                        ViewMatchers.withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE),
+                        Matchers.instanceOf(Toolbar::class.java)
+                    )
                 }
-                toolbar.layoutParams = params
-            }
 
-            override fun getDescription(): String {
-                return "Toolbar scrollFlags cleared."
+                override fun perform(uiController: UiController, view: View) {
+                    val toolbar = (view as Toolbar)
+                    val params = (view.layoutParams as AppBarLayout.LayoutParams).apply {
+                        scrollFlags = 0
+                    }
+                    toolbar.layoutParams = params
+                }
+
+                override fun getDescription(): String {
+                    return "Toolbar scrollFlags cleared."
+                }
             }
-        })
+        )
 }
 
 private const val DEFAULT_VIEW_ACTION_DELAY_MILLIS = 200L
@@ -117,18 +120,20 @@ private const val DEFAULT_VIEW_ACTION_DELAY_MILLIS = 200L
 public fun Any.asViewAction(delayMillis: Long = DEFAULT_VIEW_ACTION_DELAY_MILLIS) {
     also {
         Espresso.onView(isRoot())
-            .perform(object : ViewAction {
-                override fun getConstraints(): Matcher<View> {
-                    return isRoot()
-                }
+            .perform(
+                object : ViewAction {
+                    override fun getConstraints(): Matcher<View> {
+                        return isRoot()
+                    }
 
-                override fun getDescription(): String {
-                    return "Wait for $delayMillis milliseconds."
-                }
+                    override fun getDescription(): String {
+                        return "Wait for $delayMillis milliseconds."
+                    }
 
-                override fun perform(uiController: UiController, view: View) {
-                    uiController.loopMainThreadForAtLeast(delayMillis)
+                    override fun perform(uiController: UiController, view: View) {
+                        uiController.loopMainThreadForAtLeast(delayMillis)
+                    }
                 }
-            })
+            )
     }
 }

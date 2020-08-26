@@ -73,7 +73,8 @@ class SingleInteractorTest {
         uiScheduler: Scheduler
     ) :
         SingleInteractor<SingleParams, String>(
-            ioScheduler, uiScheduler
+            ioScheduler,
+            uiScheduler
         ) {
         override fun createInteractor(params: SingleParams): Single<String> {
             return if (params.shouldFail) {
@@ -90,7 +91,8 @@ class SingleInteractorTest {
         ioScheduler: Scheduler,
         uiScheduler: Scheduler
     ) : SingleInteractor<EmptyParams, String>(
-        ioScheduler, uiScheduler
+        ioScheduler,
+        uiScheduler
     ) {
         override fun createInteractor(params: EmptyParams): Single<String> {
             return Single.just(dummyResult)
