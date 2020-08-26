@@ -13,6 +13,7 @@ import androidx.test.espresso.contrib.NavigationViewActions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.google.android.material.R
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Matcher
@@ -25,7 +26,7 @@ import reactivecircus.blueprint.testing.RobotActions
 public fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: Int, navItemTitle: String) {
     Espresso.onView(
         CoreMatchers.allOf(
-            ViewMatchers.withId(R.id.icon),
+            withId(R.id.icon),
             ViewMatchers.hasSibling(
                 ViewMatchers.hasDescendant(
                     ViewMatchers.withText(
@@ -33,7 +34,7 @@ public fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewRe
                     )
                 )
             ),
-            ViewMatchers.isDescendantOfA(ViewMatchers.withId(bottomNavigationViewResId))
+            ViewMatchers.isDescendantOfA(withId(bottomNavigationViewResId))
         )
     )
         .perform(ViewActions.click())
