@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.view.View
 import android.view.ViewParent
 import androidx.annotation.IdRes
+import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -18,7 +19,7 @@ public fun withRecyclerView(@IdRes recyclerViewId: Int): RecyclerViewMatcher {
     return RecyclerViewMatcher(recyclerViewId)
 }
 
-public class RecyclerViewMatcher(private val recyclerViewId: Int) {
+public class RecyclerViewMatcher(@PublishedApi internal val recyclerViewId: Int) {
 
     public fun atPosition(position: Int): Matcher<View> {
         return atPositionOnView(position, -1)
@@ -67,14 +68,73 @@ public class RecyclerViewMatcher(private val recyclerViewId: Int) {
                     view === targetView
                 }
             }
+        }
+    }
 
-            private fun findParentRecursively(view: View, targetId: Int): ViewParent? {
-                if (view.id == targetId) {
-                    return view as ViewParent
+    public fun withItemViewType(
+        @IdRes recyclerViewId: Int,
+        itemViewType: Int,
+    ): Matcher<View> {
+        return withItemViewType(recyclerViewId, itemViewType, -1)
+    }
+
+    public fun withItemViewType(
+        @IdRes recyclerViewId: Int,
+        itemViewType: Int,
+        targetViewId: Int,
+    ): Matcher<View> {
+        return object : TypeSafeMatcher<View>() {
+            var resources: Resources? = null
+            var itemView: View? = null
+
+            override fun describeTo(description: Description) {
+                var idDescription = recyclerViewId.toString()
+                if (resources != null) {
+                    idDescription = try {
+                        requireNotNull(resources).getResourceName(recyclerViewId)
+                    } catch (var4: Resources.NotFoundException) {
+                        String.format("%s (resource name not found)", recyclerViewId)
+                    }
                 }
-                val parent = view.parent as View
-                return findParentRecursively(parent, targetId)
+                description.appendText("with id: $idDescription")
+            }
+
+            @Suppress("ReturnCount")
+            override fun matchesSafely(view: View): Boolean {
+                resources = view.resources
+
+                // only try to match views which are within descendant of RecyclerView
+                if (!isDescendantOfA(withId(recyclerViewId)).matches(view)) {
+                    return false
+                }
+
+                if (itemView == null) {
+                    val recyclerView = findParentRecursively(view, recyclerViewId) as RecyclerView?
+                    if (recyclerView != null && recyclerView.id == recyclerViewId) {
+                        itemView = recyclerView.children.firstOrNull {
+                            recyclerView.getChildViewHolder(it).itemViewType == itemViewType
+                        }
+                    } else {
+                        return false
+                    }
+                }
+
+                return if (targetViewId == -1) {
+                    view === itemView
+                } else {
+                    val targetView = itemView?.findViewById<View>(targetViewId)
+                    view === targetView
+                }
             }
         }
     }
+}
+
+@PublishedApi
+internal fun findParentRecursively(view: View, targetId: Int): ViewParent? {
+    if (view.id == targetId) {
+        return view as ViewParent
+    }
+    val parent = view.parent as View
+    return findParentRecursively(parent, targetId)
 }

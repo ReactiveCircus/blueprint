@@ -167,15 +167,19 @@ public final class reactivecircus/blueprint/testing/assertion/ViewRobotAssertion
 	public static final fun viewEnabled (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
 	public static final fun viewNotClickable (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
 	public static final fun viewNotDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
+	public static final fun viewNotExists (Lreactivecircus/blueprint/testing/RobotAssertions;[I)V
 }
 
 public final class reactivecircus/blueprint/testing/matcher/RecyclerViewMatcher {
 	public fun <init> (I)V
 	public final fun atPosition (I)Lorg/hamcrest/Matcher;
 	public final fun atPositionOnView (II)Lorg/hamcrest/Matcher;
+	public final fun withItemViewType (II)Lorg/hamcrest/Matcher;
+	public final fun withItemViewType (III)Lorg/hamcrest/Matcher;
 }
 
 public final class reactivecircus/blueprint/testing/matcher/RecyclerViewMatcherKt {
+	public static final fun findParentRecursively (Landroid/view/View;I)Landroid/view/ViewParent;
 	public static final fun withRecyclerView (I)Lreactivecircus/blueprint/testing/matcher/RecyclerViewMatcher;
 }
 
