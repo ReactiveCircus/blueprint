@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 1.13.0
+
+_2020-08-29_
+
+* New `RobotAssertions.viewNotExists(@IdRes vararg viewIds: Int)` for asserting that views are not present in the view hierarchy.
+* New `withItemViewType(@IdRes recyclerViewId: Int, itemViewType: Int): Matcher<View>` for matching `RecyclerView` item by `itemViewType`.
+
 ## Version 1.12.0
 
 _2020-08-16_
