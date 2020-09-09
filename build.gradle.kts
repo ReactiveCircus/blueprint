@@ -11,7 +11,6 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:${versions.getValue("androidGradlePlugin")}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.getValue("kotlin")}")
-        classpath("org.jetbrains.kotlinx:binary-compatibility-validator:${versions.getValue("binaryCompatibilityValidator")}")
         classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.getValue("detekt")}")
         classpath("com.vanniktech:gradle-maven-publish-plugin:${versions.getValue("mavenPublishPlugin")}")
     }
@@ -25,14 +24,6 @@ plugins {
 tasks.dokkaHtmlMultiModule.configure {
     outputDirectory.set(rootDir.resolve("docs/api"))
     documentationFileName.set("README.md")
-}
-
-apply(plugin = "binary-compatibility-validator")
-
-configure<kotlinx.validation.ApiValidationExtension> {
-    ignoredProjects.addAll(
-        listOf("demo-common", "demo-coroutines", "demo-rx", "demo-testing-common")
-    )
 }
 
 subprojects {
