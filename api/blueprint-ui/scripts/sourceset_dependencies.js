@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":blueprint-ui/androidTest": [], ":blueprint-ui/androidTestDebug": [], ":blueprint-ui/androidTestRelease": [], ":blueprint-ui/debug": [], ":blueprint-ui/main": [], ":blueprint-ui/release": [], ":blueprint-ui/test": [], ":blueprint-ui/testDebug": [], ":blueprint-ui/testRelease": []}'

@@ -1,0 +1,8 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+reactivecircus.blueprint.testing
+reactivecircus.blueprint.testing.action
+reactivecircus.blueprint.testing.assertion
+reactivecircus.blueprint.testing.matcher
+

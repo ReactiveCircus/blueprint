@@ -1,7 +1,0 @@
-$dokka.format:gfm
-$dokka.linkExtension:md
-$dokka.location:reactivecircus.blueprint.testing$asViewAction(kotlin.Any, kotlin.Long)reactivecircus.blueprint.testing/kotlin.-any/as-view-action.md
-reactivecircus.blueprint.testing
-reactivecircus.blueprint.testing.action
-reactivecircus.blueprint.testing.assertion
-reactivecircus.blueprint.testing.matcher
