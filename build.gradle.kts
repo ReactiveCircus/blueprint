@@ -14,12 +14,17 @@ buildscript {
         classpath("org.jetbrains.kotlinx:binary-compatibility-validator:${versions.getValue("binaryCompatibilityValidator")}")
         classpath("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${versions.getValue("detekt")}")
         classpath("com.vanniktech:gradle-maven-publish-plugin:${versions.getValue("mavenPublishPlugin")}")
-        classpath("org.jetbrains.dokka:dokka-gradle-plugin:${versions.getValue("dokka")}")
     }
 }
 
 plugins {
     `blueprint-plugin`
+    id("org.jetbrains.dokka") version "1.4.0"
+}
+
+tasks.dokkaHtmlMultiModule.configure {
+    outputDirectory.set(rootDir.resolve("docs/api"))
+    documentationFileName.set("README.md")
 }
 
 apply(plugin = "binary-compatibility-validator")

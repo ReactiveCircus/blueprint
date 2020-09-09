@@ -1,8 +1,6 @@
 # Blueprint Interactor Coroutines
 
-In [Clean Architecture][clean-architecture], **Use Cases (also known as Interactors)** define and encapsulate **business rules** specific to the application.
-
-This library provides building blocks for writing Interactors based on **Kotlin Coroutines and Flow**.
+This library provides building blocks for writing Interactors (use cases as defined in [Clean Architecture][clean-architecture]) based on **Kotlin Coroutines and Flow**.
 
 ## Dependency
 

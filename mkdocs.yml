@@ -45,16 +45,7 @@ nav:
   - 'UI': blueprint-ui/index.md
   - 'Testing Robot': blueprint-testing-robot/index.md
   - 'Change Log': changelog.md
-  - 'API':
-      - 'blueprint-async-coroutines': api/blueprint-async-coroutines/index.md
-      - 'blueprint-async-rx2': api/blueprint-async-rx2/index.md
-      - 'blueprint-async-rx3': api/blueprint-async-rx3/index.md
-      - 'blueprint-interactor-common': api/blueprint-interactor-common/index.md
-      - 'blueprint-interactor-coroutines': api/blueprint-interactor-coroutines/index.md
-      - 'blueprint-interactor-rx2': api/blueprint-interactor-rx2/index.md
-      - 'blueprint-interactor-rx3': api/blueprint-interactor-rx3/index.md
-      - 'blueprint-testing-robot': api/blueprint-testing-robot/index.md
-      - 'blueprint-ui': api/blueprint-ui/index.md
+  - 'API Docs': api/-modules.html" target="_blank
 
 markdown_extensions:
   - admonition

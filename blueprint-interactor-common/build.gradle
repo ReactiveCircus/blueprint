@@ -14,10 +14,3 @@ compileKotlin {
         ]
     }
 }
-
-afterEvaluate { project ->
-    project.tasks.dokka {
-        outputDirectory = "$rootDir/docs/api"
-        outputFormat = 'gfm'
-    }
-}
