@@ -2,7 +2,7 @@ rootProject.ext.versions = [
         androidGradlePlugin         : '4.1.0-rc02',
         mavenPublishPlugin          : '0.13.0',
         binaryCompatibilityValidator: '0.2.3',
-        kotlin                      : '1.4.0',
+        kotlin                      : '1.4.10',
         detekt                      : '1.12.0',
         leakCanary                  : '2.4',
         kotlinx                     : [
