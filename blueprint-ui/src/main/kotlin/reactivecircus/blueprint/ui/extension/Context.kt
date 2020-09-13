@@ -4,11 +4,8 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.provider.Settings
-import android.util.TypedValue
-import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 
@@ -18,7 +15,7 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 public fun Context.tintVectorDrawable(
     theme: Resources.Theme,
     @DrawableRes resId: Int,
-    @ColorInt tint: Int
+    @ColorInt tint: Int,
 ): Drawable {
     val drawable: Drawable = VectorDrawableCompat.create(resources, resId, theme) as Drawable
     val wrapped = DrawableCompat.wrap(drawable)
