@@ -28,18 +28,6 @@ public fun Context.tintVectorDrawable(
 }
 
 /**
- * Resolves the given color attribute and returns the resource ID associated with the color.
- */
-@ColorInt
-public fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int {
-    val resolvedAttr = TypedValue()
-    theme.resolveAttribute(colorAttr, resolvedAttr, true)
-    // resourceId is used if it's a ColorStateList, and data if it's a color reference or a hex color
-    val colorRes = if (resolvedAttr.resourceId != 0) resolvedAttr.resourceId else resolvedAttr.data
-    return ContextCompat.getColor(this, colorRes)
-}
-
-/**
  * Whether animation is turned on on the device.
  */
 public val Context.isAnimationOn: Boolean

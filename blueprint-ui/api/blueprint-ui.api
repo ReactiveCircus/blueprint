@@ -15,7 +15,6 @@ public final class reactivecircus/blueprint/ui/extension/AppCompatKt {
 
 public final class reactivecircus/blueprint/ui/extension/ContextKt {
 	public static final fun isAnimationOn (Landroid/content/Context;)Z
-	public static final fun resolveColorAttr (Landroid/content/Context;I)I
 	public static final fun tintVectorDrawable (Landroid/content/Context;Landroid/content/res/Resources$Theme;II)Landroid/graphics/drawable/Drawable;
 }
 

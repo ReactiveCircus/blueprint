@@ -59,12 +59,6 @@ fun Context.tintVectorDrawable(
 ): Drawable
 
 /**
- * Resolves the given color attribute and returns the resource ID associated with the color.
- */
-@ColorInt
-fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int
-
-/**
  * Whether animation is turned on on the device.
  */
 val Context.isAnimationOn: Boolean
