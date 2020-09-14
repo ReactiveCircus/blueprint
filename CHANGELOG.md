@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.14.0
+
+_2020-09-14_
+
+* Breaking change: `fun Context.resolveColorAttr(@AttrRes colorAttr: Int): Int` has been removed. Use `MaterialColors` from MDC instead.
+* Update `AppCompatTextView.setPrecomputedTextFuture(charSequence: charSequence, executor: Executor? = null)` to allow passing in null as `charSequence`.
+* Update MDC and Kotlin.
+* Enable IR compiler.
+* Generate API docs with Dokka 1.4.
+
 ## Version 1.13.0
 
 _2020-08-29_
