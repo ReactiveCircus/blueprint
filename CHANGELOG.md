@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 1.14.1
+
+_2020-09-14_
+
+* Disable IR compiler.
+
 ## Version 1.14.0
 
 _2020-09-14_
