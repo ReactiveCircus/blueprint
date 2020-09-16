@@ -1,5 +1,5 @@
 rootProject.ext.versions = [
-        androidGradlePlugin         : '4.1.0-rc02',
+        androidGradlePlugin         : '4.1.0-rc03',
         mavenPublishPlugin          : '0.13.0',
         binaryCompatibilityValidator: '0.2.3',
         kotlin                      : '1.4.10',
