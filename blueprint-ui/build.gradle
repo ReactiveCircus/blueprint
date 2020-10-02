@@ -6,13 +6,8 @@ plugins {
     id 'org.jetbrains.dokka'
 }
 
-android {
-    kotlin.explicitApi = 'strict'
-    kotlinOptions {
-        freeCompilerArgs += [
-                '-Xexplicit-api=strict',
-        ]
-    }
+blueprint {
+    enableExplicitApi.set(true)
 }
 
 dependencies {

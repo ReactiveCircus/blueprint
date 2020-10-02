@@ -4,6 +4,7 @@ import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.TestedExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestLogEvent
@@ -80,7 +81,8 @@ fun LibraryExtension.configureAndroidLibraryOptions(project: Project) {
 /**
  * Apply common configurations for all projects (including the root project).
  */
-fun Project.configureForAllProjects() {
+@ExperimentalStdlibApi
+fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
     repositories.apply {
         mavenCentral()
         google()
@@ -90,7 +92,12 @@ fun Project.configureForAllProjects() {
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = JavaVersion.VERSION_1_8.toString()
-            freeCompilerArgs = freeCompilerArgs + additionalCompilerArgs
+            freeCompilerArgs = freeCompilerArgs + buildList {
+                addAll(additionalCompilerArgs)
+                if (enableExplicitApi.get() && !name.contains("test", ignoreCase = true)) {
+                    add("-Xexplicit-api=strict")
+                }
+            }
         }
     }
 

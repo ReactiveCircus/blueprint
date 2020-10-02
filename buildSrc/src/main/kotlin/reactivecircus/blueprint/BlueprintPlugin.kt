@@ -29,9 +29,12 @@ import org.gradle.kotlin.dsl.getByType
  * }
  * ```
  */
+@ExperimentalStdlibApi
 class BlueprintPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        project.configureForAllProjects()
+        val flowBindingExtension = project.extensions.create("blueprint", BlueprintExtension::class.java)
+
+        project.configureForAllProjects(flowBindingExtension.enableExplicitApi)
 
         // apply configurations specific to root project
         if (project.isRoot) {
