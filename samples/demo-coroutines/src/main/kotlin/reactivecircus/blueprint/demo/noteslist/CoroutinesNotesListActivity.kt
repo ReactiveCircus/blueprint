@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.collect
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -73,8 +72,8 @@ class CoroutinesNotesListActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.notesFlow
-            .onEach { state ->
+        lifecycleScope.launchWhenStarted {
+            viewModel.notesFlow.collect { state ->
                 when (state) {
                     is State.LoadingNotes -> {
                         notesRecyclerView.isVisible = false
@@ -96,7 +95,7 @@ class CoroutinesNotesListActivity : AppCompatActivity() {
                     }
                 }
             }
-            .launchIn(lifecycleScope)
+        }
     }
 
     private val itemClickedCallback: (note: Note) -> Unit = { note ->

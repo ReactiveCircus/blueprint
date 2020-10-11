@@ -9,8 +9,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.collect
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
 import reactivecircus.blueprint.demo.util.viewModel
@@ -56,15 +55,15 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
             setNavigationOnClickListener { finish() }
         }
 
-        viewModel.noteStateFlow
-            .onEach { state ->
+        lifecycleScope.launchWhenStarted {
+            viewModel.noteStateFlow.collect { state ->
                 if (state is State.Idle) {
                     state.note?.run {
                         noteEditText.setText(this.content)
                     }
                 }
             }
-            .launchIn(lifecycleScope)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
