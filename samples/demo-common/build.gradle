@@ -11,6 +11,9 @@ androidExtensions {
 }
 
 android {
+    buildFeatures {
+        androidResources = true
+    }
     lintOptions {
         disable 'IconDuplicates', 'MissingClass'
     }
