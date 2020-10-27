@@ -1,8 +1,6 @@
 package reactivecircus.blueprint.demo
 
 import android.app.Application
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import timber.log.Timber
 
 open class BlueprintCoroutinesDemoApp : Application() {
@@ -12,7 +10,5 @@ open class BlueprintCoroutinesDemoApp : Application() {
         Timber.plant(Timber.DebugTree())
     }
 
-    @FlowPreview
-    @ExperimentalCoroutinesApi
     open val injector: CoroutinesAppInjector = CoroutinesAppInjector()
 }

@@ -6,7 +6,7 @@ rootProject.ext.versions = [
         detekt                      : '1.14.2',
         leakCanary                  : '2.5',
         kotlinx                     : [
-                coroutines: '1.3.9',
+                coroutines: '1.4.0',
         ],
         androidx                    : [
                 core             : '1.3.2',

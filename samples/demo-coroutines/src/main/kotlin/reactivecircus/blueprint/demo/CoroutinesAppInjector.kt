@@ -1,8 +1,6 @@
 package reactivecircus.blueprint.demo
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.data.cache.InMemoryNoteCache
 import reactivecircus.blueprint.demo.data.cache.NoteCache
@@ -15,8 +13,6 @@ import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 import reactivecircus.blueprint.demo.enternote.CoroutinesEnterNoteViewModel
 import reactivecircus.blueprint.demo.noteslist.CoroutinesNotesListViewModel
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 open class CoroutinesAppInjector {
 
     private val coroutineDispatcherProvider: CoroutineDispatcherProvider by lazy {

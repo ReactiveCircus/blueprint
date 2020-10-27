@@ -2,7 +2,6 @@ package reactivecircus.blueprint.demo.noteslist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
@@ -18,9 +17,8 @@ sealed class State {
     data class Idle(val notes: List<Note>) : State()
 }
 
-@ExperimentalCoroutinesApi
 class CoroutinesNotesListViewModel(
-    streamAllNotes: CoroutinesStreamAllNotes
+    streamAllNotes: CoroutinesStreamAllNotes,
 ) : ViewModel() {
 
     private val notesStateFlow = MutableStateFlow<State>(State.LoadingNotes)

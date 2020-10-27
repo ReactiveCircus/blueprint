@@ -5,7 +5,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import io.mockk.verifyAll
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
@@ -14,7 +13,6 @@ import org.junit.Test
 import reactivecircus.blueprint.demo.data.cache.NoteCache
 import reactivecircus.blueprint.demo.domain.model.Note
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesInMemoryNoteRepositoryTest {
 

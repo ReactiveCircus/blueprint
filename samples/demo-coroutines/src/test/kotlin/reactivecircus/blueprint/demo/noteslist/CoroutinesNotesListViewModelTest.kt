@@ -4,10 +4,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.channels.Channel.Factory.BUFFERED
-import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.single
@@ -20,7 +17,6 @@ import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
 
-@FlowPreview
 @ExperimentalCoroutinesApi
 class CoroutinesNotesListViewModelTest {
 
@@ -55,8 +51,8 @@ class CoroutinesNotesListViewModelTest {
 
     @Test
     fun `emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
-        val emitter = BroadcastChannel<List<Note>>(BUFFERED)
-        every { streamAllNotes.buildFlow(any()) } returns emitter.asFlow()
+        val emitter = MutableSharedFlow<List<Note>>()
+        every { streamAllNotes.buildFlow(any()) } returns emitter
 
         viewModel.notesFlow.take(1).single() shouldEqual State.LoadingNotes
 
@@ -64,7 +60,7 @@ class CoroutinesNotesListViewModelTest {
             streamAllNotes.buildFlow(any())
         }
 
-        emitter.offer(dummyNotes)
+        emitter.emit(dummyNotes)
 
         viewModel.notesFlow.take(1).single() shouldEqual State.Idle(dummyNotes)
 
@@ -76,7 +72,7 @@ class CoroutinesNotesListViewModelTest {
             )
         )
 
-        emitter.offer(updatedDummyNotes)
+        emitter.emit(updatedDummyNotes)
 
         viewModel.notesFlow.take(1).single() shouldEqual State.Idle(updatedDummyNotes)
     }

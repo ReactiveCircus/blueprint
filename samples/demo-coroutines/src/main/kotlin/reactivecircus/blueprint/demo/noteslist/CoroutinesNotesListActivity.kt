@@ -10,8 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintCoroutinesDemoApp
@@ -22,8 +20,6 @@ import reactivecircus.blueprint.demo.enternote.EnterNoteParams
 import reactivecircus.blueprint.demo.util.viewModel
 import reactivecircus.blueprint.ui.extension.launchActivity
 
-@FlowPreview
-@ExperimentalCoroutinesApi
 class CoroutinesNotesListActivity : AppCompatActivity() {
 
     private val toolbar: Toolbar by lazy {
