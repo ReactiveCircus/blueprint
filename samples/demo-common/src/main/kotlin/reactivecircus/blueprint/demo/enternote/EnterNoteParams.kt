@@ -1,7 +1,7 @@
 package reactivecircus.blueprint.demo.enternote
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 sealed class EnterNoteParams : Parcelable {
 

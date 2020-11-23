@@ -18,7 +18,7 @@ buildscript {
 
 plugins {
     `blueprint-plugin`
-    id("org.jetbrains.dokka") version "1.4.10"
+    id("org.jetbrains.dokka") version "1.4.10.2"
 }
 
 tasks.dokkaHtmlMultiModule.configure {
