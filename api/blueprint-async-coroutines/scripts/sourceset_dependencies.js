@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":blueprint-async-coroutines/main": []}'
+sourceset_dependencies = '{":blueprint-async-coroutines:dokkaHtml/main": []}'

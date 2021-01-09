@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":blueprint-interactor-common/main": []}'
+sourceset_dependencies = '{":blueprint-interactor-common:dokkaHtml/main": []}'
