@@ -22,7 +22,11 @@ plugins {
 }
 
 tasks.dokkaHtmlMultiModule.configure {
-    outputDirectory.set(rootDir.resolve("docs/api"))
+    val apiDir = rootDir.resolve("docs/api")
+    outputDirectory.set(apiDir)
+    doLast {
+        apiDir.resolve("-modules.html").renameTo(apiDir.resolve("index.html"))
+    }
 }
 
 subprojects {

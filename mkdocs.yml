@@ -45,7 +45,7 @@ nav:
   - 'UI': blueprint-ui/index.md
   - 'Testing Robot': blueprint-testing-robot/index.md
   - 'Change Log': changelog.md
-  - 'API Docs': api/-modules.html" target="_blank
+  - 'API Docs': api/index.html" target="_blank
 
 markdown_extensions:
   - admonition
