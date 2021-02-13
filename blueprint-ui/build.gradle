@@ -13,4 +13,5 @@ blueprint {
 dependencies {
     // AndroidX
     implementation "androidx.appcompat:appcompat:${versions.androidx.appCompat}"
+    implementation "androidx.core:core-ktx:${versions.androidx.core}"
 }
