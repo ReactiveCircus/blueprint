@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.observe
 import reactivecircus.blueprint.common.R
 import reactivecircus.blueprint.demo.BlueprintRxDemoApp
 import reactivecircus.blueprint.demo.util.viewModel
@@ -50,7 +49,7 @@ class RxEnterNoteActivity : AppCompatActivity() {
             setNavigationOnClickListener { finish() }
         }
 
-        viewModel.noteLiveData.observe<State>(this) { state ->
+        viewModel.noteLiveData.observe(this) { state ->
             state.note?.run {
                 noteEditText.setText(this.content)
             }

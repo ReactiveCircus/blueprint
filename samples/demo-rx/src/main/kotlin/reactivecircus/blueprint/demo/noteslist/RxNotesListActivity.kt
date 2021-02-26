@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isVisible
-import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -67,7 +66,7 @@ class RxNotesListActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.notesLiveData.observe<State>(this) { state ->
+        viewModel.notesLiveData.observe(this) { state ->
             when (state) {
                 is State.LoadingNotes -> {
                     notesRecyclerView.isVisible = false
