@@ -1,31 +1,12 @@
 package reactivecircus.blueprint.ui.extension
 
 import android.app.Activity
-import android.content.Context
 import android.os.Build
 import android.util.DisplayMetrics
-import android.view.View
-import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-
-/**
- * Programmatically close soft keyboard.
- */
-public fun Activity.hideKeyboard(focusedView: View) {
-    val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    inputManager.hideSoftInputFromWindow(focusedView.windowToken, 0)
-}
-
-/**
- * Programmatically show soft keyboard.
- */
-public fun Activity.showKeyboard() {
-    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-}
 
 /**
  * Shows status bar on the activity.
