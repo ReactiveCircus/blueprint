@@ -22,7 +22,7 @@ Dependencies are hosted on [Maven Central][maven-central].
 Latest stable version:
 
 ```groovy
-def blueprint_version = "1.14.1"
+def blueprint_version = "1.15.0"
 ```
 
 If you use **Kotlin Coroutines and Flow**:

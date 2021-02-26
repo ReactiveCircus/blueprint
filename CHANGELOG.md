@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 1.15.0
+
+_2021-02-26_
+
+* Breaking change: `activity.showKeyboard()` and `Activity.hideKeyboard(focusedView: View)` have been replaced with `Window.showSoftKeyboard()` and `Window.hideSoftKeyboard()` using the `WindowInsetsControllerCompat` APIs.
+* Replace deprecated `systemUiVisibility` with `WindowInsetsControllerCompat`.
+* Enable IR compiler.
+* Kotlin 1.4.31.
+* Coroutines 1.4.2.
+* Update AndroidX and MDC.
+
 ## Version 1.14.1
 
 _2020-09-14_
