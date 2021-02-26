@@ -16,16 +16,6 @@ Kotlin extensions on `Activity`:
 
 ```Kotlin
 /**
- * Programmatically close soft keyboard.
- */
-fun Activity.hideKeyboard(focusedView: View)
-
-/**
- * Programmatically show soft keyboard.
- */
-fun Activity.showKeyboard()
-
-/**
  * Shows status bar on the activity.
  */
 fun Activity.showStatusBar()
@@ -75,6 +65,20 @@ Kotlin extensions on `AppCompat`:
  *  Default single threaded pool will be used if null is passed in.
  */
 fun AppCompatTextView.setPrecomputedTextFuture(charSequence: CharSequence, executor: Executor? = null)
+```
+
+Kotlin extensions on `Window`:
+
+```kotlin
+/**
+ * Programmatically shows the soft keyboard.
+ */
+fun Window.showSoftKeyboard()
+
+/**
+ * Programmatically hides the soft keyboard.
+ */
+fun Window.hideSoftKeyboard()
 ```
 
 [Intent.kt][intent-extensions] has extensions on `Activity` and `Context` for launching new activity.  
