@@ -11,6 +11,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
+import java.util.Locale
 
 /**
  * Returns a matcher that matches a view in the [RecyclerView] at certain position.
@@ -34,10 +35,14 @@ public class RecyclerViewMatcher(@PublishedApi internal val recyclerViewId: Int)
             override fun describeTo(description: Description) {
                 var idDescription = recyclerViewId.toString()
                 if (resources != null) {
-                    idDescription = try {
+                    idDescription = runCatching {
                         requireNotNull(resources).getResourceName(recyclerViewId)
-                    } catch (var4: Resources.NotFoundException) {
-                        String.format("%s (resource name not found)", recyclerViewId)
+                    }.getOrElse {
+                        String.format(
+                            Locale.getDefault(),
+                            "%s (resource name not found)",
+                            recyclerViewId
+                        )
                     }
                 }
                 description.appendText("with id: $idDescription")
@@ -90,10 +95,14 @@ public class RecyclerViewMatcher(@PublishedApi internal val recyclerViewId: Int)
             override fun describeTo(description: Description) {
                 var idDescription = recyclerViewId.toString()
                 if (resources != null) {
-                    idDescription = try {
+                    idDescription = runCatching {
                         requireNotNull(resources).getResourceName(recyclerViewId)
-                    } catch (var4: Resources.NotFoundException) {
-                        String.format("%s (resource name not found)", recyclerViewId)
+                    }.getOrElse {
+                        String.format(
+                            Locale.getDefault(),
+                            "%s (resource name not found)",
+                            recyclerViewId
+                        )
                     }
                 }
                 description.appendText("with id: $idDescription")

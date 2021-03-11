@@ -62,12 +62,14 @@ class CoroutineDispatcherProviderTest {
                 }
             }
 
-            val completed = try {
+            val completed = runCatching {
                 deferred.getCompleted()
                 true
-            } catch (e: IllegalStateException) {
-                deferred.cancel()
-                false
+            }.getOrElse {
+                if (it is IllegalStateException) {
+                    deferred.cancel()
+                    false
+                } else throw it
             }
 
             completed shouldEqual false

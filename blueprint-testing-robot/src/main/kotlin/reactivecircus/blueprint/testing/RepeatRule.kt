@@ -18,7 +18,7 @@ public class RepeatRule(private val iterations: Int) : TestRule {
         return object : Statement() {
             @Throws(Throwable::class)
             override fun evaluate() {
-                for (i in 0 until iterations) {
+                repeat(iterations) {
                     base.evaluate()
                 }
             }
