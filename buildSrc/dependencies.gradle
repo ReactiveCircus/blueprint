@@ -4,7 +4,7 @@ rootProject.ext.versions = [
         binaryCompatibilityValidator: '0.4.0',
         kotlin                      : '1.4.32',
         detekt                      : '1.16.0',
-        leakCanary                  : '2.6',
+        leakCanary                  : '2.7',
         kotlinx                     : [
                 coroutines: '1.4.3',
         ],
