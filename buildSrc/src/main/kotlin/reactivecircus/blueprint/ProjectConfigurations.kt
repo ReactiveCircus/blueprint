@@ -1,6 +1,7 @@
 package reactivecircus.blueprint
 
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.extension.ApplicationAndroidComponentsExtension
+import com.android.build.api.extension.LibraryAndroidComponentsExtension
 import com.android.build.gradle.TestedExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -8,6 +9,7 @@ import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
@@ -28,9 +30,39 @@ fun Project.configureRootProject() {
 }
 
 /**
+ * Apply baseline project configurations for an Android Library project.
+ */
+internal fun Project.configureAndroidLibrary() {
+    // common android configs
+    extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
+
+    // android variant configs
+    extensions.getByType<LibraryAndroidComponentsExtension>()
+        .configureAndroidLibraryVariants(project)
+
+    // disable unit tests for some build variants if `slimTests` project property is provided
+    project.configureSlimTests()
+}
+
+/**
+ * Apply baseline project configurations for an Android Application project.
+ */
+internal fun Project.configureAndroidApplication() {
+    // common android configs
+    extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
+
+    // android variant configs
+    extensions.getByType<ApplicationAndroidComponentsExtension>()
+        .configureAndroidApplicationVariants(project)
+
+    // disable unit tests for some build variants if `slimTests` project property is provided
+    project.configureSlimTests()
+}
+
+/**
  * Apply common configurations for all Android projects (Application and Library).
  */
-fun TestedExtension.configureCommonAndroidOptions() {
+private fun TestedExtension.configureCommonAndroidOptions() {
     setCompileSdkVersion(androidSdk.compileSdk)
     buildToolsVersion(androidSdk.buildTools)
 
@@ -49,31 +81,40 @@ fun TestedExtension.configureCommonAndroidOptions() {
     }
 
     testOptions.animationsDisabled = true
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
 }
 
 /**
- * Apply configuration options for Android Library projects.
+ * Configure the Application Library Component based on build variants.
  */
 @Suppress("UnstableApiUsage")
-fun LibraryExtension.configureAndroidLibraryOptions(project: Project) {
+private fun LibraryAndroidComponentsExtension.configureAndroidLibraryVariants(project: Project) {
     project.plugins.withType<KotlinAndroidPluginWrapper> {
         // disable unit test tasks if the unitTest source set is empty
         if (!project.hasUnitTestSource) {
-            onVariants {
-                unitTest { enabled = false }
-            }
+            beforeUnitTests { it.enabled = false }
         }
 
         // disable android test tasks if the androidTest source set is empty
         if (!project.hasAndroidTestSource) {
-            onVariants {
-                androidTest { enabled = false }
-            }
+            beforeUnitTests { it.enabled = false }
+        }
+    }
+}
+
+/**
+ * Configure the Application Android Component based on build variants.
+ */
+@Suppress("UnstableApiUsage")
+private fun ApplicationAndroidComponentsExtension.configureAndroidApplicationVariants(project: Project) {
+    project.plugins.withType<KotlinAndroidPluginWrapper> {
+        // disable unit test tasks if the unitTest source set is empty
+        if (!project.hasUnitTestSource) {
+            beforeUnitTests { it.enabled = false }
+        }
+
+        // disable android test tasks if the androidTest source set is empty
+        if (!project.hasAndroidTestSource) {
+            beforeUnitTests { it.enabled = false }
         }
     }
 }
@@ -91,7 +132,7 @@ fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
 
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_1_8.toString()
+            jvmTarget = JavaVersion.VERSION_11.toString()
             freeCompilerArgs = freeCompilerArgs + buildList {
                 addAll(additionalCompilerArgs)
                 if (enableExplicitApi.get() && !name.contains("test", ignoreCase = true)) {
@@ -111,19 +152,22 @@ fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
 
 private val Project.hasUnitTestSource: Boolean
     get() {
-        extensions.findByType(KotlinAndroidProjectExtension::class.java)?.sourceSets?.findByName("test")?.let {
-            if (it.kotlin.files.isNotEmpty()) return true
-        }
-        extensions.findByType(KotlinProjectExtension::class.java)?.sourceSets?.findByName("test")?.let {
-            if (it.kotlin.files.isNotEmpty()) return true
-        }
+        extensions.findByType(KotlinAndroidProjectExtension::class.java)?.sourceSets?.findByName("test")
+            ?.let {
+                if (it.kotlin.files.isNotEmpty()) return true
+            }
+        extensions.findByType(KotlinProjectExtension::class.java)?.sourceSets?.findByName("test")
+            ?.let {
+                if (it.kotlin.files.isNotEmpty()) return true
+            }
         return false
     }
 
 private val Project.hasAndroidTestSource: Boolean
     get() {
-        extensions.findByType(KotlinAndroidProjectExtension::class.java)?.sourceSets?.findByName("androidTest")?.let {
-            if (it.kotlin.files.isNotEmpty()) return true
-        }
+        extensions.findByType(KotlinAndroidProjectExtension::class.java)?.sourceSets?.findByName("androidTest")
+            ?.let {
+                if (it.kotlin.files.isNotEmpty()) return true
+            }
         return false
     }

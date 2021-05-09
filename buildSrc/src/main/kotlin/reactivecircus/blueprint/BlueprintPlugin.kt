@@ -47,18 +47,15 @@ class BlueprintPlugin : Plugin<Project> {
                 is JavaPlugin,
                 is JavaLibraryPlugin -> {
                     project.convention.getPlugin(JavaPluginConvention::class.java).apply {
-                        sourceCompatibility = JavaVersion.VERSION_1_8
-                        targetCompatibility = JavaVersion.VERSION_1_8
+                        sourceCompatibility = JavaVersion.VERSION_11
+                        targetCompatibility = JavaVersion.VERSION_11
                     }
                 }
                 is LibraryPlugin -> {
-                    project.extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
-                    project.extensions.getByType<LibraryExtension>().configureAndroidLibraryOptions(project)
-                    project.configureSlimTests()
+                    project.configureAndroidLibrary()
                 }
                 is AppPlugin -> {
-                    project.extensions.getByType<TestedExtension>().configureCommonAndroidOptions()
-                    project.configureSlimTests()
+                    project.configureAndroidApplication()
                 }
             }
         }
