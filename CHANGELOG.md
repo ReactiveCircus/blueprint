@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.16.0
+
+_2021-05-30_
+
+* Fix `clickTextInputLayoutErrorIcon(viewId)` and `longClickTextInputLayoutErrorIcon(viewId)`.
+* Kotlin 1.5.10.
+* Coroutines 1.5.0.
+* Update AndroidX.
+
 ## Version 1.15.0
 
 _2021-02-26_
