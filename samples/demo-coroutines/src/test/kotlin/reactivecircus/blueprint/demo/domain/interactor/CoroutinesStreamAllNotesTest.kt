@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.domain.interactor
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -8,7 +9,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -40,7 +40,8 @@ class CoroutinesStreamAllNotesTest {
             noteRepository.streamAllNotes()
         }
 
-        result shouldEqual emptyList()
+        assertThat(result)
+            .isEmpty()
     }
 
     @Test
@@ -69,7 +70,8 @@ class CoroutinesStreamAllNotesTest {
             noteRepository.streamAllNotes()
         }
 
-        result shouldEqual listOf(note2, note1)
+        assertThat(result)
+            .isEqualTo(listOf(note2, note1))
     }
 
     @Test
@@ -98,6 +100,7 @@ class CoroutinesStreamAllNotesTest {
             noteRepository.streamAllNotes()
         }
 
-        result shouldEqual listOf(note2, note1)
+        assertThat(result)
+            .isEqualTo(listOf(note2, note1))
     }
 }

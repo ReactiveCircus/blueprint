@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.async.coroutines
 
+import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
@@ -9,7 +10,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.withContext
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
@@ -34,7 +34,8 @@ class CoroutineDispatcherProviderTest {
                 }.awaitAll()
             }
 
-            result shouldEqual listOf(1, 4, 9)
+            assertThat(result)
+                .isEqualTo(listOf(1, 4, 9))
 
             val job = launch(coroutineDispatcherProvider.ui) {
                 delay(1000L)
@@ -42,7 +43,8 @@ class CoroutineDispatcherProviderTest {
 
             advanceTimeBy(1000L)
 
-            job.isCompleted shouldEqual true
+            assertThat(job.isCompleted)
+                .isTrue()
         }
 
     @Test
@@ -72,7 +74,8 @@ class CoroutineDispatcherProviderTest {
                 } else throw it
             }
 
-            completed shouldEqual false
+            assertThat(completed)
+                .isFalse()
 
             val job = launch(coroutineDispatcherProvider.ui) {
                 delay(1000L)
@@ -80,7 +83,8 @@ class CoroutineDispatcherProviderTest {
 
             advanceTimeBy(1000L)
 
-            job.isCompleted shouldEqual false
+            assertThat(job.isCompleted)
+                .isFalse()
 
             job.cancel()
         }

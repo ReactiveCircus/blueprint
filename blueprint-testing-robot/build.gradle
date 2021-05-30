@@ -42,5 +42,4 @@ dependencies {
     androidTestImplementation "androidx.test:runner:${versions.androidx.test.runner}"
     androidTestImplementation "androidx.test:rules:${versions.androidx.test.rules}"
     androidTestImplementation "androidx.test.ext:junit-ktx:${versions.androidx.test.ext.junit}"
-    androidTestImplementation "org.amshove.kluent:kluent-android:${versions.kluent}"
 }

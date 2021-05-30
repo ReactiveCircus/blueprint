@@ -2,6 +2,7 @@ package reactivecircus.blueprint.demo.enternote
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.google.common.truth.Truth.assertThat
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
@@ -9,7 +10,6 @@ import io.mockk.slot
 import io.mockk.verify
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
-import org.amshove.kluent.shouldEqual
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.RxCreateNote
@@ -105,7 +105,8 @@ class RxEnterNoteViewModelTest {
             createNote.buildCompletable(params = capture(slot))
         }
 
-        slot.captured.note.content shouldEqual dummyNote.content
+        assertThat(slot.captured.note.content)
+            .isEqualTo(dummyNote.content)
     }
 
     @Test
@@ -121,6 +122,7 @@ class RxEnterNoteViewModelTest {
             updateNote.buildCompletable(params = capture(slot))
         }
 
-        slot.captured.note shouldEqual updatedNote
+        assertThat(slot.captured.note)
+            .isEqualTo(updatedNote)
     }
 }

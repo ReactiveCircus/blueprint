@@ -73,7 +73,7 @@ private fun TestedExtension.configureCommonAndroidOptions() {
         // only support English for now
         resConfigs("en")
 
-        sourceSets.apply {
+        sourceSets {
             findByName("main")?.java?.srcDir("src/main/kotlin")
             findByName("test")?.java?.srcDir("src/test/kotlin")
             findByName("androidTest")?.java?.srcDir("src/androidTest/kotlin")
@@ -96,7 +96,7 @@ private fun LibraryAndroidComponentsExtension.configureAndroidLibraryVariants(pr
 
         // disable android test tasks if the androidTest source set is empty
         if (!project.hasAndroidTestSource) {
-            beforeUnitTests { it.enabled = false }
+            beforeAndroidTests { it.enabled = false }
         }
     }
 }
@@ -114,7 +114,7 @@ private fun ApplicationAndroidComponentsExtension.configureAndroidApplicationVar
 
         // disable android test tasks if the androidTest source set is empty
         if (!project.hasAndroidTestSource) {
-            beforeUnitTests { it.enabled = false }
+            beforeAndroidTests { it.enabled = false }
         }
     }
 }
@@ -127,7 +127,6 @@ fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
     repositories.apply {
         mavenCentral()
         google()
-        jcenter()
     }
 
     tasks.withType<KotlinCompile>().configureEach {

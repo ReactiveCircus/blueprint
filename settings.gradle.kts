@@ -13,6 +13,7 @@ includeProject(":demo-coroutines", "samples/demo-coroutines")
 includeProject(":demo-rx", "samples/demo-rx")
 includeProject(":demo-common", "samples/demo-common")
 includeProject(":demo-testing-common", "samples/demo-testing-common")
+include(":test-utils")
 
 fun includeProject(name: String, filePath: String) {
     include(name)

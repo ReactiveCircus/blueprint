@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.domain.interactor
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -7,13 +8,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.coInvoking
-import org.amshove.kluent.shouldEqual
-import org.amshove.kluent.shouldThrow
 import org.junit.Test
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
+import reactivecircus.blueprint.testutils.assertThrows
 
 @ExperimentalCoroutinesApi
 class CoroutinesGetNoteByUuidTest {
@@ -39,7 +38,8 @@ class CoroutinesGetNoteByUuidTest {
 
         coEvery { noteRepository.getNoteByUuid(any()) } returns dummyNote
 
-        getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params("uuid")) shouldEqual dummyNote
+        assertThat(getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params("uuid")))
+            .isEqualTo(dummyNote)
 
         coVerify { noteRepository.getNoteByUuid(any()) }
     }
@@ -48,9 +48,9 @@ class CoroutinesGetNoteByUuidTest {
     fun `throw exception when note cannot be found from repository`() = runBlockingTest {
         coEvery { noteRepository.getNoteByUuid(any()) } returns null
 
-        coInvoking {
+        assertThrows<IllegalStateException> {
             getNoteByUuid.execute(CoroutinesGetNoteByUuid.Params("uuid"))
-        } shouldThrow IllegalStateException::class
+        }
 
         coVerify { noteRepository.getNoteByUuid(any()) }
     }

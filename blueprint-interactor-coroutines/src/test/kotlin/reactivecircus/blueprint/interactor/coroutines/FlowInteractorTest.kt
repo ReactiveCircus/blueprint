@@ -1,14 +1,14 @@
 package reactivecircus.blueprint.interactor.coroutines
 
+import com.google.common.truth.Truth.assertThat
+import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.interactor.EmptyParams
-import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class FlowInteractorTest {
@@ -22,7 +22,8 @@ class FlowInteractorTest {
                 .buildFlow(EmptyParams)
                 .toList()
 
-            results shouldEqual listOf(0, 1, 2)
+            assertThat(results)
+                .isEqualTo(listOf(0, 1, 2))
         }
 
     @Test(expected = IOException::class)

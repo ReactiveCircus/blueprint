@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.enternote
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -8,14 +9,13 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesCreateNote
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesGetNoteByUuid
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesUpdateNote
 import reactivecircus.blueprint.demo.domain.model.Note
-import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
+import reactivecircus.blueprint.testutils.CoroutinesTestRule
 
 @ExperimentalCoroutinesApi
 class CoroutinesEnterNoteViewModelTest {
@@ -64,7 +64,8 @@ class CoroutinesEnterNoteViewModelTest {
 
     @Test
     fun `emit State with null value when initialized in create mode`() = runBlockingTest {
-        viewModelCreateMode.noteStateFlow.take(1).single() shouldEqual State.Idle(null)
+        assertThat(viewModelCreateMode.noteStateFlow.take(1).single())
+            .isEqualTo(State.Idle(null))
 
         coVerify(exactly = 0) {
             getNoteByUuid.execute(any())
@@ -73,7 +74,8 @@ class CoroutinesEnterNoteViewModelTest {
 
     @Test
     fun `emit State with loaded Note when initialized in update mode`() = runBlockingTest {
-        viewModelUpdateMode.noteStateFlow.take(1).single() shouldEqual State.Idle(dummyNote)
+        assertThat(viewModelUpdateMode.noteStateFlow.take(1).single())
+            .isEqualTo(State.Idle(dummyNote))
 
         coVerify(exactly = 1) {
             getNoteByUuid.execute(any())
@@ -90,7 +92,8 @@ class CoroutinesEnterNoteViewModelTest {
             createNote.execute(params = capture(slot))
         }
 
-        slot.captured.note.content shouldEqual dummyNote.content
+        assertThat(slot.captured.note.content)
+            .isEqualTo(dummyNote.content)
     }
 
     @Test
@@ -104,6 +107,7 @@ class CoroutinesEnterNoteViewModelTest {
             updateNote.execute(params = capture(slot))
         }
 
-        slot.captured.note shouldEqual updatedNote
+        assertThat(slot.captured.note)
+            .isEqualTo(updatedNote)
     }
 }

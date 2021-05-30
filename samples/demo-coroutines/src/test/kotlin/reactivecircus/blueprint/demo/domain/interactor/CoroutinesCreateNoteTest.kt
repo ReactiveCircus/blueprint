@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.domain.interactor
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -7,11 +8,10 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
+import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
 import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
-import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 
 @ExperimentalCoroutinesApi
 class CoroutinesCreateNoteTest {
@@ -37,7 +37,8 @@ class CoroutinesCreateNoteTest {
             timeLastUpdated = System.currentTimeMillis()
         )
 
-        createNote.execute(CoroutinesCreateNote.Params(dummyNote)) shouldEqual Unit
+        assertThat(createNote.execute(CoroutinesCreateNote.Params(dummyNote)))
+            .isEqualTo(Unit)
 
         coVerify { noteRepository.addNote(any()) }
     }

@@ -22,5 +22,6 @@ private val IGNORED_PROJECTS = listOf(
     "demo-common",
     "demo-coroutines",
     "demo-rx",
-    "demo-testing-common"
+    "demo-testing-common",
+    "test-utils",
 )

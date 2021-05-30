@@ -1,12 +1,12 @@
 package reactivecircus.blueprint.interactor.coroutines
 
+import com.google.common.truth.Truth.assertThat
+import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.interactor.EmptyParams
-import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class SuspendingInteractorTest {
@@ -15,7 +15,8 @@ class SuspendingInteractorTest {
 
     @Test
     fun `returns result when interactor executed successfully`() = testDispatcher.runBlockingTest {
-        CalculateSquare(testDispatcher).execute(CalculateSquare.Params(3)) shouldEqual 9
+        assertThat(CalculateSquare(testDispatcher).execute(CalculateSquare.Params(3)))
+            .isEqualTo(9)
     }
 
     @Test(expected = IOException::class)

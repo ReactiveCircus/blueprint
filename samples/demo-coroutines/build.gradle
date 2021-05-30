@@ -70,9 +70,10 @@ dependencies {
     implementation "com.squareup.leakcanary:plumber-android:${versions.leakCanary}"
 
     // Unit tests
+    testImplementation project(':test-utils')
     testImplementation "junit:junit:${versions.junit}"
     testImplementation "io.mockk:mockk:${versions.mockk}"
-    testImplementation "org.amshove.kluent:kluent-android:${versions.kluent}"
+    testImplementation "com.google.truth:truth:${versions.truth}"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinx.coroutines}"
 
     // Android tests

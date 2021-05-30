@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.data.repository
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -8,7 +9,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Test
 import reactivecircus.blueprint.demo.data.cache.NoteCache
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -43,7 +43,8 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
         verifyAll { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        assertThat(result)
+            .isEqualTo(dummyNotes)
     }
 
     @Test
@@ -55,7 +56,8 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
             verifyAll { noteCache.findNote(any()) }
 
-            result shouldEqual dummyNotes[0]
+            assertThat(result)
+                .isEqualTo(dummyNotes[0])
         }
 
     @Test
@@ -66,7 +68,8 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
         verifyAll { noteCache.findNote(any()) }
 
-        result shouldEqual null
+        assertThat(result)
+            .isNull()
     }
 
     @Test
@@ -101,7 +104,8 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
         verify(exactly = 1) { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        assertThat(result)
+            .isEqualTo(dummyNotes)
     }
 
     @Test
@@ -128,6 +132,7 @@ class CoroutinesInMemoryNoteRepositoryTest {
 
         verify(exactly = 1) { noteCache.allNotes() }
 
-        result shouldEqual dummyNotes
+        assertThat(result)
+            .isEqualTo(dummyNotes)
     }
 }

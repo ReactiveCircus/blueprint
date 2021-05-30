@@ -1,18 +1,21 @@
 package reactivecircus.blueprint.demo.data.cache
 
-import org.amshove.kluent.invoking
-import org.amshove.kluent.shouldEqual
-import org.amshove.kluent.shouldThrow
+import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
+import reactivecircus.blueprint.testutils.assertThrows
 
+@ExperimentalCoroutinesApi
 class InMemoryNoteCacheTest {
 
     private val inMemoryNoteCache = InMemoryNoteCache()
 
     @Test
     fun `cache is initially empty`() {
-        inMemoryNoteCache.allNotes() shouldEqual emptyList()
+        assertThat(inMemoryNoteCache.allNotes())
+            .isEmpty()
     }
 
     @Test
@@ -34,7 +37,8 @@ class InMemoryNoteCacheTest {
             inMemoryNoteCache.addNotes(listOf(note))
         }
 
-        inMemoryNoteCache.allNotes() shouldEqual notes
+        assertThat(inMemoryNoteCache.allNotes())
+            .isEqualTo(notes)
     }
 
     @Test
@@ -48,7 +52,8 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.addNotes(listOf(note))
 
-        inMemoryNoteCache.findNote { it.uuid == note.uuid } shouldEqual note
+        assertThat(inMemoryNoteCache.findNote { it.uuid == note.uuid })
+            .isEqualTo(note)
     }
 
     @Test
@@ -62,7 +67,8 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.addNotes(listOf(note))
 
-        inMemoryNoteCache.findNote { it.uuid == "uuid2" } shouldEqual null
+        assertThat(inMemoryNoteCache.findNote { it.uuid == "uuid2" })
+            .isNull()
     }
 
     @Test
@@ -83,15 +89,17 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.addNotes(listOf(note1))
 
-        inMemoryNoteCache.allNotes() shouldEqual listOf(note1)
+        assertThat(inMemoryNoteCache.allNotes())
+            .isEqualTo(listOf(note1))
 
         inMemoryNoteCache.addNotes(listOf(note2))
 
-        inMemoryNoteCache.allNotes() shouldEqual listOf(note1, note2)
+        assertThat(inMemoryNoteCache.allNotes())
+            .isEqualTo(listOf(note1, note2))
     }
 
     @Test
-    fun `throw exception when adding note with same uuid as an existing note`() {
+    fun `throw exception when adding note with same uuid as an existing note`() = runBlockingTest {
         val note1 = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -108,9 +116,9 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.addNotes(listOf(note1))
 
-        invoking {
+        assertThrows<IllegalArgumentException> {
             inMemoryNoteCache.addNotes(listOf(note1.copy(content = "Note 2"), note2))
-        } shouldThrow IllegalArgumentException::class
+        }
     }
 
     @Test
@@ -128,31 +136,33 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.updateNote(updatedNote)
 
-        inMemoryNoteCache.findNote { it.uuid == note.uuid } shouldEqual updatedNote
+        assertThat(inMemoryNoteCache.findNote { it.uuid == note.uuid })
+            .isEqualTo(updatedNote)
     }
 
     @Test
-    fun `throw exception when updating note which does not already exist in the cache`() {
-        val note1 = Note(
-            uuid = "uuid1",
-            content = "Note 1",
-            timeCreated = System.currentTimeMillis(),
-            timeLastUpdated = System.currentTimeMillis()
-        )
+    fun `throw exception when updating note which does not already exist in the cache`() =
+        runBlockingTest {
+            val note1 = Note(
+                uuid = "uuid1",
+                content = "Note 1",
+                timeCreated = System.currentTimeMillis(),
+                timeLastUpdated = System.currentTimeMillis()
+            )
 
-        val note2 = Note(
-            uuid = "uuid2",
-            content = "Note 2",
-            timeCreated = System.currentTimeMillis(),
-            timeLastUpdated = System.currentTimeMillis()
-        )
+            val note2 = Note(
+                uuid = "uuid2",
+                content = "Note 2",
+                timeCreated = System.currentTimeMillis(),
+                timeLastUpdated = System.currentTimeMillis()
+            )
 
-        inMemoryNoteCache.addNotes(listOf(note1))
+            inMemoryNoteCache.addNotes(listOf(note1))
 
-        invoking {
-            inMemoryNoteCache.updateNote(note2)
-        } shouldThrow IllegalArgumentException::class
-    }
+            assertThrows<IllegalArgumentException> {
+                inMemoryNoteCache.updateNote(note2)
+            }
+        }
 
     @Test
     fun `all existing notes can be deleted`() {
@@ -173,6 +183,7 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.deleteAllNotes()
 
-        inMemoryNoteCache.allNotes() shouldEqual emptyList()
+        assertThat(inMemoryNoteCache.allNotes())
+            .isEmpty()
     }
 }

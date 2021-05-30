@@ -1,6 +1,6 @@
 package reactivecircus.blueprint.demo.util
 
-import org.amshove.kluent.shouldEqual
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import java.util.Calendar
 import java.util.Locale
@@ -18,6 +18,7 @@ class DateTest {
             timeZone = TimeZone.getDefault()
         }.time.toInstant().toEpochMilli()
 
-        timestamp.toFormattedDateString(pattern, Locale.ENGLISH) shouldEqual "Mon 25 Jun at 8:30 AM"
+        assertThat(timestamp.toFormattedDateString(pattern, Locale.ENGLISH))
+            .isEqualTo("Mon 25 Jun at 8:30 AM")
     }
 }

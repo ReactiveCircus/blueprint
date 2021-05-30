@@ -1,5 +1,6 @@
 package reactivecircus.blueprint.demo.noteslist
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -10,12 +11,11 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runBlockingTest
-import org.amshove.kluent.shouldEqual
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
 import reactivecircus.blueprint.demo.domain.model.Note
-import reactivecircus.blueprint.demo.testutil.CoroutinesTestRule
+import reactivecircus.blueprint.testutils.CoroutinesTestRule
 
 @ExperimentalCoroutinesApi
 class CoroutinesNotesListViewModelTest {
@@ -46,7 +46,8 @@ class CoroutinesNotesListViewModelTest {
     fun `emit State#LoadingNotes when initialized`() = runBlockingTest {
         every { streamAllNotes.buildFlow(any()) } returns emptyFlow()
 
-        viewModel.notesFlow.first() shouldEqual State.LoadingNotes
+        assertThat(viewModel.notesFlow.first())
+            .isEqualTo(State.LoadingNotes)
     }
 
     @Test
@@ -54,7 +55,8 @@ class CoroutinesNotesListViewModelTest {
         val emitter = MutableSharedFlow<List<Note>>()
         every { streamAllNotes.buildFlow(any()) } returns emitter
 
-        viewModel.notesFlow.take(1).single() shouldEqual State.LoadingNotes
+        assertThat(viewModel.notesFlow.take(1).single())
+            .isEqualTo(State.LoadingNotes)
 
         verify(exactly = 1) {
             streamAllNotes.buildFlow(any())
@@ -62,7 +64,8 @@ class CoroutinesNotesListViewModelTest {
 
         emitter.emit(dummyNotes)
 
-        viewModel.notesFlow.take(1).single() shouldEqual State.Idle(dummyNotes)
+        assertThat(viewModel.notesFlow.take(1).single())
+            .isEqualTo(State.Idle(dummyNotes))
 
         val updatedDummyNotes = dummyNotes + listOf(
             Note(
@@ -74,6 +77,7 @@ class CoroutinesNotesListViewModelTest {
 
         emitter.emit(updatedDummyNotes)
 
-        viewModel.notesFlow.take(1).single() shouldEqual State.Idle(updatedDummyNotes)
+        assertThat(viewModel.notesFlow.take(1).single())
+            .isEqualTo(State.Idle(updatedDummyNotes))
     }
 }
