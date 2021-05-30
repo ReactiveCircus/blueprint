@@ -1,5 +1,14 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:reactivecircus.blueprint.interactor.rx3////PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/index.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/CompletableInteractor///PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-completable-interactor/index.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/CompletableInteractor/CompletableInteractor/#io.reactivex.rxjava3.core.Scheduler#io.reactivex.rxjava3.core.Scheduler/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-completable-interactor/-completable-interactor.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/CompletableInteractor/buildCompletable/#TypeParam(bounds=[reactivecircus.blueprint.interactor.InteractorParams])/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-completable-interactor/build-completable.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/ObservableInteractor///PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-observable-interactor/index.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/ObservableInteractor/ObservableInteractor/#io.reactivex.rxjava3.core.Scheduler#io.reactivex.rxjava3.core.Scheduler/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-observable-interactor/-observable-interactor.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/ObservableInteractor/buildObservable/#TypeParam(bounds=[reactivecircus.blueprint.interactor.InteractorParams])/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-observable-interactor/build-observable.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/SingleInteractor///PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-single-interactor/index.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/SingleInteractor/SingleInteractor/#io.reactivex.rxjava3.core.Scheduler#io.reactivex.rxjava3.core.Scheduler/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-single-interactor/-single-interactor.html
+$dokka.location:reactivecircus.blueprint.interactor.rx3/SingleInteractor/buildSingle/#TypeParam(bounds=[reactivecircus.blueprint.interactor.InteractorParams])#kotlin.Boolean/PointingToDeclaration/blueprint-interactor-rx3/reactivecircus.blueprint.interactor.rx3/-single-interactor/build-single.html
 reactivecircus.blueprint.interactor.rx3
 

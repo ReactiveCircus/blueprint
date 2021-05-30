@@ -1,5 +1,7 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:reactivecircus.blueprint.interactor////PointingToDeclaration/blueprint-interactor-common/reactivecircus.blueprint.interactor/index.html
+$dokka.location:reactivecircus.blueprint.interactor/EmptyParams///PointingToDeclaration/blueprint-interactor-common/reactivecircus.blueprint.interactor/-empty-params/index.html
+$dokka.location:reactivecircus.blueprint.interactor/InteractorParams///PointingToDeclaration/blueprint-interactor-common/reactivecircus.blueprint.interactor/-interactor-params/index.html
 reactivecircus.blueprint.interactor
 

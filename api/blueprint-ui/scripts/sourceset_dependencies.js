@@ -1,1 +1,0 @@
-sourceset_dependencies = '{":blueprint-ui:dokkaHtml/androidTestRelease": [], ":blueprint-ui:dokkaHtml/debug": [], ":blueprint-ui:dokkaHtml/main": [], ":blueprint-ui:dokkaHtml/release": [], ":blueprint-ui:dokkaHtml/test": [], ":blueprint-ui:dokkaHtml/testDebug": [], ":blueprint-ui:dokkaHtml/testRelease": []}'
