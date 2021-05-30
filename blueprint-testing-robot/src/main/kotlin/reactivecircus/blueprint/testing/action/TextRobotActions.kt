@@ -115,7 +115,7 @@ public fun RobotActions.clickTextInputLayoutEndIcon(@IdRes viewId: Int) {
 public fun RobotActions.clickTextInputLayoutErrorIcon(@IdRes viewId: Int) {
     Espresso.onView(
         CoreMatchers.allOf(
-            ViewMatchers.withId(MaterialR.id.text_input_end_icon),
+            ViewMatchers.withId(MaterialR.id.text_input_error_icon),
             ViewMatchers.withContentDescription(MaterialR.string.error_icon_content_description),
             ViewMatchers.isDescendantOfA(ViewMatchers.withId(viewId))
         )
@@ -176,7 +176,7 @@ public fun RobotActions.longClickTextInputLayoutEndIcon(@IdRes viewId: Int) {
 public fun RobotActions.longClickTextInputLayoutErrorIcon(@IdRes viewId: Int) {
     Espresso.onView(
         CoreMatchers.allOf(
-            ViewMatchers.withId(MaterialR.id.text_input_end_icon),
+            ViewMatchers.withId(MaterialR.id.text_input_error_icon),
             ViewMatchers.withContentDescription(MaterialR.string.error_icon_content_description),
             ViewMatchers.isDescendantOfA(ViewMatchers.withId(viewId))
         )
