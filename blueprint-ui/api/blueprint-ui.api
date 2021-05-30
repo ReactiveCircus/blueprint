@@ -16,14 +16,6 @@ public final class reactivecircus/blueprint/ui/extension/ContextKt {
 	public static final fun tintVectorDrawable (Landroid/content/Context;Landroid/content/res/Resources$Theme;II)Landroid/graphics/drawable/Drawable;
 }
 
-public final class reactivecircus/blueprint/ui/extension/IntentKt {
-	public static final synthetic fun launchActivity (Landroid/app/Activity;ILandroid/os/Bundle;Lkotlin/jvm/functions/Function1;)V
-	public static final synthetic fun launchActivity (Landroid/content/Context;Landroid/os/Bundle;Lkotlin/jvm/functions/Function1;)V
-	public static synthetic fun launchActivity$default (Landroid/app/Activity;ILandroid/os/Bundle;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-	public static synthetic fun launchActivity$default (Landroid/content/Context;Landroid/os/Bundle;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
-	public static final synthetic fun newIntent (Landroid/content/Context;)Landroid/content/Intent;
-}
-
 public final class reactivecircus/blueprint/ui/extension/WindowKt {
 	public static final fun hideSoftKeyboard (Landroid/view/Window;)V
 	public static final fun showSoftKeyboard (Landroid/view/Window;)V

@@ -122,10 +122,7 @@ public final class reactivecircus/blueprint/testing/assertion/KeyboardRobotAsser
 }
 
 public final class reactivecircus/blueprint/testing/assertion/NavigationRobotAssertionsKt {
-	public static final synthetic fun activityLaunched (Lreactivecircus/blueprint/testing/RobotAssertions;)V
 	public static final fun bottomNavigationViewItemSelected (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
-	public static final synthetic fun fragmentDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;I)V
-	public static final synthetic fun fragmentDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;Ljava/lang/String;)V
 	public static final fun noActivityDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;)V
 }
 
@@ -177,7 +174,6 @@ public final class reactivecircus/blueprint/testing/matcher/RecyclerViewMatcher 
 	public fun <init> (I)V
 	public final fun atPosition (I)Lorg/hamcrest/Matcher;
 	public final fun atPositionOnView (II)Lorg/hamcrest/Matcher;
-	public final fun getRecyclerViewId ()I
 	public final fun withItemViewType (II)Lorg/hamcrest/Matcher;
 	public final fun withItemViewType (III)Lorg/hamcrest/Matcher;
 }
