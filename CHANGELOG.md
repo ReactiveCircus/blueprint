@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 1.17.0
+
+_2021-06-09_
+
+* Breaking change: `RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: Int, navItemTitle: String)` bas been replaced with `RobotActions.selectNavigationBarItem(@IdRes navigationBarViewResId: Int, navItemTitle: String)` to accommodate changes in Material Components 1.4.0.
+* Breaking change: `RobotAssertions.bottomNavigationViewItemSelected(@IdRes bottomNavigationViewResId: Int, @IdRes selectedItemResId: Int)` bas been replaced with `RobotAssertions.navigationBarViewItemSelected(@IdRes navigationBarViewResId: Int, @IdRes selectedItemResId: Int)` to accommodate changes in Material Components 1.4.0.
+* Material Components 1.4.0-rc01.
+* Update AndroidX.
+
 ## Version 1.16.0
 
 _2021-05-30_
