@@ -13,7 +13,7 @@ import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import com.google.common.truth.Truth.assertThat
 import org.hamcrest.CoreMatchers
 import org.hamcrest.Description
@@ -23,15 +23,15 @@ import reactivecircus.blueprint.testing.RobotAssertions
 import reactivecircus.blueprint.testing.currentActivity
 
 /**
- * Check if the bottom navigation view associated with [bottomNavigationViewResId]
+ * Check if the navigation bar view associated with [navigationBarViewResId]
  * has [selectedItemResId] as the selected item.
  */
-public fun RobotAssertions.bottomNavigationViewItemSelected(
-    @IdRes bottomNavigationViewResId: Int,
+public fun RobotAssertions.navigationBarViewItemSelected(
+    @IdRes navigationBarViewResId: Int,
     @IdRes selectedItemResId: Int
 ) {
-    Espresso.onView(ViewMatchers.withId(bottomNavigationViewResId))
-        .check(ViewAssertions.matches(hasSelectedNavigationItem(selectedItemResId)))
+    Espresso.onView(ViewMatchers.withId(navigationBarViewResId))
+        .check(ViewAssertions.matches(hasSelectedNavigationBarItem(selectedItemResId)))
 }
 
 /**
@@ -71,17 +71,17 @@ public inline fun <reified F : Fragment> RobotAssertions.fragmentDisplayed(@IdRe
 }
 
 /**
- * Returns a matcher that matches a [BottomNavigationView] with the item associated with [itemResId] selected.
+ * Returns a matcher that matches a [NavigationBarView] with the item associated with [itemResId] selected.
  */
-private fun hasSelectedNavigationItem(@IdRes itemResId: Int): Matcher<View> {
-    return object : BoundedMatcher<View, BottomNavigationView>(BottomNavigationView::class.java) {
+private fun hasSelectedNavigationBarItem(@IdRes itemResId: Int): Matcher<View> {
+    return object : BoundedMatcher<View, NavigationBarView>(NavigationBarView::class.java) {
         private val checkedIds = hashSetOf<Int>()
         private var itemFound = false
         private var triedMatching = false
 
-        override fun matchesSafely(bottomNavigationView: BottomNavigationView): Boolean {
+        override fun matchesSafely(navigationBarView: NavigationBarView): Boolean {
             triedMatching = true
-            with(bottomNavigationView.menu) {
+            with(navigationBarView.menu) {
                 for (index in 0 until size()) {
                     val menuItem = getItem(index)
                     if (menuItem.isChecked) {
@@ -97,11 +97,11 @@ private fun hasSelectedNavigationItem(@IdRes itemResId: Int): Matcher<View> {
 
         override fun describeTo(description: Description) {
             if (!triedMatching) {
-                description.appendText("BottomNavigationView")
+                description.appendText("NavigationBarView")
                 return
             }
 
-            description.appendText("BottomNavigationView to have a checked item with id=")
+            description.appendText("NavigationBarView to have a checked item with id=")
             description.appendValue(itemResId)
             if (itemFound) {
                 description.appendText(", but selection was=")

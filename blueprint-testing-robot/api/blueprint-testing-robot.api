@@ -64,7 +64,7 @@ public final class reactivecircus/blueprint/testing/action/NavigationRobotAction
 	public static final fun clickNavigateUpButton (Lreactivecircus/blueprint/testing/RobotActions;)V
 	public static final fun interceptIntents (Lreactivecircus/blueprint/testing/RobotActions;)V
 	public static final fun pressBack (Lreactivecircus/blueprint/testing/RobotActions;)V
-	public static final fun selectBottomNavigationItem (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
+	public static final fun selectNavigationBarItem (Lreactivecircus/blueprint/testing/RobotActions;ILjava/lang/String;)V
 	public static final fun selectNavigationItem (Lreactivecircus/blueprint/testing/RobotActions;II)V
 }
 
@@ -122,7 +122,7 @@ public final class reactivecircus/blueprint/testing/assertion/KeyboardRobotAsser
 }
 
 public final class reactivecircus/blueprint/testing/assertion/NavigationRobotAssertionsKt {
-	public static final fun bottomNavigationViewItemSelected (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
+	public static final fun navigationBarViewItemSelected (Lreactivecircus/blueprint/testing/RobotAssertions;II)V
 	public static final fun noActivityDisplayed (Lreactivecircus/blueprint/testing/RobotAssertions;)V
 }
 

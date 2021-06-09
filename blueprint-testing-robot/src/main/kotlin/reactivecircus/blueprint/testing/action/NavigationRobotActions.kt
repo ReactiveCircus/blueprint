@@ -20,13 +20,13 @@ import org.hamcrest.Matcher
 import reactivecircus.blueprint.testing.RobotActions
 
 /**
- * Select the bottom navigation item with [navItemTitle]
- * from the bottom navigation view associated with [bottomNavigationViewResId].
+ * Select the navigation bar item with [navItemTitle]
+ * from the navigation bar view associated with [navigationBarViewResId].
  */
-public fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewResId: Int, navItemTitle: String) {
+public fun RobotActions.selectNavigationBarItem(@IdRes navigationBarViewResId: Int, navItemTitle: String) {
     Espresso.onView(
         CoreMatchers.allOf(
-            withId(R.id.icon),
+            withId(R.id.navigation_bar_item_icon_view),
             ViewMatchers.hasSibling(
                 ViewMatchers.hasDescendant(
                     ViewMatchers.withText(
@@ -34,7 +34,7 @@ public fun RobotActions.selectBottomNavigationItem(@IdRes bottomNavigationViewRe
                     )
                 )
             ),
-            ViewMatchers.isDescendantOfA(withId(bottomNavigationViewResId))
+            ViewMatchers.isDescendantOfA(withId(navigationBarViewResId))
         )
     )
         .perform(ViewActions.click())
