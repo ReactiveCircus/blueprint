@@ -19,3 +19,5 @@ fun includeProject(name: String, filePath: String) {
     include(name)
     project(name).projectDir = File(filePath)
 }
+
+enableFeaturePreview("VERSION_CATALOGS")

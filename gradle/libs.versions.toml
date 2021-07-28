@@ -1,0 +1,78 @@
+[versions]
+kotlin = "1.5.21"
+dokka = "1.5.0"
+androidGradlePlugin = "7.0.0-rc01"
+gradleMavenPublishPlugin = "0.17.0"
+binaryCompatibilityValidator = "0.6.0"
+detekt = "1.17.1"
+kotlinx-coroutines = "1.5.1"
+androidx-core = "1.6.0"
+androidx-annotation = "1.2.0"
+androidx-appcompat = "1.3.1"
+androidx-activity = "1.2.4"
+androidx-fragment = "1.3.6"
+androidx-coordinatorlayout = "1.1.0"
+androidx-recyclerview = "1.2.1"
+androidx-constraintlayout = "2.0.4"
+androidx-arch = "2.1.0"
+androidx-lifecycle = "2.3.1"
+androidx-test-core = "1.3.0"
+androidx-test-monitor = "1.3.0"
+androidx-test-rules = "1.3.0"
+androidx-test-runner = "1.3.0"
+androidx-test-ext-junit = "1.1.2"
+androidx-test-espresso = "3.3.0"
+leakcanary = "2.7"
+material = "1.4.0"
+rxjava2 = "2.2.20"
+rxjava3 = "3.0.12"
+rxkotlin3 = "3.0.1"
+rxandroid3 = "3.0.0"
+timber = "4.7.1"
+junit = "4.13.2"
+mockk = "1.10.0"
+truth = "1.1.3"
+
+[libraries]
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin"}
+plugin-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", version.ref = "dokka"}
+plugin-agp = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin"}
+plugin-mavenPublish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "gradleMavenPublishPlugin"}
+plugin-binaryCompatibilityValidator = { module = "org.jetbrains.kotlinx:binary-compatibility-validator", version.ref = "binaryCompatibilityValidator"}
+plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt"}
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "androidx-annotation" }
+androidx-appCompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
+androidx-fragment-testing = { module = "androidx.fragment:fragment-testing", version.ref = "androidx-fragment" }
+androidx-coordinatorLayout = { module = "androidx.coordinatorlayout:coordinatorlayout", version.ref = "androidx-coordinatorlayout" }
+androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version.ref = "androidx-recyclerview" }
+androidx-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-arch-coreTesting = { module = "androidx.arch.core:core-testing", version.ref = "androidx-arch" }
+androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-liveData = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-commonJava8 = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidx-lifecycle" }
+androidx-test-core = { module = "androidx.test:core-ktx", version.ref = "androidx-test-core" }
+androidx-test-monitor = { module = "androidx.test:monitor", version.ref = "androidx-test-monitor" }
+androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidx-test-rules" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit-ktx", version.ref = "androidx-test-ext-junit" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "androidx-test-espresso" }
+androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "androidx-test-espresso" }
+androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "androidx-test-espresso" }
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
+leakcanary-plumber = { module = "com.squareup.leakcanary:plumber-android", version.ref = "leakcanary" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+rxJava2 = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava2" }
+rxJava3 = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava3" }
+rxKotlin3 = { module = "io.reactivex.rxjava3:rxkotlin", version.ref = "rxkotlin3" }
+rxAndroid3 = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid3" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+junit = { module = "junit:junit", version.ref = "junit" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+truth = { module = "com.google.truth:truth", version.ref = "truth" }
+
