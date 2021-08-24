@@ -75,6 +75,7 @@ class RxEnterNoteActivity : AppCompatActivity() {
                         )
                         viewModel.updateNote(updatedNote)
                     }
+                    else -> Unit
                 }
             }
 

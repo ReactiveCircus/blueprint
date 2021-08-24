@@ -83,6 +83,7 @@ class CoroutinesEnterNoteActivity : AppCompatActivity() {
                         viewModel.updateNote(updatedNote)
                     }
                 }
+                else -> Unit
             }
 
             finish()
