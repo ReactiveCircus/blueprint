@@ -1,5 +1,15 @@
 # Change Log
 
+## Version 1.18.0
+
+_2021-09-25_
+
+* Update target SDK to API 31.
+# Kotlin 1.5.31.
+# Coroutines 1.5.2.
+* Material Components 1.4.0.
+* Update AndroidX.
+
 ## Version 1.17.0
 
 _2021-06-09_
