@@ -1,6 +1,6 @@
 [versions]
 kotlin = "1.6.0"
-dokka = "1.5.31"
+dokka = "1.6.0"
 androidGradlePlugin = "7.0.3"
 gradleMavenPublishPlugin = "0.17.0"
 binaryCompatibilityValidator = "0.8.0"
