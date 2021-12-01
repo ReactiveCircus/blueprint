@@ -1,5 +1,7 @@
 formatting:
   android: true
+  ImportOrdering:
+    active: false
 
 style:
   UnnecessaryAbstractClass:

@@ -101,25 +101,25 @@ private class DrawableMatcher(
                 constantState = target.drawable.constantState
                 expectedConstantState = expectedDrawable.constantState
                 return constantState != null &&
-                        expectedConstantState != null &&
-                        constantState == expectedConstantState ||
-                        getBitmap(target.drawable).sameAs(getBitmap(expectedDrawable))
+                    expectedConstantState != null &&
+                    constantState == expectedConstantState ||
+                    getBitmap(target.drawable).sameAs(getBitmap(expectedDrawable))
             }
             Type.BACKGROUND_DRAWABLE -> {
                 constantState = target.background.constantState
                 expectedConstantState = expectedDrawable.constantState
                 return constantState != null &&
-                        expectedConstantState != null &&
-                        constantState == expectedConstantState ||
-                        getBitmap(target.background).sameAs(getBitmap(expectedDrawable))
+                    expectedConstantState != null &&
+                    constantState == expectedConstantState ||
+                    getBitmap(target.background).sameAs(getBitmap(expectedDrawable))
             }
             Type.FOREGROUND_DRAWABLE -> {
                 constantState = target.foreground.constantState
                 expectedConstantState = expectedDrawable.constantState
                 return constantState != null &&
-                        expectedConstantState != null &&
-                        constantState == expectedConstantState ||
-                        getBitmap(target.foreground).sameAs(getBitmap(expectedDrawable))
+                    expectedConstantState != null &&
+                    constantState == expectedConstantState ||
+                    getBitmap(target.foreground).sameAs(getBitmap(expectedDrawable))
             }
         }
     }
