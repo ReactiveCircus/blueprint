@@ -1,13 +1,10 @@
 package reactivecircus.blueprint.demo.data.cache
 
 import com.google.common.truth.Truth.assertThat
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Assert.assertThrows
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.model.Note
-import reactivecircus.blueprint.testutils.assertThrows
 
-@ExperimentalCoroutinesApi
 class InMemoryNoteCacheTest {
 
     private val inMemoryNoteCache = InMemoryNoteCache()
@@ -99,7 +96,7 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `throw exception when adding note with same uuid as an existing note`() = runBlockingTest {
+    fun `throw exception when adding note with same uuid as an existing note`() {
         val note1 = Note(
             uuid = "uuid1",
             content = "Note 1",
@@ -116,7 +113,7 @@ class InMemoryNoteCacheTest {
 
         inMemoryNoteCache.addNotes(listOf(note1))
 
-        assertThrows<IllegalArgumentException> {
+        assertThrows(IllegalArgumentException::class.java) {
             inMemoryNoteCache.addNotes(listOf(note1.copy(content = "Note 2"), note2))
         }
     }
@@ -141,28 +138,27 @@ class InMemoryNoteCacheTest {
     }
 
     @Test
-    fun `throw exception when updating note which does not already exist in the cache`() =
-        runBlockingTest {
-            val note1 = Note(
-                uuid = "uuid1",
-                content = "Note 1",
-                timeCreated = System.currentTimeMillis(),
-                timeLastUpdated = System.currentTimeMillis()
-            )
+    fun `throw exception when updating note which does not already exist in the cache`() {
+        val note1 = Note(
+            uuid = "uuid1",
+            content = "Note 1",
+            timeCreated = System.currentTimeMillis(),
+            timeLastUpdated = System.currentTimeMillis()
+        )
 
-            val note2 = Note(
-                uuid = "uuid2",
-                content = "Note 2",
-                timeCreated = System.currentTimeMillis(),
-                timeLastUpdated = System.currentTimeMillis()
-            )
+        val note2 = Note(
+            uuid = "uuid2",
+            content = "Note 2",
+            timeCreated = System.currentTimeMillis(),
+            timeLastUpdated = System.currentTimeMillis()
+        )
 
-            inMemoryNoteCache.addNotes(listOf(note1))
+        inMemoryNoteCache.addNotes(listOf(note1))
 
-            assertThrows<IllegalArgumentException> {
-                inMemoryNoteCache.updateNote(note2)
-            }
+        assertThrows(IllegalArgumentException::class.java) {
+            inMemoryNoteCache.updateNote(note2)
         }
+    }
 
     @Test
     fun `all existing notes can be deleted`() {

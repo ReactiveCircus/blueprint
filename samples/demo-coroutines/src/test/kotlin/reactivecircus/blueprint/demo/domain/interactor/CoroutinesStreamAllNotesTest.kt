@@ -7,8 +7,8 @@ import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -17,10 +17,12 @@ import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 @ExperimentalCoroutinesApi
 class CoroutinesStreamAllNotesTest {
 
+    private val testDispatcher = StandardTestDispatcher()
+
     private val noteRepository = mockk<CoroutinesNoteRepository>()
 
     private val coroutineDispatcherProvider = mockk<CoroutineDispatcherProvider> {
-        every { io } returns TestCoroutineDispatcher()
+        every { io } returns testDispatcher
     }
 
     private val streamAllNotes = CoroutinesStreamAllNotes(
@@ -29,7 +31,7 @@ class CoroutinesStreamAllNotesTest {
     )
 
     @Test
-    fun `stream notes from repository`() = runBlockingTest {
+    fun `stream notes from repository`() = runTest(testDispatcher) {
         every { noteRepository.streamAllNotes() } returns flowOf(emptyList())
 
         val result = streamAllNotes.buildFlow(
@@ -45,7 +47,7 @@ class CoroutinesStreamAllNotesTest {
     }
 
     @Test
-    fun `sort notes by TIME_CREATED descending`() = runBlockingTest {
+    fun `sort notes by TIME_CREATED descending`() = runTest(testDispatcher) {
         val note1 = Note(
             content = "note 1",
             timeCreated = 1000L,
@@ -75,7 +77,7 @@ class CoroutinesStreamAllNotesTest {
     }
 
     @Test
-    fun `sort notes by TIME_LAST_UPDATED descending`() = runBlockingTest {
+    fun `sort notes by TIME_LAST_UPDATED descending`() = runTest(testDispatcher) {
         val note1 = Note(
             content = "note 1",
             timeCreated = 2000L,

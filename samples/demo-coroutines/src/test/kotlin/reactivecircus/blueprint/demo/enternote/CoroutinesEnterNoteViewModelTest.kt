@@ -8,7 +8,8 @@ import io.mockk.slot
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesCreateNote
@@ -21,7 +22,7 @@ import reactivecircus.blueprint.testutils.CoroutinesTestRule
 class CoroutinesEnterNoteViewModelTest {
 
     @get:Rule
-    val coroutinesTestRule = CoroutinesTestRule()
+    val coroutinesTestRule = CoroutinesTestRule(UnconfinedTestDispatcher())
 
     private val noteUuid = "uuid"
 
@@ -63,7 +64,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `emit State with null value when initialized in create mode`() = runBlockingTest {
+    fun `emit State with null value when initialized in create mode`() = runTest {
         assertThat(viewModelCreateMode.noteStateFlow.take(1).single())
             .isEqualTo(State.Idle(null))
 
@@ -73,7 +74,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `emit State with loaded Note when initialized in update mode`() = runBlockingTest {
+    fun `emit State with loaded Note when initialized in update mode`() = runTest {
         assertThat(viewModelUpdateMode.noteStateFlow.take(1).single())
             .isEqualTo(State.Idle(dummyNote))
 
@@ -83,7 +84,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `execute CreateNote with new note content`() = runBlockingTest {
+    fun `execute CreateNote with new note content`() = runTest {
         viewModelCreateMode.createNote(dummyNote.content)
 
         val slot = slot<CoroutinesCreateNote.Params>()
@@ -97,7 +98,7 @@ class CoroutinesEnterNoteViewModelTest {
     }
 
     @Test
-    fun `execute UpdateNote with updated note`() = runBlockingTest {
+    fun `execute UpdateNote with updated note`() = runTest {
         val updatedNote = dummyNote.copy(content = "updated note")
         viewModelUpdateMode.updateNote(updatedNote)
 

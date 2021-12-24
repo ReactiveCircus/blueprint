@@ -5,19 +5,19 @@ import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import reactivecircus.blueprint.interactor.EmptyParams
 
 @ExperimentalCoroutinesApi
 class FlowInteractorTest {
 
-    private val testDispatcher = TestCoroutineDispatcher()
+    private val testDispatcher = StandardTestDispatcher()
 
     @Test
     fun `emits each value when flow interactor produces multiple values`() =
-        testDispatcher.runBlockingTest {
+        runTest(testDispatcher) {
             val results = FlowInteractorWithThreeEmissions(testDispatcher)
                 .buildFlow(EmptyParams)
                 .toList()
@@ -27,7 +27,7 @@ class FlowInteractorTest {
         }
 
     @Test(expected = IOException::class)
-    fun `catches exception thrown by flow interactor`() = testDispatcher.runBlockingTest {
+    fun `catches exception thrown by flow interactor`() = runTest(testDispatcher) {
         FlowInteractorWithException(testDispatcher)
             .buildFlow(EmptyParams)
             .collect()

@@ -7,19 +7,21 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.runCurrent
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withContext
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
 class CoroutineDispatcherProviderTest {
 
-    private val testDispatcher = TestCoroutineDispatcher()
+    private val testDispatcher = StandardTestDispatcher()
 
     @Test
     fun `execute and return immediately with coroutine dispatchers backed by single thread`() =
-        testDispatcher.runBlockingTest {
+        runTest(testDispatcher) {
             val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = testDispatcher,
                 computation = testDispatcher,
@@ -42,6 +44,7 @@ class CoroutineDispatcherProviderTest {
             }
 
             advanceTimeBy(1000L)
+            runCurrent()
 
             assertThat(job.isCompleted)
                 .isTrue()
@@ -49,7 +52,7 @@ class CoroutineDispatcherProviderTest {
 
     @Test
     fun `does not not execute and return immediately with coroutine dispatchers backed by multiple threads`() =
-        testDispatcher.runBlockingTest {
+        runTest(testDispatcher) {
             val coroutineDispatcherProvider = CoroutineDispatcherProvider(
                 io = Dispatchers.Default,
                 computation = Dispatchers.Default,
@@ -82,6 +85,7 @@ class CoroutineDispatcherProviderTest {
             }
 
             advanceTimeBy(1000L)
+            runCurrent()
 
             assertThat(job.isCompleted)
                 .isFalse()

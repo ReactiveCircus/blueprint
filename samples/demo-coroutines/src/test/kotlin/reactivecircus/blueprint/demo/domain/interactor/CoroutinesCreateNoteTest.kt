@@ -6,8 +6,8 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import reactivecircus.blueprint.async.coroutines.CoroutineDispatcherProvider
 import reactivecircus.blueprint.demo.domain.model.Note
@@ -16,12 +16,14 @@ import reactivecircus.blueprint.demo.domain.repository.CoroutinesNoteRepository
 @ExperimentalCoroutinesApi
 class CoroutinesCreateNoteTest {
 
+    private val testDispatcher = StandardTestDispatcher()
+
     private val noteRepository = mockk<CoroutinesNoteRepository> {
         coEvery { addNote(any()) } returns Unit
     }
 
     private val coroutineDispatcherProvider = mockk<CoroutineDispatcherProvider> {
-        every { io } returns TestCoroutineDispatcher()
+        every { io } returns testDispatcher
     }
 
     private val createNote = CoroutinesCreateNote(
@@ -30,7 +32,7 @@ class CoroutinesCreateNoteTest {
     )
 
     @Test
-    fun `add note through repository`() = runBlockingTest {
+    fun `add note through repository`() = runTest(testDispatcher) {
         val dummyNote = Note(
             content = "note",
             timeCreated = System.currentTimeMillis(),

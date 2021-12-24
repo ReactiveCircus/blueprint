@@ -10,7 +10,8 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.single
 import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.runTest
 import org.junit.Rule
 import org.junit.Test
 import reactivecircus.blueprint.demo.domain.interactor.CoroutinesStreamAllNotes
@@ -21,7 +22,7 @@ import reactivecircus.blueprint.testutils.CoroutinesTestRule
 class CoroutinesNotesListViewModelTest {
 
     @get:Rule
-    val coroutinesTestRule = CoroutinesTestRule()
+    val coroutinesTestRule = CoroutinesTestRule(UnconfinedTestDispatcher())
 
     private val dummyNotes = listOf(
         Note(
@@ -43,7 +44,7 @@ class CoroutinesNotesListViewModelTest {
     }
 
     @Test
-    fun `emit State#LoadingNotes when initialized`() = runBlockingTest {
+    fun `emit State#LoadingNotes when initialized`() = runTest {
         every { streamAllNotes.buildFlow(any()) } returns emptyFlow()
 
         assertThat(viewModel.notesFlow.first())
@@ -51,7 +52,7 @@ class CoroutinesNotesListViewModelTest {
     }
 
     @Test
-    fun `emit State#Idle with notes when streamAllNotes emits`() = runBlockingTest {
+    fun `emit State#Idle with notes when streamAllNotes emits`() = runTest {
         val emitter = MutableSharedFlow<List<Note>>()
         every { streamAllNotes.buildFlow(any()) } returns emitter
 
