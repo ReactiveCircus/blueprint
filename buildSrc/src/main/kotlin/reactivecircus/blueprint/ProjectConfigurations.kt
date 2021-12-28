@@ -131,6 +131,9 @@ fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
     // apply and configure detekt plugin
     configureDetektPlugin()
 
+    // configure maven publishing plugin if applied to the project
+    configureMavenPublishing()
+
     repositories {
         mavenCentral()
         google()

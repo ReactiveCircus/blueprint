@@ -161,7 +161,7 @@ limitations under the License.
 ```
 
 [maven-central]: https://search.maven.org/search?q=g:io.github.reactivecircus.blueprint
-[snap]: https://oss.sonatype.org/content/repositories/snapshots/
+[snap]: https://s01.oss.sonatype.org/content/repositories/snapshots/
 [samples]: samples/
 [interactor-coroutines]: blueprint-interactor-coroutines/
 [async-coroutines]: blueprint-async-coroutines/
