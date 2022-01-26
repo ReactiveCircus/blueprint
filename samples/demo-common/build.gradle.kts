@@ -10,8 +10,8 @@ android {
         androidResources = true
     }
     lint {
-        disable("IconDuplicates")
-        disable("MissingClass")
+        disable.add("IconDuplicates")
+        disable.add("MissingClass")
     }
 }
 

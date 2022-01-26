@@ -19,7 +19,7 @@ android {
     }
 
     lint {
-        disable("GoogleAppIndexingWarning")
+        disable.add("GoogleAppIndexingWarning")
     }
 
     buildTypes {
