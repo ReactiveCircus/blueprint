@@ -71,4 +71,4 @@ jobs:
           java-version: '15'
       - uses: gradle/gradle-build-action@v2
       - name: Deploy snapshot
-        run: ./gradlew clean kotlinSourcesJar androidSourcesJar publish --no-daemon --no-parallel
+        run: ./gradlew clean kotlinSourcesJar publish --no-daemon --no-parallel
