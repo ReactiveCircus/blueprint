@@ -10,6 +10,10 @@ blueprint {
     enableExplicitApi.set(true)
 }
 
+android {
+    namespace = "reactivecircus.blueprint.ui"
+}
+
 dependencies {
     // AndroidX
     implementation(libs.androidx.appCompat)

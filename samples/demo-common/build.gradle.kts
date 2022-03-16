@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace = "reactivecircus.blueprint.common"
     buildFeatures {
         androidResources = true
     }

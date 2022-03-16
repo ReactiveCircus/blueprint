@@ -8,6 +8,8 @@ plugins {
 }
 
 android {
+    namespace = "reactivecircus.blueprint"
+
     buildFeatures.resValues = true
 
     defaultConfig {

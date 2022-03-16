@@ -11,6 +11,7 @@ blueprint {
 }
 
 android {
+    namespace = "reactivecircus.blueprint.testing"
     defaultConfig {
         testApplicationId = "reactivecircus.blueprint.testing.testapp"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

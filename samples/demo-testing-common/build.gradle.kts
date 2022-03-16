@@ -4,6 +4,10 @@ plugins {
     kotlin("android")
 }
 
+android {
+    namespace = "reactivecircus.blueprint"
+}
+
 dependencies {
     implementation(project(":demo-common"))
     implementation(project(":blueprint-testing-robot"))
