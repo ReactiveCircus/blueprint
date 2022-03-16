@@ -1,5 +1,13 @@
 rootProject.name = "Blueprint"
 
+@Suppress("UnstableApiUsage")
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+
 include(":blueprint-interactor-common")
 include(":blueprint-interactor-coroutines")
 include(":blueprint-interactor-rx2")

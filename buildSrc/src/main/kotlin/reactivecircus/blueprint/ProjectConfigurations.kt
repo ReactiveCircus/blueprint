@@ -10,7 +10,6 @@ import org.gradle.api.tasks.Delete
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.kotlin.dsl.getByType
-import org.gradle.kotlin.dsl.repositories
 import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
@@ -133,11 +132,6 @@ fun Project.configureForAllProjects(enableExplicitApi: Property<Boolean>) {
 
     // configure maven publishing plugin if applied to the project
     configureMavenPublishing()
-
-    repositories {
-        mavenCentral()
-        google()
-    }
 
     tasks.withType<KotlinCompile>().configureEach {
         kotlinOptions {

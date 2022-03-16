@@ -2,12 +2,6 @@ plugins {
     `kotlin-dsl`
 }
 
-repositories {
-    mavenCentral()
-    google()
-    gradlePluginPortal()
-}
-
 @Suppress("UnstableApiUsage")
 dependencies {
     // TODO: remove once https://github.com/gradle/gradle/issues/15383#issuecomment-779893192 is fixed
