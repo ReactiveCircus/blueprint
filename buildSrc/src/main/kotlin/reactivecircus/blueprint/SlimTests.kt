@@ -17,7 +17,7 @@ import org.gradle.language.nativeplatform.internal.BuildType
  */
 @Suppress("UnstableApiUsage")
 internal fun Project.configureSlimTests() {
-    if (providers.gradleProperty(SLIM_TESTS_PROPERTY).forUseAtConfigurationTime().isPresent) {
+    if (providers.gradleProperty(SLIM_TESTS_PROPERTY).isPresent) {
         // disable unit test tasks on the release build type for Android Library projects
         extensions.findByType<LibraryAndroidComponentsExtension>()?.run {
             beforeVariants(selector().withBuildType(BuildType.RELEASE.name)) {
