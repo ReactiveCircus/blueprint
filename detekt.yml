@@ -6,3 +6,5 @@ formatting:
 style:
   UnnecessaryAbstractClass:
     active: false
+  UseCheckOrError:
+    active: false
