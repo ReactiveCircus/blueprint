@@ -4,10 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>SingleInteractor</title>
 <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -18,7 +26,8 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer></script>
-<script type="text/javascript" src="../../../scripts/prism.js" async></script></head>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
     <div id="leftToggler"><span class="icon-toggler"></span></div>
@@ -38,10 +47,10 @@ if(savedDarkMode === true){
     </div>
     <div id="main">
 <div class="main-content" id="content" pageids="blueprint-interactor-rx2::reactivecircus.blueprint.interactor.rx2/SingleInteractor///PointingToDeclaration//-634825770">
-  <div class="breadcrumbs"><a href="../../index.html">blueprint-interactor-rx2</a><span class="delimiter">/</span><a href="../index.html">reactivecircus.blueprint.interactor.rx2</a><span class="delimiter">/</span><a href="index.html">SingleInteractor</a></div>
+  <div class="breadcrumbs"><a href="../../index.html">blueprint-interactor-rx2</a><span class="delimiter">/</span><a href="../index.html">reactivecircus.blueprint.interactor.rx2</a><span class="delimiter">/</span><span class="current">SingleInteractor</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Single</span><wbr><span><span>Interactor</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">SingleInteractor</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">P</a><span class="token operator"> : </span><a href="../../../blueprint-interactor-common/reactivecircus.blueprint.interactor/-interactor-params/index.html">InteractorParams</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ioScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span><span class="token punctuation">, </span></span><span class="parameter ">uiScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Abstract class for a use case, representing an execution unit of asynchronous work. This use case type uses <span data-unresolved-link="io.reactivex/Single///PointingToDeclaration/">Single</span> as the return type. Upon subscription a use case will execute its job in the thread specified by the <a href="../../../blueprint-interactor-rx2/reactivecircus.blueprint.interactor.rx2/-single-interactor/io-scheduler.html">ioScheduler</a>. and will post the result to the thread specified by <a href="../../../blueprint-interactor-rx2/reactivecircus.blueprint.interactor.rx2/-single-interactor/ui-scheduler.html">uiScheduler</a>.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">SingleInteractor</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">P</a><span class="token operator"> : </span><a href="../../../blueprint-interactor-common/reactivecircus.blueprint.interactor/-interactor-params/index.html">InteractorParams</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ioScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span><span class="token punctuation">, </span></span><span class="parameter ">uiScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Abstract class for a use case, representing an execution unit of asynchronous work. This use case type uses <span data-unresolved-link="io.reactivex/Single///PointingToDeclaration/">Single</span> as the return type. Upon subscription a use case will execute its job in the thread specified by the <a href="../../../blueprint-interactor-rx2/reactivecircus.blueprint.interactor.rx2/-single-interactor/io-scheduler.html">ioScheduler</a>. and will post the result to the thread specified by <a href="../../../blueprint-interactor-rx2/reactivecircus.blueprint.interactor.rx2/-single-interactor/ui-scheduler.html">uiScheduler</a>.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
@@ -57,7 +66,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-single-interactor.html"><span class="token function">SingleInteractor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ioScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span><span class="token punctuation">, </span></span><span class="parameter ">uiScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-single-interactor.html"><span class="token function">SingleInteractor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ioScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span><span class="token punctuation">, </span></span><span class="parameter ">uiScheduler<span class="token operator">: </span><span data-unresolved-link="io.reactivex/Scheduler///PointingToDeclaration/">Scheduler</span></span></span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
@@ -74,7 +83,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build-single.html"><span class="token function">buildSingle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">params<span class="token operator">: </span><a href="index.html">P</a><span class="token punctuation">, </span></span><span class="parameter ">blocking<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.reactivex/Single///PointingToDeclaration/">Single</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Build a use case with the provided execution thread and post execution thread</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-rx2:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build-single.html"><span class="token function">buildSingle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">params<span class="token operator">: </span><a href="index.html">P</a><span class="token punctuation">, </span></span><span class="parameter ">blocking<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.reactivex/Single///PointingToDeclaration/">Single</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Build a use case with the provided execution thread and post execution thread</p></div></div></div>
               </div>
             </div>
           </div>

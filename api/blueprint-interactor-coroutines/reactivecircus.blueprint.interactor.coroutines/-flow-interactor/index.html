@@ -4,10 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>FlowInteractor</title>
 <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -18,7 +26,8 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer></script>
-<script type="text/javascript" src="../../../scripts/prism.js" async></script></head>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
     <div id="leftToggler"><span class="icon-toggler"></span></div>
@@ -38,10 +47,10 @@ if(savedDarkMode === true){
     </div>
     <div id="main">
 <div class="main-content" id="content" pageids="blueprint-interactor-coroutines::reactivecircus.blueprint.interactor.coroutines/FlowInteractor///PointingToDeclaration//1573012389">
-  <div class="breadcrumbs"><a href="../../index.html">blueprint-interactor-coroutines</a><span class="delimiter">/</span><a href="../index.html">reactivecircus.blueprint.interactor.coroutines</a><span class="delimiter">/</span><a href="index.html">FlowInteractor</a></div>
+  <div class="breadcrumbs"><a href="../../index.html">blueprint-interactor-coroutines</a><span class="delimiter">/</span><a href="../index.html">reactivecircus.blueprint.interactor.coroutines</a><span class="delimiter">/</span><span class="current">FlowInteractor</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Flow</span><wbr><span><span>Interactor</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">FlowInteractor</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="index.html">P</a><span class="token operator"> : </span><a href="../../../blueprint-interactor-common/reactivecircus.blueprint.interactor/-interactor-params/index.html">InteractorParams</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="index.html">R</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">An interactor (use case in Clean Architecture) represents an execution unit of asynchronous work. A <a href="index.html">FlowInteractor</a> exposes a cold stream of values implemented with Kotlin <span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span>.</p><p class="paragraph">Work will be executed on thread as specified by the <a href="dispatcher.html">dispatcher</a> of the interactor.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">FlowInteractor</a><span class="token operator">&lt;</span><span class="token keyword">in </span><a href="index.html">P</a><span class="token operator"> : </span><a href="../../../blueprint-interactor-common/reactivecircus.blueprint.interactor/-interactor-params/index.html">InteractorParams</a><span class="token punctuation">, </span><span class="token keyword">out </span><a href="index.html">R</a><span class="token operator">&gt;</span></div><p class="paragraph">An interactor (use case in Clean Architecture) represents an execution unit of asynchronous work. A <a href="index.html">FlowInteractor</a> exposes a cold stream of values implemented with Kotlin <span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span>.</p><p class="paragraph">Work will be executed on thread as specified by the <a href="dispatcher.html">dispatcher</a> of the interactor.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
@@ -57,7 +66,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-flow-interactor.html"><span class="token function">FlowInteractor</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-flow-interactor.html"><span class="token function">FlowInteractor</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
@@ -74,7 +83,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build-flow.html"><span class="token function">buildFlow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">params<span class="token operator">: </span><a href="index.html">P</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">R</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Build a new <span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span> from this interactor.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build-flow.html"><span class="token function">buildFlow</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">params<span class="token operator">: </span><a href="index.html">P</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">R</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Build a new <span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span> from this interactor.</p></div></div></div>
               </div>
             </div>
           </div>
@@ -91,7 +100,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><a data-name="1636923784%2FProperties%2F1573012389" anchor-label="dispatcher" id="1636923784%2FProperties%2F1573012389" data-filterable-set=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="dispatcher.html">dispatcher</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/CoroutineDispatcher///PointingToDeclaration/">CoroutineDispatcher</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><a data-name="1636923784%2FProperties%2F1573012389" anchor-label="dispatcher" id="1636923784%2FProperties%2F1573012389" data-filterable-set=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"></a><p class="paragraph">The coroutine context this interactor should execute on.</p></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"><a data-name="1636923784%2FProperties%2F1573012389" anchor-label="dispatcher" id="1636923784%2FProperties%2F1573012389" data-filterable-set=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">val </span><a href="dispatcher.html">dispatcher</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/CoroutineDispatcher///PointingToDeclaration/">CoroutineDispatcher</span></div><div class="brief "><a data-name="1636923784%2FProperties%2F1573012389" anchor-label="dispatcher" id="1636923784%2FProperties%2F1573012389" data-filterable-set=":blueprint-interactor-coroutines:dokkaHtmlPartial/main"></a><p class="paragraph">The coroutine context this interactor should execute on.</p></div></div></div>
               </div>
             </div>
           </div>
