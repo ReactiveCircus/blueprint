@@ -21,13 +21,11 @@ public fun withRecyclerView(@IdRes recyclerViewId: Int): RecyclerViewMatcher {
 }
 
 public class RecyclerViewMatcher(@PublishedApi internal val recyclerViewId: Int) {
-
     public fun atPosition(position: Int): Matcher<View> {
         return atPositionOnView(position, -1)
     }
 
     public fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View> {
-
         return object : TypeSafeMatcher<View>() {
             var resources: Resources? = null
             var itemView: View? = null

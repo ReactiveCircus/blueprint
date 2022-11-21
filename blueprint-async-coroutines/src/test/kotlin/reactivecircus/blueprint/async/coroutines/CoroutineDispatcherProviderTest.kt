@@ -74,7 +74,9 @@ class CoroutineDispatcherProviderTest {
                 if (it is IllegalStateException) {
                     deferred.cancel()
                     false
-                } else throw it
+                } else {
+                    throw it
+                }
             }
 
             assertThat(completed)
