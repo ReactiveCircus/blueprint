@@ -10,7 +10,7 @@ import reactivecircus.blueprint.interactor.InteractorParams
  * Upon subscription a use case will execute its job in the thread specified by the [ioScheduler].
  * and will post the result to the thread specified by [uiScheduler].
  */
-public abstract class SingleInteractor<P : InteractorParams, T>(
+public abstract class SingleInteractor<P : InteractorParams, T : Any>(
     private val ioScheduler: Scheduler,
     private val uiScheduler: Scheduler
 ) {
